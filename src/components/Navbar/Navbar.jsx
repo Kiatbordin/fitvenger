@@ -9,7 +9,9 @@ export function Navbar(props) {
 
     return (
         <div className="Navbar">
-            <h1>FIT-VENGER</h1>
+            <h1 className="desktop-header">FIT-VENGER</h1>
+            <h1 className="mobile-header">FV</h1>
+            <h2 className="mobile-header"> My Activity </h2>
             <div className="menu-container">
                 <a href="#" id="home">Home</a>
                 { props.isLogin && <a href="#" id="profile">Profile</a> }
