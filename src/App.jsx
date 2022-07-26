@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <Navbar />
       <h1> My Header </h1>
+      <h1> My Header 2</h1>
     </div>
   )
 }
