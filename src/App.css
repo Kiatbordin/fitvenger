@@ -1,15 +1,7 @@
-#root {
-  /* height: 100%; */
-}
-
-html {
-  font-size: 16px;
-  height: 100%;
-}
-
 .App {
   padding: 0;
   margin: 0;
+  font-size: 16px;
   font-family: 'Inter';
 }
 
@@ -21,9 +13,6 @@ html {
 @media screen and (min-width: 768px) {
   /* for desktop web */
   .App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 1px red solid; */
+    
   }
 }
