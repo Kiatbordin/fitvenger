@@ -2,7 +2,7 @@
 @media screen and (max-width: 768px) {
     /* for mobile web */
     .Navbar h1 {
-        background-color: yellow;
+        /* background-color: yellow; */
     }
   }
 /* Extra larger devices (768px and up) */
@@ -10,7 +10,6 @@
     /* for desktop web */
     .Navbar {
         background-color: rgba(235, 235, 235, 0.82);;
-        /* border: 1px red solid; */
         padding: 0 1rem 0 1rem;
         display: flex;
         align-items: center;
@@ -27,7 +26,8 @@
     }
     
     .Navbar .menu-container {
-        display: flex;
+        /* display: flex; */
+        /* border: 1px solid red; */
     }
     
     .Navbar .menu-container a {
