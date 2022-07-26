@@ -1,8 +1,55 @@
 /* Extra small devices (768px and down) */
 @media screen and (max-width: 768px) {
     /* for mobile web */
+    .Navbar {
+        background-color: #858585;
+        padding: 0 1rem 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
     .Navbar h1 {
-        /* background-color: yellow; */
+        background-color: #E05454;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        height: 50px;
+        width: 70px;
+        padding: 12px 5px 0px 5px;
+        margin-left: 1rem;
+        /* min-width: 15rem; */
+    }
+
+    .Navbar .mobile-header {
+        display: block;
+        color: white;
+    }
+
+    .Navbar .desktop-header {
+        display: none;
+    }
+    
+    .Navbar .menu-container a {
+        text-decoration: none;
+        /* color: black; */
+        color: white;
+        font-weight: bold;
+        padding: 0 0.5rem 0 0.5rem;
+        display: none;
+    }
+
+    .Navbar .menu-container a:hover{
+        background-color: black;
+        border-radius: 10px;
+    }
+    
+    #home,#profile {
+        /* border-right: 2px black solid; */
+    }
+    
+    #logout {
+        /* border-left: 2px black solid; */
     }
   }
 /* Extra larger devices (768px and up) */
@@ -14,7 +61,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* min-width: 200px; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 11;
     }
     
     .Navbar h1 {
@@ -24,10 +75,13 @@
         width: auto;
         min-width: 15rem;
     }
-    
-    .Navbar .menu-container {
-        /* display: flex; */
-        /* border: 1px solid red; */
+
+    .Navbar .mobile-header {
+        display: none;
+    }
+
+    .Navbar .desktop-header {
+        display: block;
     }
     
     .Navbar .menu-container a {
