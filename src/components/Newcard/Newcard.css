@@ -1,0 +1,63 @@
+/* Extra small devices (768px and down) */
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+    .Newcard {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: white;
+        box-shadow: 2.5px 5px 10px darkgrey;
+        width: 400px;
+        height: 200px;
+        /* border: 1px red solid; */
+        border-radius: 10px;
+
+        margin:1rem;
+      }
+  
+      .Newcard span {
+          font-size: 1.5rem;
+          /* padding-right: 1rem; */
+      }
+  
+      .Newcard img {
+          height: 50px;
+          width: 50px;
+      }
+  
+      .Newcard img:hover{
+          cursor: pointer;
+      }
+  }
+  /* Extra larger devices (768px and up) */
+  @media screen and (min-width: 768px) {
+    /* for desktop web */
+    .Newcard {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: white;
+      box-shadow: 2.5px 5px 10px darkgrey;
+      width: 300px;
+      height: 150px;
+      /* border: 1px red solid; */
+      border-radius: 10px;
+
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .Newcard span {
+        font-size: 1.5rem;
+        /* padding-right: 1rem; */
+    }
+
+    .Newcard img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .Newcard img:hover{
+        cursor: pointer;
+    }
+  }
