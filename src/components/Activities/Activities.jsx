@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Activities.css";
 
 import done from "./icons/done.png";
@@ -6,13 +7,13 @@ import ongoing from "./icons/ongoing.png";
 import gaveup from "./icons/gaveup.png";
 import add from "./icons/add.png";
 
-// import 'react-date-range/dist/styles.css'; // main style file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
-
-// import DateRangePicker from 'rsuite/DateRangePicker';
-// import 'rsuite/DateRangePicker/styles/index.less';
+import { Newcard } from "../Newcard/Newcard.jsx";
 
 export function Activities(props) {
+
+    const doneActivities = props.doneActivities || 0;
+    const ongoingActivities = props.ongoingActivities || 0;
+    const gaveupActivities = props.gaveupActivities || 0;
 
     return (
         <div className="Activities">
@@ -22,17 +23,17 @@ export function Activities(props) {
             <div className="summary-container">
                 <img src={done} alt='done' />
                 <div className="activities-result-box">
-                    <h1>100</h1>
+                    <h1>{doneActivities}</h1>
                     <span>Activities Done</span>
                 </div>
                 <img src={ongoing} alt='ongoing' />
                 <div className="activities-result-box">
-                    <h1>300</h1>
+                    <h1>{ongoingActivities}</h1>
                     <span>Ongoing Activities</span>
                 </div>
                 <img src={gaveup} alt='gaveup' />
                 <div className="activities-result-box">
-                    <h1>200</h1>
+                    <h1>{gaveupActivities}</h1>
                     <span>Gaveup Activities</span>
                 </div>
             </div>
@@ -42,10 +43,22 @@ export function Activities(props) {
                 <button className="filter-ongoing-button">Ongoing</button>
                 <button className="filter-gaveup-button">Gaveup</button>
             </div>
+
             <button className="add-button"><img src={add} alt="add-button" /></button>
 
             <div className="activities-board">
-                Board
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
+                <Newcard />
             </div>
         </div> 
     );
