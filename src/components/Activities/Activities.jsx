@@ -52,13 +52,13 @@ export function Activities(props) {
                 <Newcard />
                 <Newcard />
                 <Newcard />
+                {/* <Newcard />
                 <Newcard />
                 <Newcard />
                 <Newcard />
                 <Newcard />
                 <Newcard />
-                <Newcard />
-                <Newcard />
+                <Newcard /> */}
             </div>
         </div> 
     );
