@@ -1,7 +1,7 @@
 @media screen and (max-width: 768px) {
     /* for mobile web */
-    .Ongoingcard {
-        background-color: #FFE39C;
+    .Donecard {
+        background-color: #CEF2B2;
         box-shadow: 2.5px 5px 10px darkgrey;
         width: 400px;
         height: 200px;
@@ -11,28 +11,27 @@
         position: relative;
     }
 
-    .Ongoingcard .ongoing-card-info {
+    .Donecard .done-card-info {
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-icon-box {
+    .Donecard .done-card-info .activity-icon-box {
         height: 100px;
         width: 25%;
-        /* border: 1px solid red; */
 
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-icon-box .activity-icon {
+    .Donecard .done-card-info .activity-icon-box .activity-icon {
         height: 40px;
         width: 40px;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box {
+    .Donecard .done-card-info .activity-details-box {
         height: 145px;
         width: 65%;
 
@@ -48,22 +47,22 @@
         overflow-y:scroll;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box::-webkit-scrollbar {
+    .Donecard .done-card-info .activity-details-box::-webkit-scrollbar {
         width: 8px;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box h2 {
+    .Donecard .done-card-info .activity-details-box h2 {
         font-size: 1rem;
         margin: 0 0 0.5rem 0;
         padding: 0;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box span {
+    .Donecard .done-card-info .activity-details-box span {
         font-size: 0.75rem;
     }
 
-    .Ongoingcard .ongoing-card-menu {
-        /* border: 1px solid green; */
+    .Donecard .done-card-menu {
+        border: 1px solid green;
         height: 40px;
         width: 70%;
 
@@ -76,29 +75,7 @@
         left: 5px;
     }
 
-    .Ongoingcard .ongoing-card-menu .done-button {
-        background-color: #0DCD65 ;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px;
-        width: 80px;
-        height: 80%;
-        cursor: pointer;
-    }
-
-    .Ongoingcard .ongoing-card-menu .gaveup-button {
-        background-color: #F44E4E ;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px;
-        width: 80px;
-        height: 80%;
-        cursor: pointer;
-    }
-
-    .Ongoingcard .delete-button {
+    .Donecard .delete-button {
         height: 30px;
         width: 30px;
         
@@ -108,21 +85,12 @@
         cursor: pointer;
     }
 
-    .Ongoingcard .next-button {
-        height: 30px;
-        width: 30px;
-
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        cursor: pointer;
-    }
 }
 
 @media screen and (min-width: 768px) {
     /* for desktop web */
-    .Ongoingcard {
-        background-color: #FFE39C;
+    .Donecard {
+        background-color: #CEF2B2;
         box-shadow: 2.5px 5px 10px darkgrey;
         width: 300px;
         height: 150px;
@@ -132,13 +100,13 @@
         position: relative;
     }
 
-    .Ongoingcard .ongoing-card-info {
+    .Donecard .done-card-info {
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-icon-box {
+    .Donecard .done-card-info .activity-icon-box {
         height: 100px;
         width: 50px;
 
@@ -149,12 +117,12 @@
         align-items: center;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-icon-box .activity-icon {
+    .Donecard .done-card-info .activity-icon-box .activity-icon {
         height: 30px;
         width: 30px;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box {
+    .Donecard .done-card-info .activity-details-box {
         height: 100px;
         width: 250px;
 
@@ -170,23 +138,23 @@
         overflow-y:scroll;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box::-webkit-scrollbar {
+    .Donecard .done-card-info .activity-details-box::-webkit-scrollbar {
         width: 8px;
         /* background-color: #F44E4E; */
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box h2 {
+    .Donecard .done-card-info .activity-details-box h2 {
         font-size: 1rem;
         margin: 0;
         padding: 0;
     }
 
-    .Ongoingcard .ongoing-card-info .activity-details-box span {
+    .Donecard .done-card-info .activity-details-box span {
         font-size: 0.75rem;
     }
 
-    .Ongoingcard .ongoing-card-menu {
-        /* border: 1px solid green; */
+    .Donecard .done-card-menu {
+        border: 1px solid green;
         height: 40px;
         width: 70%;
 
@@ -199,45 +167,13 @@
         left: 0;
     }
 
-    .Ongoingcard .ongoing-card-menu .done-button {
-        background-color: #0DCD65 ;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px;
-        width: 80px;
-        height: 80%;
-        cursor: pointer;
-    }
-
-    .Ongoingcard .ongoing-card-menu .gaveup-button {
-        background-color: #F44E4E ;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px;
-        width: 80px;
-        height: 80%;
-        cursor: pointer;
-    }
-
-    .Ongoingcard .delete-button {
+    .Donecard .delete-button {
         height: 30px;
         width: 30px;
         
         position: absolute;
         right: 10px;
         top: 10px;
-        cursor: pointer;
-    }
-
-    .Ongoingcard .next-button {
-        height: 30px;
-        width: 30px;
-
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
         cursor: pointer;
     }
 }
