@@ -124,7 +124,8 @@
 
     .Donecard .done-card-info .activity-details-box {
         height: 100px;
-        width: 250px;
+        /* width: 250px; */
+        width: 65%;
 
         display: flex;
         flex-direction: column;
