@@ -1,0 +1,22 @@
+/* Extra small devices (768px and down) */
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+}
+
+/* Extra larger devices (768px and up) */
+@media screen and (min-width: 768px) {
+    /* for desktop web */
+    .Board {
+
+    }
+
+    .Board .userinfo-stat-tip-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .Board .Activities {
+        position:relative;
+        top: 100px;
+    }
+}

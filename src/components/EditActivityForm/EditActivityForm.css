@@ -1,0 +1,300 @@
+/* Extra small devices (768px and down) */
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+    .EditActivityForm {
+        width: 300px
+    }
+
+    .EditActivityForm .activity-frame {
+
+    }
+
+    .EditActivityForm .activity-frame .activity-topic {
+        display: none;
+    }
+
+    .EditActivityForm .form-container {
+        padding: 1rem;
+        /* border: 1px solid red; */
+    }
+
+    .EditActivityForm .datetime-sport-container {
+        /* border: 1px red solid; */
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .EditActivityForm .datetime-sport-container .datetime-container,
+    .EditActivityForm .datetime-sport-container .sport-container {
+        width: 100%;
+        /* padding-right: 1rem; */
+        /* border: 1px solid palegoldenrod; */
+    }
+
+    .EditActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
+        width: 100%;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        font-size: 0.75rem;
+        text-align:left;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .EditActivityForm .datetime-sport-container .sport-container .sport-option-box select {
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        /* padding-right: 0.5rem; */
+        margin-top: 0.5rem;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+        font-size: 0.75rem;
+    }
+
+    .EditActivityForm .description-container .description-input-box textarea {
+        width: 100%;
+        height: 80px;
+        resize: none;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .EditActivityForm .challenge-container {
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .EditActivityForm .challenge-container .btn-15,
+    .EditActivityForm .challenge-container .btn-30 {
+        margin-left: 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        box-shadow: 0px 3px 4pt 0 #c8c7c7;
+
+        font-size: 0.5rem;
+    }
+
+    .EditActivityForm .challenge-container .btn-15:focus,
+    .EditActivityForm .challenge-container .btn-30:focus  {
+        color: white;
+        background-color: #4972DB;
+    }
+
+    .EditActivityForm .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .EditActivityForm .button-container .button-edit,
+    .EditActivityForm .button-container .button-cancel {
+        height: 20px;
+        width: auto;
+
+        background-color: #E05454;
+        color: white;
+        /* font-weight: bold; */
+        text-align: center;
+        margin-left: 1rem;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .form-topic-size {
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+    .EditActivityForm .form-container .name-box,
+    .EditActivityForm .form-container .datetime-sport-container,
+    .EditActivityForm .form-container .location-container,
+    .EditActivityForm .form-container .description-container,
+    .EditActivityForm .form-container .challenge-container  {
+        margin-bottom: 0.5rem;
+    }
+
+    .EditActivityForm .form-container .name-box .name-input-box input, 
+    .EditActivityForm .form-container .location-container .location-input-box input {
+        width: 100%;
+        height: 20px;
+        border-color: white;
+        border-radius: 5px;
+        border-style: none;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        margin-top: 0.5rem;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    /* for desktop web */
+    .EditActivityForm {
+        /* border: 1px solid red; */
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .EditActivityForm .activity-frame {
+        width: 600px;
+        /* width: fit-content; */
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0px 5px 4pt 0 #c8c7c7;
+    }
+
+    .EditActivityForm .activity-frame .activity-topic {
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: center;
+    }
+
+    .EditActivityForm .activity-frame .activity-topic h1 {
+        font-size: 1.5rem;
+    }
+
+    .EditActivityForm .form-container {
+        padding: 1rem 3rem 1rem 3rem;
+    }
+
+    .EditActivityForm .datetime-sport-container {
+        /* border: 1px red solid; */
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .EditActivityForm .datetime-sport-container .datetime-container,
+    .EditActivityForm .datetime-sport-container .sport-container {
+        width: 50%;
+        padding-right: 1rem;
+    }
+
+    .EditActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
+        width: 100%;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .EditActivityForm .datetime-sport-container .sport-container .sport-option-box {
+        /* border: 1px solid red; */
+    }
+
+    .EditActivityForm .datetime-sport-container .sport-container .sport-option-box select {
+        width: 100%;
+        text-align: end;
+        font-weight: bold;
+        padding-right: 0.5rem;
+        margin-top: 0.5rem;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+    }
+
+    .EditActivityForm .description-container .description-input-box textarea {
+        width: 100%;
+        height: 80px;
+        resize: none;
+
+        border: none;
+        border-radius: 10px;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        margin-top: 0.5rem;
+    }
+
+    .EditActivityForm .challenge-container {
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .EditActivityForm .challenge-container .btn-15,
+    .EditActivityForm .challenge-container .btn-30 {
+        margin-left: 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        box-shadow: 0px 3px 4pt 0 #c8c7c7;
+    }
+
+    .EditActivityForm .challenge-container .btn-15:focus,
+    .EditActivityForm .challenge-container .btn-30:focus  {
+        color: white;
+        background-color: #4972DB;
+    }
+
+    .EditActivityForm .challenge-container .btn-15:hover,
+    .EditActivityForm .challenge-container .btn-30:hover{
+        /* color: white;
+        background-color: #4972DB; */
+    }
+
+    .EditActivityForm .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .EditActivityForm .button-container .button-edit,
+    .EditActivityForm .button-container .button-cancel {
+        height: 20px;
+        width: auto;
+
+        background-color: #E05454;
+        color: white;
+        /* font-weight: bold; */
+        text-align: center;
+        margin-left: 1rem;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+    }
+
+
+    .form-topic-size {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .EditActivityForm .form-container .name-box,
+    .EditActivityForm .form-container .datetime-sport-container,
+    .EditActivityForm .form-container .location-container,
+    .EditActivityForm .form-container .description-container,
+    .EditActivityForm .form-container .challenge-container  {
+        margin-bottom: 1rem;
+    }
+
+    .EditActivityForm .form-container .name-box .name-input-box input, 
+    .EditActivityForm .form-container .location-container .location-input-box input {
+        width: 100%;
+        height: 20px;
+        border-color: white;
+        border-radius: 5px;
+        border-style: none;
+        box-shadow: -1px 3px 4pt 0 #c8c7c7;
+
+        margin-top: 0.5rem;
+    }
+
+}

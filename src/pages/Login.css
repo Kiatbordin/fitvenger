@@ -1,0 +1,46 @@
+.Login {
+    border: 1px black solid;
+    border-radius: 10px;
+    /* margin: 15rem; */
+    margin: auto;
+    width: 260px;
+    box-shadow: 2.5px 5px 10px darkgrey;
+}
+
+.Login h3 {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    border-bottom: 1px solid black;
+}
+
+.Login .input-container div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    font-weight: bold;
+}
+
+.Login .input-container div button{
+    background-color: #E05454;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.Login .input-container div button:hover{
+    opacity: .5;
+}
+
+#username,#password  {
+    margin-left: 1rem;
+    border: 1px gray solid;
+    border-radius: 5px;
+    box-shadow: 2.5px 2.5px 2.5px lightgray;
+}
+
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+}

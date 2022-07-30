@@ -92,7 +92,9 @@
     .Donecard {
         background-color: #CEF2B2;
         box-shadow: 2.5px 5px 10px darkgrey;
-        width: 300px;
+        /* width: 300px; */
+        min-width: 300px;
+        width: 30%;
         height: 150px;
         border-radius: 10px;
         margin: 1rem;

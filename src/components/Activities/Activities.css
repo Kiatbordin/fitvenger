@@ -130,12 +130,13 @@
 /* Extra larger devices (768px and up) */
 @media screen and (min-width: 768px) {
     .Activities {
-        border: 1px darkgray solid;
+        /* border: 1px darkgray solid; */
         border-radius: 10px;
         background-color: rgba(235, 235, 235, 0.82);;
-        margin: 5rem;
-        position: relative;
-        top: 50px;
+        /* margin: 5rem; */
+        /* position: relative; */
+        /* top: 80px; */
+        width: 100%;
     }
 
     .Activities .date-container {

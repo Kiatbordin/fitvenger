@@ -9,6 +9,8 @@ import bicycling from "./icons/bicycling.png";
 import deleteButton from "./icons/deleteButton.png";
 import nextButton from "./icons/nextButton.png"
 
+import { Link } from "react-router-dom";
+
 export function Ongoingcard(props) {
 
     const activityItem = props.activity;
@@ -65,7 +67,12 @@ export function Ongoingcard(props) {
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" />
-            <img className="next-button" src={nextButton} alt="delete-icon" />
+            {/* <img className="next-button" src={nextButton} alt="delete-icon" /> */}
+
+            <Link to="/edit">
+                <img className="next-button" src={nextButton} alt="next-icon" />
+            </Link>
+
         </div>
     );
 }

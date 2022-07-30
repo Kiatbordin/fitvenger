@@ -3,13 +3,21 @@ import './App.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { Login } from './pages/Login.jsx';
 import { Board } from './pages/Board.jsx';
 import { Navbar } from './components/Navbar/Navbar.jsx';
 import { Footer } from './components/Footer/Footer.jsx';
+import { CreateActivity } from './pages/CreateActivity.jsx';
+import { EditActivity } from './pages/EditActivity.jsx';
 
 function App() {
 
-  const [isLogin,setIsLogin] = useState(true);
+  const [isLogin,setIsLogin] = useState(false);
+
+  const handleLogin = (isAllow) => {
+    isAllow ? setIsLogin(true) : setIsLogin(false);
+    // alert(isLogin);
+  }
 
   return (
     <div className="App">
@@ -17,7 +25,13 @@ function App() {
         <Navbar isLogin={isLogin}/>
         <main>
           <Routes>
+            <Route path="/login" element={<Login isLogin={isLogin} handleLogin={handleLogin}/>}>
+            </Route>
             <Route path="/" element={<Board isLogin={isLogin}/>}>
+            </Route>
+            <Route path="/create" element={<CreateActivity />}>
+            </Route>
+            <Route path="/edit" element={<EditActivity />}>
             </Route>
           </Routes>
         </main>
