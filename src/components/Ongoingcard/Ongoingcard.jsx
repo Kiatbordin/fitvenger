@@ -11,6 +11,8 @@ import nextButton from "./icons/nextButton.png"
 
 import { Link } from "react-router-dom";
 
+import { DoneButton } from "../DoneButton/DoneButton.jsx";
+
 export function Ongoingcard(props) {
 
     const activityItem = props.activity;
@@ -76,7 +78,8 @@ export function Ongoingcard(props) {
                 </div>
             </div>
             <div className="ongoing-card-menu">
-                <button className="done-button" onClick={confirmDone}>Done</button>
+                {/* <button className="done-button" onClick={confirmDone}>Done</button> */}
+                <DoneButton />
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" />

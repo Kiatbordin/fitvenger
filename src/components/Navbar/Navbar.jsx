@@ -12,9 +12,9 @@ export function Navbar(props) {
 
     return (
         <div className="Navbar">
-            <h1 className="desktop-header">FIT-VENGER</h1>
-            <h1 className="mobile-header">FV</h1>
-            <h2 className="mobile-header"> My Activity </h2>
+            <h2 className="desktop-header">FIT-VENGER</h2>
+            <h2 className="mobile-header">FV</h2>
+            <h3 className="mobile-header"> My Activity </h3>
             <div className="menu-container">
                 <Link to="/" className="home-nav">Home</Link>
                 { props.isLogin && <Link to="/profile" className="profile-nav">Profile</Link> }

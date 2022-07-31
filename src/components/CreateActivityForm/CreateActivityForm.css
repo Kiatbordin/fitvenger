@@ -2,7 +2,9 @@
 @media screen and (max-width: 768px) {
     /* for mobile web */
     .CreateActivityForm {
-        width: 300px
+        /* width: 300px; */
+        width: fit-content;
+        color:black;
     }
 
     .CreateActivityForm .activity-frame {
@@ -32,7 +34,7 @@
         /* border: 1px solid palegoldenrod; */
     }
 
-    .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
+    /* .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
         width: 100%;
 
         border: none;
@@ -43,7 +45,7 @@
         text-align:left;
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
-    }
+    } */
 
     .CreateActivityForm .datetime-sport-container .sport-container .sport-option-box select {
         width: 50%;
@@ -101,7 +103,6 @@
 
     .CreateActivityForm .button-container .button-create,
     .CreateActivityForm .button-container .button-cancel {
-        height: 20px;
         width: auto;
 
         background-color: #E05454;
@@ -149,6 +150,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        color:black;
     }
 
     .CreateActivityForm .activity-frame {
@@ -185,7 +188,7 @@
         padding-right: 1rem;
     }
 
-    .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
+    /* .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
         width: 100%;
 
         border: none;
@@ -194,7 +197,7 @@
 
         text-align: center;
         margin-top: 0.5rem;
-    }
+    } */
 
     .CreateActivityForm .datetime-sport-container .sport-container .sport-option-box {
         /* border: 1px solid red; */
@@ -258,7 +261,6 @@
 
     .CreateActivityForm .button-container .button-create,
     .CreateActivityForm .button-container .button-cancel {
-        height: 20px;
         width: auto;
 
         background-color: #E05454;

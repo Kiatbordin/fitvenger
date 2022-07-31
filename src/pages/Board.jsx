@@ -24,7 +24,7 @@ export function Board(props) {
         location: "Swimming pool",
         status: "Done",
         description: "Go swimming with my best friends.",
-        score: 3
+        score: 3.5
     }
     
     const gaveupActivityItem = {

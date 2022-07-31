@@ -13,6 +13,7 @@
         border-radius: 10px;
 
         margin:1rem;
+        color: black;
       }
   
       .Newcard span {
@@ -41,7 +42,8 @@
       /* width: 300px; */
       min-width: 300px;
       width: 30%;
-      height: 150px;
+      /* height: 150px; */
+      height: 200px;
       /* border: 1px red solid; */
       border-radius: 10px;
 
@@ -50,6 +52,7 @@
 
       margin-left: 1rem;
       margin-right: 1rem;
+      color: black;
     }
 
     .Newcard span {
