@@ -2,6 +2,8 @@ import React from "react";
 import "./Board.css";
 import { Activities } from "../components/Activities/Activities.jsx";
 import { Userinfo } from "../components/Userinfo/Userinfo.jsx";
+import {Stats} from "../components/Stats/Stats.jsx"
+import { Help } from "../components/Help/Help.jsx";
 
 export function Board(props) {
 
@@ -42,8 +44,8 @@ export function Board(props) {
         <div className="Board" >
             <div className="userinfo-stat-tip-container">
                 <Userinfo />
-                <Userinfo />
-                <Userinfo />
+                <Stats />
+                <Help />
             </div>  
             <Activities 
             doneActivities={100} 

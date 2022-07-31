@@ -1,0 +1,182 @@
+/* Extra small devices (768px and down) */
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+    .Help {
+        display: none;
+    }
+}
+
+/* Extra larger devices (768px and up) */
+@media screen and (min-width: 768px) {
+    /* for desktop web */
+    .Help {
+        height: fit-content;
+        width: 25%;
+        /* min-width: fit-content; */
+        min-width: 300px;
+
+        background-color: none;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+
+        /* position: relative;
+        top: 65px; */
+
+        color: black;
+
+        /* padding: 1.5rem; */
+    }
+
+    .Help .workout-box {
+        /* border: 1px solid blue; */
+        /* position: relative; */
+
+        /* height: 50%; */
+        height: 140px;
+
+        width: 100%;
+        /* background-color: #D0D0D0; */
+    }
+
+    .Help .workout-box .tips-header {
+        /* border: 1px solid  green; */
+        border-radius: 10px;
+        box-shadow: 2.5px 5px 10px darkgrey;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        background-color: white;
+        width: 60%;
+        position: relative;
+        top:-25px;
+        margin: 0 auto;
+        z-index: 11;
+    }
+
+    .Help .workout-box .tips-header img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .Help .workout-box .tips-header h3 {
+        font-size: 1rem;
+    }
+
+    .Help .workout-box .tips-body  {
+        /* border: 1px solid brown; */
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        top:-40px;
+        height: 80%;
+        background-color: #D0D0D0;
+        border-radius: 10px;
+    }
+
+    .Help .workout-box .tips-body div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+
+    .Help .workout-box .tips-body div a {
+        text-decoration: none;
+        background-color: #E05454;
+        color: white;
+        font-weight: bold;
+        padding: 1rem;
+        border: none;
+        border-radius: 10px;
+
+        margin-left: 2rem;
+    }
+
+    .Help .workout-box .tips-body div img {
+        height: 50px;
+        width: 50px;
+
+        border-radius: 50%;
+        margin-right: 2rem;
+    }
+
+    .Help .workout-music-box {
+        /* height: 50%; */
+        height: 140px;
+
+        width: 100%;
+    }
+
+    .Help .workout-music-box .workout-music-header {
+        /* border: 1px solid green; */
+        box-shadow: 2.5px 5px 10px darkgrey;
+        border-radius: 10px;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        background-color: white;
+        width: 60%;
+        position: relative;
+        margin: 0 auto;
+        z-index: 11;
+    }
+
+    .Help .workout-music-box .workout-music-header img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .Help .workout-music-box .workout-music-header h3 {
+        font-size: 1rem;
+    }
+
+    .Help .workout-music-box .workout-music-body {
+        /* border: 1px solid brown; */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        position: relative;
+        top:-25px;
+        height: 80%;
+        background-color: #D0D0D0;
+        border-radius: 10px;
+    }
+
+    .Help .workout-music-box .workout-music-body div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+
+    .Help .workout-music-box .workout-music-body div a {
+        text-decoration: none;
+        background-color: #E05454;
+        color: white;
+        font-weight: bold;
+        padding: 1rem;
+        border: none;
+        border-radius: 10px;
+
+        margin-left: 2rem;
+    }
+
+    .Help .workout-music-box .workout-music-body div img {
+        height: 50px;
+        width: 50px;
+
+        border-radius: 50%;
+
+        margin-right: 2rem;
+    }
+}

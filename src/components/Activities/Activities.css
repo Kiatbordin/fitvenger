@@ -108,6 +108,8 @@
         background-color: white;
         margin: 0.5rem ;
         padding: 0.5rem;
+
+        /* display: none; */
     }
 
     .Activities .add-button:hover{
@@ -232,7 +234,7 @@
         font-weight: bold;
     }
 
-    .Activities .add-button {
+    /* .Activities .add-button {
         position: absolute;
         border: 1px solid gray;
         border-radius: 10px;
@@ -251,7 +253,7 @@
     .Activities .add-button img {
         height: 30px;
         width: 30px;
-    }
+    } */
 
     .Activities .activities-board {
         margin: 1rem;
@@ -267,8 +269,13 @@
         flex-wrap: wrap;
         /* justify-content: space-around; */
 
-        /* overflow: scroll; */
         overflow-y: scroll;
+    }
+
+    .Activities .activities-board::-webkit-scrollbar {
+        width: 5px;
+        /* background-color: #F44E4E; */
+        /* background-color: white; */
     }
 }
 

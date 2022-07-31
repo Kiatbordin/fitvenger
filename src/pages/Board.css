@@ -12,11 +12,15 @@
 
     .Board .userinfo-stat-tip-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .Board .Activities {
         position:relative;
-        top: 100px;
+        /* top: 100px; */
+        
+        /* margin: 1rem ; */
+
+        margin: 2rem 0 2rem 0;
     }
 }
