@@ -3,7 +3,8 @@
     border-radius: 10px;
     /* margin: 15rem; */
     margin: auto;
-    width: 260px;
+    /* width: 260px; */
+    width: fit-content;
     box-shadow: 2.5px 5px 10px darkgrey;
 }
 

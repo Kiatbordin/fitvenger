@@ -12,6 +12,8 @@ import { Ongoingcard } from "../Ongoingcard/Ongoingcard.jsx";
 import { Donecard } from "../Donecard/Donecard.jsx";
 import { Gaveupcard } from "../Gaveupcard/Gaveupcard.jsx";
 
+import { DateRangePicker } from 'rsuite';
+
 export function Activities(props) {
 
     // expected props ==> 
@@ -25,23 +27,24 @@ export function Activities(props) {
 
     return (
         <div className="Activities">
-            <div className="date-container">
+            {/* <div className="date-container">
                 <span>From : </span><input type="date"></input><span> To : </span><input type="date"></input>
-            </div>
+            </div> */}
+            <DateRangePicker className="date-container" size="lg" placeholder="Select Date Range"/>
             <div className="summary-container">
                 <img src={done} alt='done' />
                 <div className="activities-result-box">
-                    <h1>{doneActivities}</h1>
+                    <h6 className="testh2">{doneActivities}</h6>
                     <span>Activities Done</span>
                 </div>
                 <img src={ongoing} alt='ongoing' />
                 <div className="activities-result-box">
-                    <h1>{ongoingActivities}</h1>
+                    <h6>{ongoingActivities}</h6>
                     <span>Ongoing Activities</span>
                 </div>
                 <img src={gaveup} alt='gaveup' />
                 <div className="activities-result-box">
-                    <h1>{gaveupActivities}</h1>
+                    <h6>{gaveupActivities}</h6>
                     <span>Gaveup Activities</span>
                 </div>
             </div>

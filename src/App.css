@@ -1,3 +1,5 @@
+@import "rsuite/dist/rsuite.css";
+
 .App {
   padding: 0;
   margin: 0;
@@ -6,7 +8,7 @@
 }
 
 /* Extra small devices (768px and down) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
   /* for mobile web */
   .App {
     

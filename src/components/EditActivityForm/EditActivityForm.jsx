@@ -3,6 +3,8 @@ import "./EditActivityForm.css";
 
 import { Link } from "react-router-dom";
 
+import { DateRangePicker } from "rsuite";
+
 export function EditActivityForm(props) {
 
     const handleChallengeClick = (e) => {
@@ -40,7 +42,12 @@ export function EditActivityForm(props) {
                             </div>
                             <div className="schedule-dateinput-box">
                                 {/* Need datetime element that can set the start and end time */}
-                                <input type="datetime-local" id="schedule" name="schedule" />
+                                {/* <input type="datetime-local" id="schedule" name="schedule" /> */}
+                                <DateRangePicker 
+                                id="schedule" name="schedule"
+                                placeholder="Select Date Range" 
+                                format="yyyy-MM-dd HH:mm:ss" 
+                                />
                             </div>
                         </div>
                         {/* Sport Box */}

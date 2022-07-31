@@ -11,6 +11,8 @@ import nextButton from "./icons/nextButton.png"
 
 import { Link } from "react-router-dom";
 
+import { DoneButton } from "../DoneButton/DoneButton.jsx";
+
 export function Ongoingcard(props) {
 
     const activityItem = props.activity;
@@ -18,6 +20,19 @@ export function Ongoingcard(props) {
     const confirmDone = () => {
         let isDone = confirm("Have you finished this activity ?");
         console.log(isDone);
+        if(isDone) {
+            let score = prompt("Please rate your activity[ 1-5 ]: ", 1 );
+            score = parseInt(score);
+
+            if (score > 0 && score < 6) {
+                alert("Thanks for rating.");
+                // Then updating the backend work using the props receiving from parent component.
+            } else {
+                alert("Please rate between 1 to 5.")
+            }
+        } else {
+            // Do nothing.
+        };
 
         // Do backend work and re-render the main page.
     }
@@ -63,7 +78,8 @@ export function Ongoingcard(props) {
                 </div>
             </div>
             <div className="ongoing-card-menu">
-                <button className="done-button" onClick={confirmDone}>Done</button>
+                {/* <button className="done-button" onClick={confirmDone}>Done</button> */}
+                <DoneButton />
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" />

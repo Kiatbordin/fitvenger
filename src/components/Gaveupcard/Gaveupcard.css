@@ -9,6 +9,7 @@
         margin: 1rem;
 
         position: relative;
+        color: black;
     }
 
     .Gaveupcard .gaveup-card-info {
@@ -56,10 +57,12 @@
         font-size: 1rem;
         margin: 0 0 0.5rem 0;
         padding: 0;
+        color:black;
     }
 
     .Gaveupcard .gaveup-card-info .activity-details-box span {
         font-size: 0.75rem;
+        color:black;
     }
 
     .Gaveupcard .gaveup-card-menu {
@@ -95,11 +98,12 @@
         /* width: 300px; */
         min-width: 300px;
         width: 30%;
-        height: 150px;
+        height: 200px;
         border-radius: 10px;
         margin: 1rem;
 
         position: relative;
+        color: black;
     }
 
     .Gaveupcard .gaveup-card-info {
@@ -125,7 +129,7 @@
     }
 
     .Gaveupcard .gaveup-card-info .activity-details-box {
-        height: 100px;
+        height: 145px;
         /* width: 250px; */
         width: 65%;
 

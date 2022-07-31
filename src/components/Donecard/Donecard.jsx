@@ -8,6 +8,8 @@ import hiking from "./icons/hiking.png";
 import bicycling from "./icons/bicycling.png";
 import deleteButton from "./icons/deleteButton.png";
 
+import { Rate } from 'rsuite';
+
 export function Donecard(props) {
     
     const activityItem = props.activity;
@@ -27,19 +29,20 @@ export function Donecard(props) {
         }
     }
 
-    const starRender = (score) => {
+    // const starRender = (score) => {
 
-        // for(let i=1; i<=score; i++) {
-        //     let element = document.getElementById("fa-star-" + i);
-        //     element.classList.add("checked");
-        // }
+    //     let starComponents = [] ;
 
-        let starComponents ;
-        for(let i=1; i<=score; i++) {
-            starComponents = <span className="fa fa-star"></span>
-        }
-        return starComponents;
-    }
+    //     // Create rating stars (score of five) component
+    //     for(let i=1; i<=5; i++) { 
+    //         if(i<=score) {
+    //             starComponents.push(<span className="fa fa-star checked" key={"star-"+i}></span>); 
+    //         } else {
+    //             starComponents.push(<span className="fa fa-star" key={"star-"+i}></span>); 
+    //         }
+    //     }
+    //     return starComponents;
+    // }
 
     return (
         <div className="Donecard">
@@ -61,12 +64,8 @@ export function Donecard(props) {
             </div>
             <div className="done-card-menu">
                 {/* <span>Rating Star Component</span> */}
-                {/* <span id="fa-star-1" className="fa fa-star"></span>
-                <span id="fa-star-2" className="fa fa-star"></span>
-                <span id="fa-star-3" className="fa fa-star"></span>
-                <span id="fa-star-4" className="fa fa-star"></span>
-                <span id="fa-star-5" className="fa fa-star"></span> */}
-                {starRender(activityItem.score)}
+                {/* {starRender(activityItem.score)} */}
+                <Rate readOnly defaultValue={activityItem.score} allowHalf />
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" />
         </div>

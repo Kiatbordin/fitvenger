@@ -14,28 +14,30 @@
     }
     
     .Activities .date-container {
-        border: 1px darkgray solid;
+        
+        /* border: 1px darkgray solid; */
         border-radius: 10px;
-        background-color: white;
+        /* background-color: white; */
         box-shadow: 2.5px 5px 10px darkgrey;
+        width: auto;
 
-        display: flex;
+        /* display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        align-items: center;
-        padding: 0 1rem 0 1rem;
+        align-items: center; */
+        /* padding: 0 1rem 0 1rem; */
 
-        margin: 0;
+        /* margin: 0; */
     }
 
-    .Activities .date-container input {
+    /* .Activities .date-container input {
         margin: 0.5rem 0 0.5rem 0;
         width: 60%;
-    }
+    } */
 
-    .Activities .date-container span {
+    /* .Activities .date-container span {
         width: 30%;
-    }
+    } */
 
     .Activities .summary-container {
         border: 1px darkgray solid;
@@ -129,6 +131,7 @@
   }
 /* Extra larger devices (768px and up) */
 @media screen and (min-width: 768px) {
+
     .Activities {
         /* border: 1px darkgray solid; */
         border-radius: 10px;
@@ -140,27 +143,28 @@
     }
 
     .Activities .date-container {
-        border: 1px darkgray solid;
+        /* border: 1px darkgray solid; */
         border-radius: 10px;
-        background-color: white;
+        /* background-color: white; */
         box-shadow: 2.5px 5px 10px darkgrey;
 
-        display: flex;
+        /* display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        padding: 0 1rem 0 1rem;
+        align-items: center; */
+        /* padding: 0 1rem 0 1rem; */
 
-        height: 30px;
+        /* height: 30px; */
         position: absolute;
         z-index: 11;
         top: -15px;
-        left: 16px;
+        left: 40px;
+
     }
 
-    .Activities .date-container input {
+    /* .Activities .date-container input {
         margin: 0 10px 0 10px;
-    }
+    } */
 
     .Activities .summary-container {
         border: 1px darkgray solid;
@@ -191,15 +195,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        /* border: 1px solid red; */
     }
 
     .Activities .summary-container .activities-result-box  h1 {
-        margin: 0;
-        font-size: 1rem;
+        /* margin: 0; */
+        /* font-size: 1rem; */
     }
 
     .Activities .summary-container .activities-result-box  span {
-        font-size: 1rem;
+        /* font-size: 1rem; */
     }
 
     .Activities .filter-container {
@@ -255,7 +261,7 @@
         top: 30px; */
 
         /* border: 1px solid black; */
-        height: 360px;
+        height: 500px;
 
         display: flex;
         flex-wrap: wrap;

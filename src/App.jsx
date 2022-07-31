@@ -12,7 +12,7 @@ import { EditActivity } from './pages/EditActivity.jsx';
 
 function App() {
 
-  const [isLogin,setIsLogin] = useState(false);
+  const [isLogin,setIsLogin] = useState(true);
 
   const handleLogin = (isAllow) => {
     isAllow ? setIsLogin(true) : setIsLogin(false);
