@@ -18,6 +18,19 @@ export function Ongoingcard(props) {
     const confirmDone = () => {
         let isDone = confirm("Have you finished this activity ?");
         console.log(isDone);
+        if(isDone) {
+            let score = prompt("Please rate your activity[ 1-5 ]: ", 1 );
+            score = parseInt(score);
+
+            if (score > 0 && score < 6) {
+                alert("Thanks for rating.");
+                // Then updating the backend work using the props receiving from parent component.
+            } else {
+                alert("Please rate between 1 to 5.")
+            }
+        } else {
+            // Do nothing.
+        };
 
         // Do backend work and re-render the main page.
     }

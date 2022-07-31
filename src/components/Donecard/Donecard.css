@@ -62,7 +62,7 @@
     }
 
     .Donecard .done-card-menu {
-        border: 1px solid green;
+        /* border: 1px solid green; */
         height: 40px;
         width: 70%;
 
@@ -73,6 +73,11 @@
         position: absolute;
         bottom: 5px;
         left: 5px;
+    }
+
+    /* Star rating */
+    .Donecard .done-card-menu .checked {
+        color: orange;
     }
 
     .Donecard .delete-button {
@@ -157,7 +162,7 @@
     }
 
     .Donecard .done-card-menu {
-        border: 1px solid green;
+        /* border: 1px solid green; */
         height: 40px;
         width: 70%;
 
