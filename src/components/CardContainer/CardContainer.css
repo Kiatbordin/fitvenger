@@ -5,9 +5,7 @@
         flex-direction: column;
     }
 
-    .card {
-
-    }
+    /* .card {} */
 }
 /* Extra larger devices (768px and up) */
 @media screen and (min-width: 768px) {
