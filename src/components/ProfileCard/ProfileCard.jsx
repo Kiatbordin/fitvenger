@@ -20,7 +20,6 @@ export function ProfileCard({name}) {
                 </div>
             </div>
             <div>
-                <p>BMI : 21.6</p>
                 <p><span>BMI :</span> 21.6</p>
             </div>
         </div>
