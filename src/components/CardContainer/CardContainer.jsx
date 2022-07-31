@@ -1,3 +1,4 @@
+import { ProfileCard } from "../ProfileCard/ProfileCard";
 import "./CardContainer.css";
 
 import { ProfileCard } from "../ProfileCard/ProfileCard";

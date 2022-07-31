@@ -1,0 +1,184 @@
+@media screen and (max-width: 768px) {
+    /* for mobile web */
+    .Donecard {
+        background-color: #CEF2B2;
+        box-shadow: 2.5px 5px 10px darkgrey;
+        width: 400px;
+        height: 200px;
+        border-radius: 10px;
+        margin: 1rem;
+
+        position: relative;
+    }
+
+    .Donecard .done-card-info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .Donecard .done-card-info .activity-icon-box {
+        height: 100px;
+        width: 25%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Donecard .done-card-info .activity-icon-box .activity-icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    .Donecard .done-card-info .activity-details-box {
+        height: 145px;
+        width: 65%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        padding-top: 0.5rem;
+
+        /* border: 1px solid blue; */
+
+        overflow-y:scroll;
+    }
+
+    .Donecard .done-card-info .activity-details-box::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .Donecard .done-card-info .activity-details-box h2 {
+        font-size: 1rem;
+        margin: 0 0 0.5rem 0;
+        padding: 0;
+    }
+
+    .Donecard .done-card-info .activity-details-box span {
+        font-size: 0.75rem;
+    }
+
+    .Donecard .done-card-menu {
+        border: 1px solid green;
+        height: 40px;
+        width: 70%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .Donecard .delete-button {
+        height: 30px;
+        width: 30px;
+        
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    /* for desktop web */
+    .Donecard {
+        background-color: #CEF2B2;
+        box-shadow: 2.5px 5px 10px darkgrey;
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        margin: 1rem;
+
+        position: relative;
+    }
+
+    .Donecard .done-card-info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .Donecard .done-card-info .activity-icon-box {
+        height: 100px;
+        width: 50px;
+
+        /* border: 1px solid red; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Donecard .done-card-info .activity-icon-box .activity-icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .Donecard .done-card-info .activity-details-box {
+        height: 100px;
+        width: 250px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        padding-top: 0.5rem;
+
+        /* border: 1px solid blue; */
+
+        overflow-y:scroll;
+    }
+
+    .Donecard .done-card-info .activity-details-box::-webkit-scrollbar {
+        width: 8px;
+        /* background-color: #F44E4E; */
+    }
+
+    .Donecard .done-card-info .activity-details-box h2 {
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Donecard .done-card-info .activity-details-box span {
+        font-size: 0.75rem;
+    }
+
+    .Donecard .done-card-menu {
+        border: 1px solid green;
+        height: 40px;
+        width: 70%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* Star rating */
+    .Donecard .done-card-menu .checked {
+        color: orange;
+    }
+
+    .Donecard .delete-button {
+        height: 30px;
+        width: 30px;
+        
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+}
