@@ -1,0 +1,31 @@
+/* Extra small devices (768px and down) */
+@media screen and (max-width: 768px) {
+    .cardContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        
+    }
+}
+/* Extra larger devices (768px and up) */
+@media screen and (min-width: 768px) {
+    .cardContainer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-top: 6rem;
+        margin-left: 5rem;
+    }
+
+    .card {
+        border: 1px solid #333;
+        border-radius: 10px;
+        background-color: #333;
+        width: 400px;
+        height: 200px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+

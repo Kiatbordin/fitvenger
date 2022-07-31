@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { CardContainer } from './components/CardContainer/CardContainer';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,6 +14,8 @@ function App() {
 
   return (
     <div className="App">
+      <CardContainer />
+      <Board />
       <BrowserRouter>
         <Navbar isLogin={isLogin}/>
         <main>
