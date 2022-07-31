@@ -1,6 +1,6 @@
 import './ProfileCard.css';
 
-import Sample1 from "./images/Sample1.jpg"
+import Sample1 from "./image/Sample1.jpg"
 
 export function ProfileCard({name}) {
     return (
@@ -20,6 +20,7 @@ export function ProfileCard({name}) {
                 </div>
             </div>
             <div>
+                <p>BMI : 21.6</p>
                 <p><span>BMI :</span> 21.6</p>
             </div>
         </div>
