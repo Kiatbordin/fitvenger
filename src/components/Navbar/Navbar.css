@@ -84,18 +84,20 @@
         display: block;
     }
     
+    /* Both <Link> and <a> components are using a's component for styling. */
     .Navbar .menu-container a {
         text-decoration: none;
         color: black;
         font-weight: bold;
         padding: 0 0.5rem 0 0.5rem;
     }
-    
-    #home,#profile {
+
+    .Navbar .menu-container .home-nav,
+    .Navbar .menu-container .profile-nav {
         border-right: 2px black solid;
     }
-    
-    #logout {
+
+    .Navbar .menu-container .logout-nav {
         border-left: 2px black solid;
     }
 }

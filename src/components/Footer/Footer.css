@@ -35,6 +35,8 @@
 
     }
 
+    /* Both <Link> and <a> components are using a's component for styling. */
+
     .Footer .hamburger-menu-button:hover .footer-menu-container a {
         text-decoration: none;
         color: white;
@@ -43,7 +45,6 @@
 
     .Footer .hamburger-menu-button:hover .footer-menu-container a:hover{
         font-weight: bold;
-        /* opacity: 0.5; */
         font-size: 1.5rem;
     }
 

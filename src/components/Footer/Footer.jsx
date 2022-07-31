@@ -1,5 +1,8 @@
 import React from "react";
 import "./Footer.css";
+
+import { Link } from "react-router-dom";
+
 import hamburger from "./icons/hamburger.png";
 
 export function Footer(props){
@@ -10,18 +13,12 @@ export function Footer(props){
 
     return (
         <div className="Footer">
-            {/* <div className="footer-menu-container">
-                <a href="#" id="home">Home</a>
-                { props.isLogin && <a href="#" id="profile">Profile</a> }
-                <a href="#" id="aboutus">About us</a>
-                { props.isLogin && <a href="#" id="logout" onClick={checkLogOut}> Log Out</a> }
-            </div> */}
             <div className="hamburger-menu-button">
                 <div className="footer-menu-container">
-                    <a href="#" id="home">Home</a>
-                    { props.isLogin && <a href="#" id="profile">Profile</a> }
-                    <a href="#" id="aboutus">About us</a>
-                    { props.isLogin && <a href="#" id="logout" onClick={checkLogOut}> Log Out</a> }
+                    <Link to="/">Home</Link>
+                    { props.isLogin && <Link to="/profile">Profile</Link> }
+                    <Link to="/about">About us</Link>
+                    { props.isLogin && <Link to="/login" onClick={checkLogOut}>Log out</Link> }
                 </div>
                 <img src={hamburger} alt="hamburger-menu" />
             </div>
