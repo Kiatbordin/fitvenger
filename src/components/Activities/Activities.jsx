@@ -34,7 +34,7 @@ export function Activities(props) {
             <div className="summary-container">
                 <img src={done} alt='done' />
                 <div className="activities-result-box">
-                    <h6 className="testh2">{doneActivities}</h6>
+                    <h6>{doneActivities}</h6>
                     <span>Activities Done</span>
                 </div>
                 <img src={ongoing} alt='ongoing' />
@@ -55,7 +55,7 @@ export function Activities(props) {
                 <button className="filter-gaveup-button">Gaveup</button>
             </div>
 
-            <button className="add-button"><img src={add} alt="add-button" /></button>
+            {/* <button className="add-button"><img src={add} alt="add-button" /></button> */}
 
             <div className="activities-board">
                 <Newcard />

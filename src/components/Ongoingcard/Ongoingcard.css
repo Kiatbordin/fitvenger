@@ -222,11 +222,11 @@
     .Ongoingcard .ongoing-card-menu .gaveup-button {
         background-color: #F44E4E ;
         color: white;
-        font-weight: bold;
+        /* font-weight: bold; */
         border: none;
         border-radius: 10px;
         width: 80px;
-        height: 80%;
+        height: 90%;
         cursor: pointer;
         margin: 1rem;
     }

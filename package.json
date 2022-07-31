@@ -16,6 +16,7 @@
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
+    "recharts": "^2.1.13",
     "rsuite": "^5.16.3"
   },
   "devDependencies": {

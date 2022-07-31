@@ -13,24 +13,29 @@
         /* height: 280px; */
         height: fit-content;
         /* width:fit-content; */
-        width: 30%;
+        width: 25%;
+        min-width: fit-content;
         /* border: 1px solid red; */
-        background-color: #423E3E;
+        /* background-color: #423E3E; */
+        /* background-color: rgba(235, 235, 235, 0.82); */
+        background-color: #D0D0D0;
         border-radius: 10px;
 
-        position: relative;
-        top: 60px;
+        /* position: relative;
+        top: 60px; */
 
         padding: 1rem;
 
-        color:black;
+        color:white;
     }
     
     .Userinfo .profile-box {
         display: flex;
         flex-direction: column;
 
-        background-color: rgba(235, 235, 235, 0.82);
+        /* background-color: rgba(235, 235, 235, 0.82); */
+        background-color: #423E3E;
+        opacity: 0.8;
         border-radius: 10px;
         /* border: 1px red solid; */
     }
