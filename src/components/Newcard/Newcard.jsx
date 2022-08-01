@@ -3,7 +3,7 @@ import "./Newcard.css";
 
 import { Link } from "react-router-dom";
 
-import plus from "./icons/plus.png"
+import plus from "../../assets/icons/plus.png";
 
 export function Newcard(props) {
     return (

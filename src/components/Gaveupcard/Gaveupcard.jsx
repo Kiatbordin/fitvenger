@@ -1,12 +1,12 @@
 import React from "react";
 import "./Gaveupcard.css"
 
-import running from "./icons/running.png";
-import walking from "./icons/walking.png";
-import swimming from "./icons/swimming.png";
-import hiking from "./icons/hiking.png";
-import bicycling from "./icons/bicycling.png";
-import deleteButton from "./icons/deleteButton.png";
+import running from "../../assets/icons/running.png"
+import walking from "../../assets/icons/walking.png"
+import swimming from "../../assets/icons/swimming.png"
+import hiking from "../../assets/icons/hiking.png"
+import bicycling from "../../assets/icons/bicycling.png"
+import deleteButton from "../../assets/icons/deleteButton.png"
 
 export function Gaveupcard(props) {
 
@@ -45,10 +45,6 @@ export function Gaveupcard(props) {
                     <span>Description: {activityItem.description}</span>
                 </div>
             </div>
-            {/* Waiting to confirm if we have to add some component here or not ? */}
-            {/* <div className="gaveup-card-menu">
-                <span>Rating Star Component</span>
-            </div> */}
             <img className="delete-button" src={deleteButton} alt="delete-icon" />
         </div>
     );

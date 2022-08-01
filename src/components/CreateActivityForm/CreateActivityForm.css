@@ -2,7 +2,6 @@
 @media screen and (max-width: 768px) {
     /* for mobile web */
     .CreateActivityForm {
-        /* width: 300px; */
         width: fit-content;
         color:black;
     }
@@ -17,11 +16,9 @@
 
     .CreateActivityForm .form-container {
         padding: 1rem;
-        /* border: 1px solid red; */
     }
 
     .CreateActivityForm .datetime-sport-container {
-        /* border: 1px red solid; */
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -30,28 +27,12 @@
     .CreateActivityForm .datetime-sport-container .datetime-container,
     .CreateActivityForm .datetime-sport-container .sport-container {
         width: 100%;
-        /* padding-right: 1rem; */
-        /* border: 1px solid palegoldenrod; */
     }
-
-    /* .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
-        width: 100%;
-
-        border: none;
-        border-radius: 10px;
-        box-shadow: -1px 3px 4pt 0 #c8c7c7;
-
-        font-size: 0.75rem;
-        text-align:left;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-    } */
 
     .CreateActivityForm .datetime-sport-container .sport-container .sport-option-box select {
         width: 50%;
         text-align: center;
         font-weight: bold;
-        /* padding-right: 0.5rem; */
         margin-top: 0.5rem;
 
         border: none;
@@ -74,7 +55,6 @@
     }
 
     .CreateActivityForm .challenge-container {
-        /* border: 1px solid red; */
         display: flex;
         justify-content: flex-end;
     }
@@ -145,8 +125,6 @@
 @media screen and (min-width: 768px) {
     /* for desktop web */
     .CreateActivityForm {
-        /* border: 1px solid red; */
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -156,7 +134,6 @@
 
     .CreateActivityForm .activity-frame {
         width: 600px;
-        /* width: fit-content; */
         border: 1px solid black;
         border-radius: 10px;
         box-shadow: 0px 5px 4pt 0 #c8c7c7;
@@ -177,7 +154,6 @@
     }
 
     .CreateActivityForm .datetime-sport-container {
-        /* border: 1px red solid; */
         display: flex;
         justify-content: flex-start;
     }
@@ -188,19 +164,8 @@
         padding-right: 1rem;
     }
 
-    /* .CreateActivityForm .datetime-sport-container .datetime-container .schedule-dateinput-box input{
-        width: 100%;
-
-        border: none;
-        border-radius: 10px;
-        box-shadow: -1px 3px 4pt 0 #c8c7c7;
-
-        text-align: center;
-        margin-top: 0.5rem;
-    } */
-
     .CreateActivityForm .datetime-sport-container .sport-container .sport-option-box {
-        /* border: 1px solid red; */
+
     }
 
     .CreateActivityForm .datetime-sport-container .sport-container .sport-option-box select {
@@ -228,7 +193,6 @@
     }
 
     .CreateActivityForm .challenge-container {
-        /* border: 1px solid red; */
         display: flex;
         justify-content: flex-end;
     }
@@ -250,8 +214,7 @@
 
     .CreateActivityForm .challenge-container .btn-15:hover,
     .CreateActivityForm .challenge-container .btn-30:hover{
-        /* color: white;
-        background-color: #4972DB; */
+        
     }
 
     .CreateActivityForm .button-container {

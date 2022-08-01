@@ -48,7 +48,6 @@ export function Stats(props) {
                 label={renderCustomizedLabel} >
 
                 {data.map((entry, index) => (
-                    // <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
                 </Pie>

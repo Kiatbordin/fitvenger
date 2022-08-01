@@ -41,8 +41,6 @@ export function EditActivityForm(props) {
                                 <label htmlFor="schedule" className="form-topic-size">Scheduling</label>
                             </div>
                             <div className="schedule-dateinput-box">
-                                {/* Need datetime element that can set the start and end time */}
-                                {/* <input type="datetime-local" id="schedule" name="schedule" /> */}
                                 <DateRangePicker 
                                 id="schedule" name="schedule"
                                 placeholder="Select Date Range" 

@@ -10,20 +10,11 @@
 @media screen and (min-width: 768px) {
     /* for desktop web */
     .Userinfo {
-        /* height: 280px; */
         height: fit-content;
-        /* width:fit-content; */
         width: 25%;
         min-width: fit-content;
-        /* border: 1px solid red; */
-        /* background-color: #423E3E; */
-        /* background-color: rgba(235, 235, 235, 0.82); */
         background-color: #D0D0D0;
         border-radius: 10px;
-
-        /* position: relative;
-        top: 60px; */
-
         padding: 1rem;
 
         color:white;
@@ -32,12 +23,9 @@
     .Userinfo .profile-box {
         display: flex;
         flex-direction: column;
-
-        /* background-color: rgba(235, 235, 235, 0.82); */
         background-color: #423E3E;
         opacity: 0.8;
         border-radius: 10px;
-        /* border: 1px red solid; */
     }
 
     .Userinfo .profile-box .header-image-box {
@@ -56,9 +44,10 @@
     }
     
     .Userinfo .profile-box .header-image-box h1 {
-        font-size: 100%;
+        font-size: 80%;
         text-align: center;
         width: 50%;
+        padding-right: 0.5rem;
     }
 
     .Userinfo .profile-box button {

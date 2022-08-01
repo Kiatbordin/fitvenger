@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Activities.css";
 
-import done from "./icons/done.png";
-import ongoing from "./icons/ongoing.png";
-import gaveup from "./icons/gaveup.png";
-import add from "./icons/add.png";
+import done from "../../assets/icons/done.png";
+import ongoing from "../../assets/icons/ongoing.png";
+import gaveup from "../../assets/icons/gaveup.png";
+import add from "../../assets/icons/add.png";
 
 import { Newcard } from "../Newcard/Newcard.jsx";
 import { Ongoingcard } from "../Ongoingcard/Ongoingcard.jsx";
@@ -27,9 +26,6 @@ export function Activities(props) {
 
     return (
         <div className="Activities">
-            {/* <div className="date-container">
-                <span>From : </span><input type="date"></input><span> To : </span><input type="date"></input>
-            </div> */}
             <DateRangePicker className="date-container" size="lg" placeholder="Select Date Range"/>
             <div className="summary-container">
                 <img src={done} alt='done' />

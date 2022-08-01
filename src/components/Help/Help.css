@@ -12,34 +12,20 @@
     .Help {
         height: fit-content;
         width: 25%;
-        /* min-width: fit-content; */
         min-width: 300px;
 
         background-color: none;
-        /* border: 1px solid black; */
         border-radius: 10px;
 
-        /* position: relative;
-        top: 65px; */
-
         color: black;
-
-        /* padding: 1.5rem; */
     }
 
     .Help .workout-box {
-        /* border: 1px solid blue; */
-        /* position: relative; */
-
-        /* height: 50%; */
         height: 140px;
-
         width: 100%;
-        /* background-color: #D0D0D0; */
     }
 
     .Help .workout-box .tips-header {
-        /* border: 1px solid  green; */
         border-radius: 10px;
         box-shadow: 2.5px 5px 10px darkgrey;
 
@@ -50,7 +36,7 @@
         background-color: white;
         width: 60%;
         position: relative;
-        top:-25px;
+        top:-20px;
         margin: 0 auto;
         z-index: 11;
     }
@@ -65,7 +51,6 @@
     }
 
     .Help .workout-box .tips-body  {
-        /* border: 1px solid brown; */
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -80,8 +65,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        /* border: 1px solid red; */
         width: 100%;
     }
 
@@ -106,14 +89,12 @@
     }
 
     .Help .workout-music-box {
-        /* height: 50%; */
         height: 140px;
 
         width: 100%;
     }
 
     .Help .workout-music-box .workout-music-header {
-        /* border: 1px solid green; */
         box-shadow: 2.5px 5px 10px darkgrey;
         border-radius: 10px;
 
@@ -138,13 +119,12 @@
     }
 
     .Help .workout-music-box .workout-music-body {
-        /* border: 1px solid brown; */
         display: flex;
         justify-content: space-around;
         align-items: center;
 
         position: relative;
-        top:-25px;
+        top:-15px;
         height: 80%;
         background-color: #D0D0D0;
         border-radius: 10px;
@@ -154,8 +134,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        /* border: 1px solid red; */
         width: 100%;
     }
 

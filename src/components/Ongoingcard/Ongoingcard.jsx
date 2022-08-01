@@ -1,13 +1,13 @@
 import React from "react";
 import "./Ongoingcard.css"
 
-import running from "./icons/running.png";
-import walking from "./icons/walking.png";
-import swimming from "./icons/swimming.png";
-import hiking from "./icons/hiking.png";
-import bicycling from "./icons/bicycling.png";
-import deleteButton from "./icons/deleteButton.png";
-import nextButton from "./icons/nextButton.png"
+import running from "../../assets/icons/running.png"
+import walking from "../../assets/icons/walking.png"
+import swimming from "../../assets/icons/swimming.png"
+import hiking from "../../assets/icons/hiking.png"
+import bicycling from "../../assets/icons/bicycling.png"
+import deleteButton from "../../assets/icons/deleteButton.png"
+import nextButton from "../../assets/icons/nextButton.png"
 
 import { Link } from "react-router-dom";
 

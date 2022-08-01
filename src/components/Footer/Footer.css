@@ -22,17 +22,12 @@
     }
 
     .Footer .hamburger-menu-button:hover .footer-menu-container {
-        /* display: block; */
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* width: 200px; */
         width: 100%;
         background-color: rgb(74, 71, 71);
-        /* opacity: 0.5; */
-
     }
 
     /* Both <Link> and <a> components are using a's component for styling. */

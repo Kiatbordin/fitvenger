@@ -1,12 +1,12 @@
 import React from "react";
 import "./Donecard.css"
 
-import running from "./icons/running.png";
-import walking from "./icons/walking.png";
-import swimming from "./icons/swimming.png";
-import hiking from "./icons/hiking.png";
-import bicycling from "./icons/bicycling.png";
-import deleteButton from "./icons/deleteButton.png";
+import running from "../../assets/icons/running.png"
+import walking from "../../assets/icons/walking.png"
+import swimming from "../../assets/icons/swimming.png"
+import hiking from "../../assets/icons/hiking.png"
+import bicycling from "../../assets/icons/bicycling.png"
+import deleteButton from "../../assets/icons/deleteButton.png"
 
 import { Rate } from 'rsuite';
 
@@ -29,21 +29,6 @@ export function Donecard(props) {
         }
     }
 
-    // const starRender = (score) => {
-
-    //     let starComponents = [] ;
-
-    //     // Create rating stars (score of five) component
-    //     for(let i=1; i<=5; i++) { 
-    //         if(i<=score) {
-    //             starComponents.push(<span className="fa fa-star checked" key={"star-"+i}></span>); 
-    //         } else {
-    //             starComponents.push(<span className="fa fa-star" key={"star-"+i}></span>); 
-    //         }
-    //     }
-    //     return starComponents;
-    // }
-
     return (
         <div className="Donecard">
             <div className="done-card-info">
@@ -63,8 +48,6 @@ export function Donecard(props) {
                 </div>
             </div>
             <div className="done-card-menu">
-                {/* <span>Rating Star Component</span> */}
-                {/* {starRender(activityItem.score)} */}
                 <Rate readOnly defaultValue={activityItem.score} allowHalf />
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" />

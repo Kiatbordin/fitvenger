@@ -24,7 +24,6 @@
   .App .CreateActivity,
   .App .EditActivity{
     position: absolute;
-    /* top:50%; */
     left: 50%;
     /* transform: translate(-50%, -50%); */
     transform: translate(-50%, 0%);
@@ -34,7 +33,6 @@
 @media screen and (min-width: 768px) {
   /* for desktop web */
   .App {
-    /* padding: 10rem 2rem 2rem 2rem; */
     padding: 8rem 2rem 8rem 2rem;
   }
 

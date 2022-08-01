@@ -42,13 +42,6 @@ export function CreateActivityForm(props) {
                             </div>
                             <div className="schedule-dateinput-box">
                                 {/* Need datetime element that can set the start and end time */}
-                                {/* <input type="datetime-local" id="schedule" name="schedule" /> */}
-                                {/* <DateRangePicker 
-                                id="schedule" name="schedule"
-                                placeholder="Select Date Range" 
-                                format="yyyy-MM-dd HH:mm:ss" 
-                                showOneCalendar={true}
-                                /> */}
                                 <DateRangePicker 
                                 id="schedule" name="schedule"
                                 placeholder="Select Date Range" 
@@ -110,9 +103,6 @@ export function CreateActivityForm(props) {
                         <Link to="/">
                             <button className="button-cancel">Cancel</button>
                         </Link>
-                        {/* <button type="submit" className="button-create">Create</button> */}
-                        {/* <button className="button-cancel">Cancel</button> */}
-
                     </div>
 
                 </form>
