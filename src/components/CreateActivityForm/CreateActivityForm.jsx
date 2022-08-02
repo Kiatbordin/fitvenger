@@ -12,6 +12,15 @@ export function CreateActivityForm(props) {
         console.log(e.target.value);
     }
 
+    const handleDateRangePickerOnChange = (e) => {
+        const startTime = e[1].toLocaleString();
+        const endTime = e[0].toLocaleString();
+        
+        console.log(`
+        ${startTime}, ${endTime}
+        `);
+    }
+
     return (
         <div className="CreateActivityForm">
             <div className="activity-frame">
@@ -47,7 +56,9 @@ export function CreateActivityForm(props) {
                                 placeholder="Select Date Range" 
                                 format="yyyy-MM-dd hh:mm aa" 
                                 preventOverflow={true}
-                                showMeridian />
+                                showMeridian
+                                ranges={[]}
+                                onOk={handleDateRangePickerOnChange} />
                             </div>
                         </div>
                         {/* Sport Box */}

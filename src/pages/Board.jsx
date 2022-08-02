@@ -1,59 +1,66 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "./Board.css";
 import { Activities } from "../components/Activities/Activities.jsx";
 import { Userinfo } from "../components/Userinfo/Userinfo.jsx";
 import {Stats} from "../components/Stats/Stats.jsx"
 import { Help } from "../components/Help/Help.jsx";
 
+import { getActivities } from "../util/activitiesWork.js";
+
 export function Board(props) {
 
-    const ongoingActivityItem = {
-        id: 1,
-        topic: "Fighting please!",
-        type: "bicycling",
-        schedule: "20 June 2022 at 17.00 - 23.59 AM.",
-        location: "Chatuchak Park",
-        status: "Ongoing",
-        description: "I want to lose 5kg in 15 days.I want to lose 5kg in 15 days.I want to lose 5kg in 15 days.I want to lose 5kg in 15 days.",
-        score: 0
-    }
+    // Board's component has to receive the user's information from App.jsx.
+    const userId = props.userId;
+    // Board's component will ask the user acitvities from backend using userId.
+    // Assume that we have received the user activities as below.
 
-    const doneActivityItem = {
-        id: 2,
-        topic: "Losing 5 KG.!",
-        type: "swimming",
-        schedule: "10 June 2022 at 20.00 - 21.00 PM.",
-        location: "Swimming pool",
-        status: "Done",
-        description: "Go swimming with my best friends.",
-        score: 3.5
-    }
-    
-    const gaveupActivityItem = {
-        id: 3,
-        topic: "Marathon 10 KM.!",
-        type: "running",
-        schedule: "5 June 2022 at 08.00 - 11.00 AM.",
-        location: "Marathon Festival",
-        status: "Gaveup",
-        description: "First time 10 KM. marathon challenge.",
-        score: 0
-    }
+    const [myActivities,setMyActivities] = useState([]);
+
+    useEffect( () => {
+        // Once this component rendered, It should request the user's information using userID
+        // Then update the activities's state.
+        const userId = 50;  // assumming userId
+        const updateActivities = [...getActivities(userId)];
+        setMyActivities(updateActivities);
+    }, []);
+
+    const addActivities = (activity) => {
+        setMyActivities( prev => [...prev,activity]);
+    };
+
+    const deleteActivities = (activity) => {
+        setMyActivities(myActivities.filter(remainActivity=>remainActivity.id !== activity.id));
+    };
+
+    const updateActivities = (editActivity) => {
+        foundIndex = myActivities.findIndex ( activity => activity.id===editActivity.id );
+        if(foundIndex!==-1) {
+            const { id,topic,start,end,location,status,description,score } = editActivity;
+            setMyActivities( ...prev, 
+                activity[foundIndex].id = id,
+                activity[foundIndex].topic = topic,
+                activity[foundIndex].start = start,
+                activity[foundIndex].end = end,
+                activity[foundIndex].location = location,
+                activity[foundIndex].status = status,
+                activity[foundIndex].description = description,
+                activity[foundIndex].score = score,
+                );
+        } else {
+            console.log(`updateActivities: Not found an activity id:${editActivity.id}`);
+        }
+    };
 
     return (
         <div className="Board" >
             <div className="userinfo-stat-tip-container">
                 <Userinfo />
-                <Stats />
+                <Stats activities={myActivities}/>
                 <Help />
             </div>  
             <Activities 
-            doneActivities={100} 
-            ongoingActivities={300} 
-            gaveupActivities={200}
-            ongoingActivityItem={ongoingActivityItem} 
-            doneActivityItem={doneActivityItem} 
-            gaveupActivityItem={gaveupActivityItem} 
+            activities={myActivities}
+            handleDelete={deleteActivities}
             />
         </div>
     );

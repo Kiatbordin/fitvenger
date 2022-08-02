@@ -12,6 +12,15 @@ export function Gaveupcard(props) {
 
     const activityItem = props.activity;
 
+    const handleDelete = (e) => {
+        let isDelete = confirm("Do you want to delete this activity ?");
+        if(isDelete) {
+            props.handleDelete(activityItem);
+
+            // Then updating the database.
+        } 
+    }
+
     const activityIconRender = (type) => {
         switch (type) {
             case "running" :
@@ -39,13 +48,14 @@ export function Gaveupcard(props) {
                 <div className="activity-details-box">
                     <h2>{activityItem.topic}</h2>
                     <span>Type: {activityItem.type}</span>
-                    <span>Schedule: {activityItem.schedule}</span>
+                    <span>From: {activityItem.start}</span>
+                    <span>To: {activityItem.end}</span>
                     <span>Location: {activityItem.location}</span>
                     <span>Status: {activityItem.status}</span>
                     <span>Description: {activityItem.description}</span>
                 </div>
             </div>
-            <img className="delete-button" src={deleteButton} alt="delete-icon" />
+            <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>
         </div>
     );
 }

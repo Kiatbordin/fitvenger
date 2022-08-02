@@ -17,6 +17,15 @@ export function Ongoingcard(props) {
 
     const activityItem = props.activity;
 
+    const handleDelete = (e) => {
+        let isDelete = confirm("Do you want to delete this activity ?");
+        if(isDelete) {
+            props.handleDelete(activityItem);
+
+            // Then updating the database.
+        } 
+    }
+
     const confirmDone = () => {
         let isDone = confirm("Have you finished this activity ?");
         console.log(isDone);
@@ -71,7 +80,8 @@ export function Ongoingcard(props) {
                 <div className="activity-details-box">
                     <h2>{activityItem.topic}</h2>
                     <span>Type: {activityItem.type}</span>
-                    <span>Schedule: {activityItem.schedule}</span>
+                    <span>From: {activityItem.start}</span>
+                    <span>To: {activityItem.end}</span>
                     <span>Location: {activityItem.location}</span>
                     <span>Status: {activityItem.status}</span>
                     <span>Description: {activityItem.description}</span>
@@ -82,7 +92,7 @@ export function Ongoingcard(props) {
                 <DoneButton />
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
-            <img className="delete-button" src={deleteButton} alt="delete-icon" />
+            <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>
             {/* <img className="next-button" src={nextButton} alt="delete-icon" /> */}
 
             <Link to="/edit">

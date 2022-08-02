@@ -16,17 +16,34 @@ import { DateRangePicker } from 'rsuite';
 export function Activities(props) {
 
     // expected props ==> 
-    const doneActivities = props.doneActivities || 0;
-    const ongoingActivities = props.ongoingActivities || 0;
-    const gaveupActivities = props.gaveupActivities || 0;
 
-    const ongoingActivityItem = props.ongoingActivityItem;
-    const doneActivityItem = props.doneActivityItem;
-    const gaveupActivityItem = props.gaveupActivityItem;
+    const doneActivities = props.activities.filter( (activity) => activity.status === "Done" ).length || "Loading";
+    const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "Loading";
+    const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "Loading";
 
+    const handleAllFilter = (e) => {
+        alert('All');
+    };
+
+    const handleDoneFilter = (e) => {
+        alert('Done');
+    };
+
+    const handleOngoingFilter = (e) => {
+        alert('Ongoing');
+    };
+
+    const handleGaveupFilter = (e) => {
+        alert('Gaveup');
+    };
+    
     return (
         <div className="Activities">
-            <DateRangePicker className="date-container" size="lg" placeholder="Select Date Range"/>
+
+            <DateRangePicker className="date-container" 
+            size="lg" placeholder="Select Date Range"
+            value={[new Date(),new Date()]}/>
+            
             <div className="summary-container">
                 <img src={done} alt='done' />
                 <div className="activities-result-box">
@@ -45,20 +62,29 @@ export function Activities(props) {
                 </div>
             </div>
             <div className="filter-container">
-                <button className="filter-all-button">All</button>
-                <button className="filter-done-button">Done</button>
-                <button className="filter-ongoing-button">Ongoing</button>
-                <button className="filter-gaveup-button">Gaveup</button>
+                <button className="filter-all-button" onClick={handleAllFilter}>All</button>
+                <button className="filter-done-button" onClick={handleDoneFilter}>Done</button>
+                <button className="filter-ongoing-button" onClick={handleOngoingFilter}>Ongoing</button>
+                <button className="filter-gaveup-button" onClick={handleGaveupFilter}>Gaveup</button>
             </div>
 
             {/* <button className="add-button"><img src={add} alt="add-button" /></button> */}
 
             <div className="activities-board">
                 <Newcard />
-                <Ongoingcard activity={ongoingActivityItem} />
-                <Donecard activity={doneActivityItem} />
-                <Gaveupcard activity={gaveupActivityItem} />
-                <Newcard />
+
+                {props.activities.length >=1 &&
+                    props.activities.map( activity => {
+                        if(activity.status==="Ongoing") {
+                            return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                        } else if (activity.status==="Done") {
+                            return <Donecard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                        } else if (activity.status==="Gaveup") {
+                            return <Gaveupcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                        }
+                    })
+                }
+
             </div>
         </div> 
     );

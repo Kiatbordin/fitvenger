@@ -2,15 +2,23 @@ import React from "react";
 import "./Stats.css";
 
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+import { getDuration } from "../../util/activitiesWork";
 
 export function Stats(props) {
 
+    const totalMinsRun = getDuration(props.activities, "running" ) || 0;
+    const totalMinsWalk = getDuration(props.activities, "walking" ) || 0;
+    const totalMinsSwim = getDuration(props.activities, "swimming" ) || 0;
+    const totalMinsHike = getDuration(props.activities, "hiking" ) || 0;
+    const totalMinsBike = getDuration(props.activities, "bicycling" ) || 0;
+    const totalDuration = totalMinsRun + totalMinsWalk + totalMinsSwim + totalMinsHike + totalMinsBike;
+
     const data = [
-        {name:"Running", value:20, color: '#0088FE'},
-        {name:"Walking", value:40, color: '#00C49F'},
-        {name:"Swimming", value:20, color: '#FFBB28'},
-        {name:"Hiking", value:30, color: '#FF8042'},
-        {name:"Bicycling", value:30, color: 'purple'}
+        {name:"Running", value: totalMinsRun, color: '#0088FE'},
+        {name:"Walking", value: totalMinsWalk, color: '#00C49F'},
+        {name:"Swimming", value: totalMinsSwim, color: '#FFBB28'},
+        {name:"Hiking", value: totalMinsHike, color: '#FF8042'},
+        {name:"Bicycling", value: totalMinsBike, color: 'purple'}
       ]
     
     const RADIAN = Math.PI / 180;
@@ -31,7 +39,7 @@ export function Stats(props) {
 
             <div className="stats-container">
                 <h3>Duration</h3>
-                <h4>100</h4>
+                <h4>{totalDuration}</h4>
                 <h3>Calories</h3>
                 <h4>120 CAL</h4>
             </div>  

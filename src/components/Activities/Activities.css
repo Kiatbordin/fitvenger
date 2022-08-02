@@ -14,6 +14,8 @@
         border-radius: 10px;
         box-shadow: 2.5px 5px 10px darkgrey;
         width: auto;
+
+        margin-bottom: 2rem;
     }
 
     .Activities .summary-container {
@@ -68,7 +70,7 @@
         margin: 0 1rem 0 1rem;
     }
 
-    .Activities .filter-container button:hover {
+    .Activities .filter-container button:focus {
         background-color: #4972DB;
         color: white;
         font-weight: bold;
@@ -177,7 +179,7 @@
         background-color: white;
     }
 
-    .Activities .filter-container button:hover {
+    .Activities .filter-container button:focus {
         background-color: rgb(2, 2, 253);
         opacity: 0.5;
         color: white;
@@ -206,7 +208,7 @@
     } */
 
     .Activities .activities-board {
-        margin: 1rem;
+        margin: 2rem;
         padding: 0.5rem;
 
         height: 500px;
