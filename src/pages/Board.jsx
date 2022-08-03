@@ -25,6 +25,8 @@ export function Board(props) {
     }, []);
 
     const addActivities = (activity) => {
+        // Check if we still need this method ? 
+        // Or we can create new activity on Create activity form and re-render board page ?
         setMyActivities( prev => [...prev,activity]);
     };
 

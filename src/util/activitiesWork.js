@@ -1,6 +1,9 @@
+import { UserInfo } from "@rsuite/icons";
 
 const getActivities = (userId) => {
     // Request backend for the list of activities from userId.
+
+    // fetch(=> backend(express)); // "GET /activities/userId"
 
     // Assuming activities below.
     const activities = [
@@ -90,6 +93,9 @@ const getActivities = (userId) => {
     return activities;
 }
 
+const getUserInfo = () => {
+}
+
 // Get Duration of activities per User
 const getDuration = (activities, activityType) => {
     
@@ -123,3 +129,4 @@ export {
     getDuration,
     getActivities,
  };
+

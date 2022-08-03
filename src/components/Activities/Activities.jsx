@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Activities.css";
 
 import done from "../../assets/icons/done.png";
@@ -21,20 +21,39 @@ export function Activities(props) {
     const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "Loading";
     const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "Loading";
 
+    props.activities.forEach( (activity)=> activity.display = true);
+
     const handleAllFilter = (e) => {
         alert('All');
+        props.activities.forEach( (activity)=> activity.display = true);
+        console.log(props.activities);
     };
 
     const handleDoneFilter = (e) => {
         alert('Done');
+        props.activities.map( activity => {
+            return activity.status==='Done' ? activity.display = true 
+            : activity.display = false;
+        });
+        console.log(props.activities);
     };
 
     const handleOngoingFilter = (e) => {
         alert('Ongoing');
+        props.activities.map( activity => {
+            return activity.status==='Ongoing' ? activity.display = true 
+            : activity.display = false;
+        });
+        console.log(props.activities);
     };
 
     const handleGaveupFilter = (e) => {
         alert('Gaveup');
+        props.activities.map( activity => {
+            return activity.status==='Gaveup' ? activity.display = true 
+            : activity.display = false;
+        });
+        console.log(props.activities);
     };
     
     return (
@@ -72,8 +91,11 @@ export function Activities(props) {
 
             <div className="activities-board">
                 <Newcard />
+                {/* {console.log('board:')}
+                {console.log(props.activities)} */}
 
-                {props.activities.length >=1 &&
+                { props.activities.length >=1 &&
+                    
                     props.activities.map( activity => {
                         if(activity.status==="Ongoing") {
                             return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
@@ -83,6 +105,7 @@ export function Activities(props) {
                             return <Gaveupcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
                         }
                     })
+
                 }
 
             </div>
