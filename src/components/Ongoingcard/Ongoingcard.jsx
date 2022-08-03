@@ -26,30 +26,30 @@ export function Ongoingcard(props) {
         } 
     }
 
-    const confirmDone = () => {
-        let isDone = confirm("Have you finished this activity ?");
-        console.log(isDone);
-        if(isDone) {
-            let score = prompt("Please rate your activity[ 1-5 ]: ", 1 );
-            score = parseInt(score);
-
-            if (score > 0 && score < 6) {
+    const confirmDone = (score) => {
+            if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
-                // Then updating the backend work using the props receiving from parent component.
+                // Remark requiring destructuring object to prevent status change before send to update function.
+                const doneItem = {...activityItem};
+                doneItem.status = "Done";
+                doneItem.score = score;
+                props.handleUpdate(doneItem);  
             } else {
                 alert("Please rate between 1 to 5.")
             }
-        } else {
-            // Do nothing.
-        };
 
         // Do backend work and re-render the main page.
     }
 
-    const confirmGaveup = () => {
+    const confirmGaveup = (e) => {
         let isGaveup = confirm("Do you want to give up ?");
         console.log(isGaveup);
-
+        if(isGaveup) {
+            // Remark requiring destructuring object to prevent status change before send to update function.
+            const gaveupItem = {...activityItem};
+            gaveupItem.status = "Gaveup";
+            props.handleUpdate(gaveupItem);
+        };
         // Do backend work and refresh the main page.
     }
 
@@ -89,7 +89,7 @@ export function Ongoingcard(props) {
             </div>
             <div className="ongoing-card-menu">
                 {/* <button className="done-button" onClick={confirmDone}>Done</button> */}
-                <DoneButton />
+                <DoneButton confirmDone={confirmDone}/>
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>

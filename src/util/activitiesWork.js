@@ -87,7 +87,27 @@ const getActivities = (userId) => {
             status: "Gaveup",
             description: "Go Bicycling with my best friends.",
             score: 0
-        },
+        }, {
+            id: 9,
+            topic: "Losing 8 KG.!",
+            type: "swimming",
+            start: "8/12/2022, 8:00:47 AM",
+            end: "8/12/2022, 9:00:47 AM",
+            location: "Swimming pool",
+            status: "Ongoing",
+            description: "Go swimming with my best friends.",
+            score: 0
+        }, {
+            id: 10,
+            topic: "Losing 7 KG.!",
+            type: "Hiking",
+            start: "8/6/2022, 7:00:00 AM",
+            end: "8/6/2022, 10:30:00 AM",
+            location: "Fuji",
+            status: "Ongoing",
+            description: "Go Hiking with my best friends.",
+            score: 0
+        }
     ];
 
     return activities;
@@ -121,7 +141,7 @@ const getDuration = (activities, activityType) => {
         return parseInt(totalDuration.toFixed(0))
 
     } else {
-        console.log("getDuration error: Please check the incoming activities.")
+        // console.log("getDuration error: Please check the incoming activities.")
     }
 
 }

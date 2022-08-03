@@ -17,6 +17,9 @@ export function Activities(props) {
 
     // expected props ==> 
 
+    // console.log("Activities Page Loaded.");
+    // console.log(props.activities);
+
     const doneActivities = props.activities.filter( (activity) => activity.status === "Done" ).length || "Loading";
     const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "Loading";
     const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "Loading";
@@ -98,7 +101,7 @@ export function Activities(props) {
                     
                     props.activities.map( activity => {
                         if(activity.status==="Ongoing") {
-                            return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                            return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
                         } else if (activity.status==="Done") {
                             return <Donecard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
                         } else if (activity.status==="Gaveup") {
