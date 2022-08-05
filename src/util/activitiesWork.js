@@ -145,6 +145,7 @@ const getDuration = (activities, activityType) => {
     }
 
 }
+
 export { 
     getDuration,
     getActivities,

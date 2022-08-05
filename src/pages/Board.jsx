@@ -50,10 +50,11 @@ export function Board(props) {
                     activity.status = status;
                     activity.description = description;
                     activity.score = score;
+                    // return activity;
+                } 
+                // else {
                     return activity;
-                } else {
-                    return activity;
-                }
+                // }
             }));
 
             console.log("Activities Updated.");
