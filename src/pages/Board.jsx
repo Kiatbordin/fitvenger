@@ -35,19 +35,31 @@ export function Board(props) {
     };
 
     const updateActivities = (editActivity) => {
-        foundIndex = myActivities.findIndex ( activity => activity.id===editActivity.id );
+        const foundIndex = myActivities.findIndex ( activity => activity.id===editActivity.id );
+
         if(foundIndex!==-1) {
             const { id,topic,start,end,location,status,description,score } = editActivity;
-            setMyActivities( ...prev, 
-                activity[foundIndex].id = id,
-                activity[foundIndex].topic = topic,
-                activity[foundIndex].start = start,
-                activity[foundIndex].end = end,
-                activity[foundIndex].location = location,
-                activity[foundIndex].status = status,
-                activity[foundIndex].description = description,
-                activity[foundIndex].score = score,
-                );
+
+            setMyActivities( [...myActivities].map( activity => {
+                if(activity.id === id) {
+                    activity.id = id;
+                    activity.topic = topic;
+                    activity.start = start;
+                    activity.end = end;
+                    activity.location = location;
+                    activity.status = status;
+                    activity.description = description;
+                    activity.score = score;
+                    // return activity;
+                } 
+                // else {
+                    return activity;
+                // }
+            }));
+
+            console.log("Activities Updated.");
+            console.log(myActivities);
+            
         } else {
             console.log(`updateActivities: Not found an activity id:${editActivity.id}`);
         }
@@ -62,6 +74,7 @@ export function Board(props) {
             </div>  
             <Activities 
             activities={myActivities}
+            handleUpdate={updateActivities} 
             handleDelete={deleteActivities}
             />
         </div>
