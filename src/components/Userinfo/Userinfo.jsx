@@ -3,20 +3,12 @@ import "./Userinfo.css";
 
 import { Link } from "react-router-dom";
 
+import {getBMI} from "../../util/activitiesWork.js"
+
 export function Userinfo(props) {
 
-    // expected props
-    const data = {
-        name: "Thomas Alva Edison", 
-        // name: "Very very very very long name. Very very very very long name. Very very very very long name. Very very very very long name. Very very very very long name. Very very very very long name.",
-        age: 29, 
-        height:170, 
-        weight:70, 
-        bmi: 21.6, 
-        totalDuration: 60, 
-        calories: 106, 
-        img:"https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_square.jpg"
-    };
+    const data = props.userInfo;
+    data.bmi = getBMI(props.userInfo.weight, props.userInfo.height);
 
     return (
         <div className="Userinfo">

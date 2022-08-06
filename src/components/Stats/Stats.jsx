@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./Stats.css";
 
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
-import { getDuration } from "../../util/activitiesWork";
+import { getDuration,getCal } from "../../util/activitiesWork";
 
 export function Stats(props) {
 
@@ -12,6 +12,13 @@ export function Stats(props) {
     const totalMinsHike = getDuration(props.activities, "hiking" ) || 0;
     const totalMinsBike = getDuration(props.activities, "bicycling" ) || 0;
     const totalDuration = totalMinsRun + totalMinsWalk + totalMinsSwim + totalMinsHike + totalMinsBike;
+
+    const totalCalRun = getCal("running",props.userInfo.weight,totalMinsRun) || 0;
+    const totalCalWalk = getCal("walking",props.userInfo.weight,totalMinsWalk) || 0;
+    const totalCalSwim = getCal("swimming",props.userInfo.weight,totalMinsSwim) || 0;
+    const totalCalHike = getCal("hiking",props.userInfo.weight,totalMinsHike) || 0;
+    const totalCalBike = getCal("bicycling",props.userInfo.weight,totalMinsBike) || 0;
+    const totalCal = totalCalRun + totalCalWalk + totalCalSwim + totalCalHike + totalCalBike;
 
     const data = [
         {name:"Running", value: totalMinsRun, color: '#0088FE'},
@@ -41,7 +48,7 @@ export function Stats(props) {
                 <h3>Duration</h3>
                 <h4>{totalDuration}</h4>
                 <h3>Calories</h3>
-                <h4>120 CAL</h4>
+                <h4>{totalCal}</h4>
             </div>  
 
             <PieChart width={200} height={200} >
