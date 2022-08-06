@@ -167,6 +167,7 @@ const getDuration = (activities, activityType) => {
 const getBMI = (weight,height) => {
     if( weight && height && typeof weight === 'number' && typeof height === 'number'  ) {
         // BMI = weight(kg) / height(meters) ^ 2
+        
         const BMI = weight/(height * 0.01)**2;
         return BMI.toFixed(2);
     } else {
