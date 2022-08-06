@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -10,7 +10,16 @@ import { Footer } from './components/Footer/Footer.jsx';
 import { CreateActivity } from './pages/CreateActivity.jsx';
 import { EditActivity } from './pages/EditActivity.jsx';
 
+import { getUserInfo } from "../src/util/activitiesWork.js";
+
 function App() {
+
+  // Assume that App received userInfo when login Succesful.
+  const [userInfo,setUserInfo] = useState({});
+  useEffect(() => {
+    const updateUserInfo = {...getUserInfo()};
+    setUserInfo(updateUserInfo);
+  }, []);
 
   const [isLogin,setIsLogin] = useState(true);
 
@@ -27,7 +36,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login isLogin={isLogin} handleLogin={handleLogin}/>}>
             </Route>
-            <Route path="/" element={<Board isLogin={isLogin}/>}>
+            <Route path="/" element={<Board isLogin={isLogin} userInfo={userInfo}/>}>
             </Route>
             <Route path="/create" element={<CreateActivity />}>
             </Route>

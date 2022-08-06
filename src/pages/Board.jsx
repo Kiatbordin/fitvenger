@@ -10,7 +10,10 @@ import { getActivities } from "../util/activitiesWork.js";
 export function Board(props) {
 
     // Board's component has to receive the user's information from App.jsx.
-    const userId = props.userId;
+    const userId = props.userInfo.userId;
+
+
+
     // Board's component will ask the user acitvities from backend using userId.
     // Assume that we have received the user activities as below.
 
@@ -19,7 +22,7 @@ export function Board(props) {
     useEffect( () => {
         // Once this component rendered, It should request the user's information using userID
         // Then update the activities's state.
-        const userId = 50;  // assumming userId
+        // const userId = 50;  // assumming userId
         const updateActivities = [...getActivities(userId)];
         setMyActivities(updateActivities);
     }, []);
@@ -50,11 +53,8 @@ export function Board(props) {
                     activity.status = status;
                     activity.description = description;
                     activity.score = score;
-                    // return activity;
                 } 
-                // else {
                     return activity;
-                // }
             }));
 
             console.log("Activities Updated.");
@@ -68,8 +68,8 @@ export function Board(props) {
     return (
         <div className="Board" >
             <div className="userinfo-stat-tip-container">
-                <Userinfo />
-                <Stats activities={myActivities}/>
+                <Userinfo userInfo={props.userInfo}/>
+                <Stats activities={myActivities} userInfo={props.userInfo}/>
                 <Help />
             </div>  
             <Activities 
