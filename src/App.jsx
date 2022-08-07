@@ -9,7 +9,7 @@ import { Navbar } from './components/Navbar/Navbar.jsx';
 import { Footer } from './components/Footer/Footer.jsx';
 import { CreateActivity } from './pages/CreateActivity.jsx';
 import { EditActivity } from './pages/EditActivity.jsx';
-import { CreateProFile } from './pages/CreateProfile';
+import { CreateProfile } from './pages/CreateProfile.jsx';
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
             </Route>
             <Route path="/edit" element={<EditActivity />}>
             </Route>
-            <Route path="/register" element={<CreateProFile />}>
+            <Route path="/register" element={<CreateProfile/>}>
             </Route>
           </Routes>
         </main>

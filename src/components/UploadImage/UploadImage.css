@@ -1,0 +1,28 @@
+.uploadImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: gray;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.uploadImage .uploadImageContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.uploadImage .uploadImageContent .uploadImageProfileButton {
+    opacity: 0.0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 30%;
+    cursor: pointer;
+}

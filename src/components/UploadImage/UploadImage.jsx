@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import './UploadImage.css'
+
 export function UploadImage() {
     const [file, setFile] = useState();
     function handleChange(e) {
@@ -9,12 +11,11 @@ export function UploadImage() {
 
     return (
         <div className="uploadImage">
-            <div>
-                <input type="file" onChange={handleChange} />
+            <div className="uploadImageContent">
                 <span>+</span>
                 <span>Upload your Image</span>
+                <input type="file" name="" onChange={handleChange} className="uploadImageProfileButton" />
             </div>
-
         </div>
     );
 }
