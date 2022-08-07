@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./Userinfo.css";
 
 import { Link } from "react-router-dom";
 
 import {getBMI} from "../../util/activitiesWork.js"
+
 
 export function Userinfo(props) {
 

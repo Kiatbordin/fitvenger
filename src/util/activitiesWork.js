@@ -6,7 +6,7 @@ const getActivities = (userId) => {
     // fetch(=> backend(express)); // "GET /activities/userId"
 
     // Assuming activities below.
-    console.log(userId);
+    // console.log(userId);
     const activities = [
         {
             id: 1,
@@ -108,6 +108,16 @@ const getActivities = (userId) => {
             status: "Ongoing",
             description: "Go Hiking with my best friends.",
             score: 0
+        }, {
+            id: 11,
+            topic: "Running with family!",
+            type: "running",
+            start: "8/3/2022, 7:00:00 AM",
+            end: "8/3/2022, 9:30:00 AM",
+            location: "beach",
+            status: "Ongoing",
+            description: "Go Running with my Family.",
+            score: 0
         }
     ];
 
@@ -202,7 +212,7 @@ const getCal = (activityType,weight,duration) => {
         console.log(`You play ${activityType} for ${duration} mins and burned ${calories}.`);
         return calories;
     } else {
-        console.log("getCal error: Please check the incoming activityType,weight and duration.")
+        // console.log("getCal error: Please check the incoming activityType,weight and duration.")
     }
 }
 

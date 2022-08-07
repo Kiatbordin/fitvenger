@@ -16,6 +16,10 @@ import { DateRangePicker } from 'rsuite';
 export function Activities(props) {
 
     // expected props ==> 
+    const [filterAll,setFilterAll] = useState(true);
+    const [filterDone,setFilterDone] = useState(false);
+    const [filterOngoing,setFilterOngoing] = useState(false);
+    const [filterGaveup,setFilterGaveup] = useState(false);
 
     // console.log("Activities Page Loaded.");
     // console.log(props.activities);
@@ -24,47 +28,47 @@ export function Activities(props) {
     const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "Loading";
     const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "Loading";
 
-    props.activities.forEach( (activity)=> activity.display = true);
-
     const handleAllFilter = (e) => {
-        alert('All');
-        props.activities.forEach( (activity)=> activity.display = true);
-        console.log(props.activities);
+        setFilterAll(true);
+        setFilterDone(false);
+        setFilterOngoing(false);
+        setFilterGaveup(false);
     };
 
     const handleDoneFilter = (e) => {
-        alert('Done');
-        props.activities.map( activity => {
-            return activity.status==='Done' ? activity.display = true 
-            : activity.display = false;
-        });
-        console.log(props.activities);
+        setFilterAll(false);
+        setFilterDone(true);
+        setFilterOngoing(false);
+        setFilterGaveup(false);
     };
 
     const handleOngoingFilter = (e) => {
-        alert('Ongoing');
-        props.activities.map( activity => {
-            return activity.status==='Ongoing' ? activity.display = true 
-            : activity.display = false;
-        });
-        console.log(props.activities);
+        setFilterAll(false);
+        setFilterDone(false);
+        setFilterOngoing(true);
+        setFilterGaveup(false);
     };
 
     const handleGaveupFilter = (e) => {
-        alert('Gaveup');
-        props.activities.map( activity => {
-            return activity.status==='Gaveup' ? activity.display = true 
-            : activity.display = false;
-        });
-        console.log(props.activities);
+        setFilterAll(false);
+        setFilterDone(false);
+        setFilterOngoing(false);
+        setFilterGaveup(true);
     };
+
+    const handleDateOK = (e) => {
+        console.log(e);
+        console.log("OK Press");
+    }
     
     return (
         <div className="Activities">
 
             <DateRangePicker className="date-container" 
             size="lg" placeholder="Select Date Range"
-            value={[new Date(),new Date()]}/>
+            // value={[new Date(),new Date()]}/>
+            onOk={handleDateOK}
+            />
             
             <div className="summary-container">
                 <img src={done} alt='done' />
@@ -93,22 +97,36 @@ export function Activities(props) {
             {/* <button className="add-button"><img src={add} alt="add-button" /></button> */}
 
             <div className="activities-board">
-                <Newcard />
-                {/* {console.log('board:')}
-                {console.log(props.activities)} */}
 
+                {/* Filtering and condition rendering card */}
+                <Newcard />
                 { props.activities.length >=1 &&
                     
                     props.activities.map( activity => {
-                        if(activity.status==="Ongoing") {
-                            return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
-                        } else if (activity.status==="Done") {
-                            return <Donecard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
-                        } else if (activity.status==="Gaveup") {
-                            return <Gaveupcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
-                        }
-                    })
 
+                        if(filterAll) {
+                            if(activity.status==="Ongoing") {
+                                return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
+                            } else if (activity.status==="Done") {
+                                return <Donecard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                            } else if (activity.status==="Gaveup") {
+                                return <Gaveupcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                            }
+                        } else if(filterDone) {
+                            if (activity.status==="Done") {
+                                return <Donecard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                            } 
+                        } else if(filterOngoing) {
+                            if(activity.status==="Ongoing") {
+                                return <Ongoingcard activity={activity} key={activity.id} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
+                            }
+                        } else if(filterGaveup) {
+                            if (activity.status==="Gaveup") {
+                                return <Gaveupcard activity={activity} key={activity.id} handleDelete={props.handleDelete}/>
+                            }
+                        }
+
+                    })
                 }
 
             </div>
