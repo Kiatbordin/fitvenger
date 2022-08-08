@@ -22,11 +22,36 @@
         font-size: 1.5rem;
     }
 
+    .createProfileForm .profileFrame .profileBox h1 {
+        font-size: 1.5rem;
+    }
+
     .profileFormContainer .profileBox .profileDisplayImage {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+
+    .usernameAndPassword {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .personalInfo {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        flex-basis: content;
+
+    }
+
+    .personalInfoBox {
+        align-items: center;
     }
 }

@@ -44,27 +44,44 @@ export function CreateProfileForm() {
                                     onChange={handleChange} />
                             </label>
                         </div>
-                        <div className='personalInfo'>
-                            <h1>Personal Information </h1>
-                            <div>
-                                <label htmlFor="name">Name: </label>
-                                <input type="text" name="name" value={inputs.name} onChange={handleChange} />
-                                <label htmlFor="height">Height: </label>
-                                <input type="number" name="height" value={inputs.height} onChange={handleChange} />
-                                <label htmlFor="weight">Weight: </label>
-                                <input type="number" name="weight" value={inputs.weight} onChange={handleChange}/>
-                                <label htmlFor="age">Age: </label>
-                                <input type="number" name="age" value={inputs.age} onChange={handleChange}/>
-                                <label>Gender</label>
-                                <select name="gender" value={inputs.gender} onChange={handleChange}>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <span>Goal</span>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div className='personalInfoBox'>
+                            <h1>Personal Information</h1>
+                            <div className='personalInfo'>
+                                <div>
+                                    <label htmlFor="name">Name:
+                                        <input type="text" name="name" value={inputs.name} onChange={handleChange} />
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="height">Height:
+                                        <input type="number" name="height" value={inputs.height} onChange={handleChange} />
+                                    </label>
+                                    <label htmlFor="weight">Weight:
+                                        <input type="number" name="weight" value={inputs.weight} onChange={handleChange} />
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="age">Age:
+                                        <input type="number" name="age" value={inputs.age} onChange={handleChange} />
+                                    </label>
+                                    <label>Gender:
+                                        <select name="gender" value={inputs.gender} onChange={handleChange}>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="goal">Goal
+                                        <textarea name="goal" value={inputs.goal} onChange={handleChange} cols="30" rows="10"></textarea>
+                                    </label>
+                                </div>
                             </div>
+
                             <input type="submit" value="Save" />
-                            <button>Cancel</button>
+                            <input type="submit" value="Cancel" />
                         </div>
 
                     </div>
