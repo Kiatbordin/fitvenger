@@ -36,6 +36,8 @@ function App() {
             </Route>
             <Route path="/register" element={<CreateProfile/>}>
             </Route>
+            <Route path="/profile" element={<EditProfile/>}>
+            </Route>
           </Routes>
         </main>
         <Footer isLogin={isLogin} />

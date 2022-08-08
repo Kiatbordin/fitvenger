@@ -54,4 +54,9 @@
     .personalInfoBox {
         align-items: center;
     }
+
+    .personalInfoThridRow {
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -29,53 +29,77 @@ export function CreateProfileForm() {
                             <UploadImage />
                         </div>
                         <div className="usernameAndPassword">
-                            <label>Username :
+                            <label htmlFor="usernameProfile">Username :
                                 <input
+                                    id="usernameProfile"
                                     type="text"
                                     name="username"
                                     value={inputs.username}
-                                    onChange={handleChange} />
+                                    onChange={handleChange}
+                                    required />
                             </label>
-                            <label>Password :
+                            <label htmlFor="passwordProfile">Password :
                                 <input
+                                    id="passwordProfile"
                                     type="password"
                                     name="password"
                                     value={inputs.password}
-                                    onChange={handleChange} />
+                                    onChange={handleChange}
+                                    required />
                             </label>
                         </div>
                         <div className='personalInfoBox'>
                             <h1>Personal Information</h1>
                             <div className='personalInfo'>
-                                <div>
-                                    <label htmlFor="name">Name:
-                                        <input type="text" name="name" value={inputs.name} onChange={handleChange} />
+                                <div className='personalInfoFirstRow'>
+                                    <label htmlFor="nameProfile">Name:
+                                        <input type="text"
+                                            name="name"
+                                            id="nameProfile"
+                                            value={inputs.name}
+                                            onChange={handleChange}
+                                            required />
                                     </label>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="height">Height:
-                                        <input type="number" name="height" value={inputs.height} onChange={handleChange} />
+                                <div className='personalInfoSecondRow'>
+                                    <label htmlFor="heighProfilet">Height:
+                                        <input type="number"
+                                            id="heightProfile"
+                                            name="height"
+                                            value={inputs.height}
+                                            onChange={handleChange}
+                                            required />
                                     </label>
-                                    <label htmlFor="weight">Weight:
-                                        <input type="number" name="weight" value={inputs.weight} onChange={handleChange} />
+                                    <label htmlFor="weightProfile">Weight:
+                                        <input type="number"
+                                            id="weightProfile"
+                                            name="weight"
+                                            value={inputs.weight}
+                                            onChange={handleChange}
+                                            required />
                                     </label>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="age">Age:
-                                        <input type="number" name="age" value={inputs.age} onChange={handleChange} />
+                                <div className='personalInfoThirdRow'>
+                                    <label htmlFor="ageProfile">Age:
+                                        <input type="number"
+                                            id="ageProfile"
+                                            name="age"
+                                            value={inputs.age}
+                                            onChange={handleChange}
+                                            required />
                                     </label>
                                     <label>Gender:
-                                        <select name="gender" value={inputs.gender} onChange={handleChange}>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
+                                        <select id="genderProfile" name="gender" value={inputs.gender} onChange={handleChange} required>
+                                            <option value="M" selected>Male</option>
+                                            <option value="F">Female</option>
                                         </select>
                                     </label>
                                 </div>
                                 <div>
-                                    <label htmlFor="goal">Goal
-                                        <textarea name="goal" value={inputs.goal} onChange={handleChange} cols="30" rows="10"></textarea>
+                                    <label htmlFor="goalProfile">Goal
+                                        <textarea id="goalProfile" name="goal" value={inputs.goal} onChange={handleChange} cols="30" rows="10" ></textarea>
                                     </label>
                                 </div>
                             </div>
