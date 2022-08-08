@@ -27,6 +27,11 @@ function App() {
     setMyActivities(updateActivities);
   }, []);
 
+  function createActivities(newCard) {
+    const addActivity = {...newCard,status: 'Ongoing',score:0}
+    setMyActivities([addActivity,...myActivities])
+  }
+
   console.log(myActivities);
 
   // Assume that App received userInfo when login Succesful.
@@ -82,7 +87,7 @@ function App() {
   };
 
 
-  const globalContexts = {myActivities,addActivities,deleteActivities,updateActivities};
+  const globalContexts = {myActivities,addActivities,deleteActivities,updateActivities,createActivities};
 
   return (
     <div className="App">
