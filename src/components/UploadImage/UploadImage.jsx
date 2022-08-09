@@ -14,7 +14,7 @@ export function UploadImage() {
             <div className="uploadImageContent">
                 <span>+</span>
                 <span>Upload your Image</span>
-                <input type="file" name="" onChange={handleChange} className="uploadImageProfileButton" />
+                <input type="file" onChange={handleChange} className="uploadImageProfileButton" />
             </div>
         </div>
     );

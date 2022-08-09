@@ -10,6 +10,7 @@ import { Footer } from './components/Footer/Footer.jsx';
 import { CreateActivity } from './pages/CreateActivity.jsx';
 import { EditActivity } from './pages/EditActivity.jsx';
 import { CreateProfile } from './pages/CreateProfile.jsx';
+import { EditProfile } from './pages/CreateProfile';
 
 function App() {
 
@@ -34,9 +35,9 @@ function App() {
             </Route>
             <Route path="/edit" element={<EditActivity />}>
             </Route>
-            <Route path="/register" element={<CreateProfile/>}>
+            <Route path="/register" element={<CreateProfile />}>
             </Route>
-            <Route path="/profile" element={<EditProfile/>}>
+            <Route path="/profile" element={<EditProfile />}>
             </Route>
           </Routes>
         </main>
