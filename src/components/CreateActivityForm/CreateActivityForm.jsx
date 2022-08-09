@@ -1,26 +1,56 @@
-import React from "react";
+import React, { useState,useId, } from "react";
 import "./CreateActivityForm.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { DateRangePicker } from "rsuite";
+import { useContext } from "react";
+import {DataContext} from '../../App'
 
 export function CreateActivityForm(props) {
 
+    const navigate = useNavigate()
+
+    const [formData, setFormData] = useState({
+        id: useId(),
+        topic:'',
+        type:'running',
+        start:'',
+        end:'',
+        location:'',
+        description: ''
+    })
+    const context = useContext(DataContext)
+    const {createActivities} = context
+
+    const handleSubmit = (event) =>{
+        event.preventDefault()
+        createActivities(formData)
+        navigate('/')
+    }
+
+    const handleChange = (event) => {
+        setFormData({...formData,[event.target.name]:event.target.value})
+    }
+    // challenge
     const handleChallengeClick = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
+        const endDate = new Date(formData.start)
+        const endDateAddTime = new Date(endDate.getTime() + (Number(e.target.value) * 60000))
+        // console.log(endDateAddTime)
+        // console.log('test ',endDateAddTime.toLocaleString())
+        const timeChallenge = endDateAddTime.toLocaleString()
+        setFormData({...formData,end:timeChallenge})
     }
+    // End challenge
 
     const handleDateRangePickerOnChange = (e) => {
-        const startTime = e[1].toLocaleString();
-        const endTime = e[0].toLocaleString();
+        const startTime = e[0].toLocaleString();
+        const endTime = e[1].toLocaleString();
+        setFormData({...formData,start:startTime,end:endTime})
         
-        console.log(`
-        ${startTime}, ${endTime}
-        `);
     }
-
+console.log(formData)
     return (
         <div className="CreateActivityForm">
             <div className="activity-frame">
@@ -30,7 +60,7 @@ export function CreateActivityForm(props) {
                     <h1>Create your Activity</h1>
                 </div>
 
-                <form className="form-container">
+                <form onSubmit={handleSubmit} className="form-container">
 
                     {/* Name Box */}
                     <div className="name-box">
@@ -38,7 +68,7 @@ export function CreateActivityForm(props) {
                             <label htmlFor="activityName" className="form-topic-size" >Activity name </label>
                         </div>
                         <div className="name-input-box">
-                            <input type="text" id="activityName" name="topic" maxLength="80"/>
+                            <input onChange={handleChange} type="text" id="activityName" name="topic" maxLength="80"/>
                         </div>
                     </div>
                     {/* Date and Sport Box */}
@@ -67,7 +97,7 @@ export function CreateActivityForm(props) {
                                 <label htmlFor="sport-type" className="form-topic-size">Exercise Type</label>
                             </div>
                             <div className="sport-option-box">
-                                <select id="sport-type" name="sport-type">
+                                <select onChange={handleChange}  id="sport-type" name="type">
                                     <option value="run">running</option>
                                     <option value="walk">walking</option>
                                     <option value="swimming">swimming</option>
@@ -83,7 +113,7 @@ export function CreateActivityForm(props) {
                             <label htmlFor="" className="form-topic-size">Location</label>
                         </div>
                         <div className="location-input-box">
-                            <input type="text" name="location" maxLength="80"/>
+                            <input onChange={handleChange}  type="text" name="location" maxLength="80"/>
                         </div>
                     </div>
                     {/* Description Box */}
@@ -94,23 +124,23 @@ export function CreateActivityForm(props) {
                             </label>
                         </div>
                         <div className="description-input-box">
-                            <textarea name="description" id="description" maxLength="150" ></textarea>
+                            <textarea onChange={handleChange}  name="description" id="description" maxLength="150" ></textarea>
                         </div>
                     </div>
 
                     {/* Challenge Box */}
                     <div className="challenge-container">
                         <label className="form-topic-size">Want to challenge ? </label>
-                        <button className="btn-15" value={15} onClick={handleChallengeClick}>+15 mins</button>
-                        <button className="btn-30" value={30} onClick={handleChallengeClick}>+30 mins</button>
+                        <button className="btn-15" value={15} onClick={handleChallengeClick} disabled={formData.start === ''?true:false}>+15 mins</button>
+                        <button className="btn-30" value={30} onClick={handleChallengeClick} disabled={formData.start === ''?true:false}>+30 mins</button>
                     </div>
 
 
                     {/* Button Box */}
                     <div className="button-container">
-                        <Link to="/">
-                            <button type="submit" className="button-create">Create</button>
-                        </Link>
+                       
+                            <button  type="submit" className="button-create">Create</button>
+                        
                         <Link to="/">
                             <button className="button-cancel">Cancel</button>
                         </Link>
