@@ -10,7 +10,7 @@ import { Footer } from './components/Footer/Footer.jsx';
 import { CreateActivity } from './pages/CreateActivity.jsx';
 import { EditActivity } from './pages/EditActivity.jsx';
 import { CreateProfile } from './pages/CreateProfile.jsx';
-import { EditProfile } from './pages/CreateProfile';
+import { EditProfile } from './pages/EditProfile';
 
 function App() {
 
