@@ -32,7 +32,7 @@ function App() {
     setMyActivities([addActivity,...myActivities])
   }
 
-  console.log(myActivities);
+  // console.log(myActivities);
 
   // Assume that App received userInfo when login Succesful.
   const [userInfo,setUserInfo] = useState({});
@@ -102,7 +102,7 @@ function App() {
               </Route>
               <Route path="/create" element={<CreateActivity />}>
               </Route>
-              <Route path="/edit" element={<EditActivity />}>
+              <Route path="/edit/:id" element={<EditActivity />}>
               </Route>
             </Routes>
           </main>
