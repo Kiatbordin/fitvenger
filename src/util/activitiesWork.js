@@ -124,6 +124,11 @@ const getActivities = (userId) => {
     return activities;
 }
 
+const getActivityById = (userId) => {
+    const activities = getActivities(11);
+    return activities.filter(activity => activity.id==userId)
+}
+
 const getUserInfo = () => {
     const userInfo = {
         userId : 1,

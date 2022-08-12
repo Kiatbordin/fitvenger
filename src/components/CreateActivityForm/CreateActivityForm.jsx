@@ -12,7 +12,7 @@ export function CreateActivityForm(props) {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        id: useId(),
+        id: useId(),        //  Unique ID should be update by the value return from mongoDB after done POST request.
         topic:'',
         type:'running',
         start:'',
@@ -20,11 +20,25 @@ export function CreateActivityForm(props) {
         location:'',
         description: ''
     })
+
+    /* Challenge state */
+    const [challengeMinutes,setChallengeMinutes] = useState(0);
+
     const context = useContext(DataContext)
     const {createActivities} = context
 
-    const handleSubmit = (event) =>{
-        event.preventDefault()
+    const handleSubmit = async(event) =>{
+        event.preventDefault();
+
+        /* move add challenge minutes here */
+        const endDate = new Date(formData.end);
+        const endDateAddTime = new Date(endDate.getTime() + (Number(challengeMinutes) * 60000));
+        const timeChallenge = endDateAddTime.toLocaleString();
+        await setFormData( prev => prev.end = timeChallenge );
+        console.log("setFormData:");
+        console.log(formData);
+        /* */
+
         createActivities(formData)
         navigate('/')
     }
@@ -33,24 +47,22 @@ export function CreateActivityForm(props) {
         setFormData({...formData,[event.target.name]:event.target.value})
     }
     // challenge
-    const handleChallengeClick = (e) => {
+    const handleChallengeClick = async(e) => {
         e.preventDefault();
-        const endDate = new Date(formData.start)
-        const endDateAddTime = new Date(endDate.getTime() + (Number(e.target.value) * 60000))
-        // console.log(endDateAddTime)
-        // console.log('test ',endDateAddTime.toLocaleString())
-        const timeChallenge = endDateAddTime.toLocaleString()
-        setFormData({...formData,end:timeChallenge})
+
+        console.log("value:" + e.target.value);
+        await setChallengeMinutes(e.target.value);
+        console.log("challengeMinutes:" + challengeMinutes);
     }
     // End challenge
 
     const handleDateRangePickerOnChange = (e) => {
+        // console.log(e);
         const startTime = e[0].toLocaleString();
         const endTime = e[1].toLocaleString();
         setFormData({...formData,start:startTime,end:endTime})
-        
     }
-console.log(formData)
+// console.log(formData)
     return (
         <div className="CreateActivityForm">
             <div className="activity-frame">
@@ -68,7 +80,7 @@ console.log(formData)
                             <label htmlFor="activityName" className="form-topic-size" >Activity name </label>
                         </div>
                         <div className="name-input-box">
-                            <input onChange={handleChange} type="text" id="activityName" name="topic" maxLength="80"/>
+                            <input onChange={handleChange} type="text" id="activityName" name="topic" maxLength="80" required/>
                         </div>
                     </div>
                     {/* Date and Sport Box */}
@@ -88,7 +100,8 @@ console.log(formData)
                                 preventOverflow={true}
                                 showMeridian
                                 ranges={[]}
-                                onOk={handleDateRangePickerOnChange} />
+                                disabledDate={DateRangePicker.beforeToday()}
+                                onOk={handleDateRangePickerOnChange} /> 
                             </div>
                         </div>
                         {/* Sport Box */}
@@ -139,7 +152,8 @@ console.log(formData)
                     {/* Button Box */}
                     <div className="button-container">
                        
-                            <button  type="submit" className="button-create">Create</button>
+                            <button  type="submit" className="button-create" 
+                            disabled={(formData.start === '')?true:false}>Create</button>
                         
                         <Link to="/">
                             <button className="button-cancel">Cancel</button>
