@@ -12,7 +12,6 @@ import { getActivities } from "../util/activitiesWork.js";
 export function Board(props) {
 
     const context = useContext(DataContext);
-    console.log("context:",context);
 
     // Board's component has to receive the user's information from App.jsx.
     const userId = props.userInfo.userId;

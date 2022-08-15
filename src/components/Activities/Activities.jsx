@@ -60,6 +60,7 @@ export function Activities(props) {
         console.log(e);
         console.log("OK Press");
     }
+    console.log('activitie',props.activities)
     
     return (
         <div className="Activities">

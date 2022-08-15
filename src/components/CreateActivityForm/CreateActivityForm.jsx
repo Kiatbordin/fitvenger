@@ -6,26 +6,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { DateRangePicker } from "rsuite";
 import { useContext } from "react";
 import {DataContext} from '../../App'
+import axios from "axios";
 
 export function CreateActivityForm(props) {
 
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        id: useId(),        //  Unique ID should be update by the value return from mongoDB after done POST request.
+        // id: useId(),        //  Unique ID should be update by the value return from mongoDB after done POST request.
         topic:'',
         type:'running',
         start:'',
         end:'',
         location:'',
-        description: ''
+        description: '',
+        status:'Ongoing',
+        score: 0,
     })
 
     /* Challenge state */
     const [challengeMinutes,setChallengeMinutes] = useState(0);
 
     const context = useContext(DataContext)
-    const {createActivities} = context
+    const {toggleRender,userInfo} = context
 
     const handleSubmit = async(event) =>{
         event.preventDefault();
@@ -39,8 +42,14 @@ export function CreateActivityForm(props) {
         console.log(formData);
         /* */
 
-        createActivities(formData)
-        navigate('/')
+        try {
+            await axios.post(`http://localhost:3000/user/${userInfo._id}/activities`,formData)
+            toggleRender()
+            navigate('/')
+        } catch (error) {
+            console.log(error.message)
+        }
+        // createActivities(formData)
     }
 
     const handleChange = (event) => {
@@ -114,7 +123,7 @@ export function CreateActivityForm(props) {
                                     <option value="run">running</option>
                                     <option value="walk">walking</option>
                                     <option value="swimming">swimming</option>
-                                    <option value="ride a bike">bycycling</option>
+                                    <option value="bicycling">bicycling</option>
                                     <option value="hiking">hiking</option>
                                 </select>
                             </div>
