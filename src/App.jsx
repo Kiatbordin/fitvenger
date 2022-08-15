@@ -22,11 +22,16 @@ function App() {
 const [render, setRender] = useState(true)
   // Assume that App received userInfo when login Succesful.
   const [userInfo,setUserInfo] = useState({});
-  useEffect(() => {
-    const updateUserInfo = {...getUserInfo()};
-    setUserInfo(updateUserInfo);
-  }, []);
- 
+  // useEffect(() => {
+  //   const updateUserInfo = {...getUserInfo()};
+  //   setUserInfo(updateUserInfo);
+  // }, []);
+ useEffect(()=>{
+  (async ()=>{
+    const userInfo = await axios.get(`http://localhost:3000/user/62f4fadbd892c8566e620880`)
+    setUserInfo(userInfo.data)
+  })()
+ },[])
   
 
   
