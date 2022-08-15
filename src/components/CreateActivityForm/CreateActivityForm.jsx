@@ -123,7 +123,7 @@ export function CreateActivityForm(props) {
                                     <option value="run">running</option>
                                     <option value="walk">walking</option>
                                     <option value="swimming">swimming</option>
-                                    <option value="ride a bike">bycycling</option>
+                                    <option value="bicycling">bicycling</option>
                                     <option value="hiking">hiking</option>
                                 </select>
                             </div>
