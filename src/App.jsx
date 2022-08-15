@@ -14,39 +14,57 @@ import { getUserInfo } from "../src/util/activitiesWork.js";
 
 import { getActivities } from '../src/util/activitiesWork.js';
 
+import axios from 'axios';
+
 export const DataContext = createContext(null);
 
 function App() {
-
-  const [myActivities,setMyActivities] = useState([]);
-  useEffect( () => {
-    // Once this component rendered, It should request the user's information using userID
-    // Then update the activities's state.
-    const userId = 50;  // assumming userId
-    const updateActivities = [...getActivities(userId)];
-    setMyActivities(updateActivities);
-  }, []);
-
-  function createActivities(newCard) {
-    const addActivity = {...newCard,status: 'Ongoing',score:0}
-    setMyActivities([addActivity,...myActivities])
-  }
-
-  // console.log(myActivities);
-
+const [render, setRender] = useState(true)
   // Assume that App received userInfo when login Succesful.
   const [userInfo,setUserInfo] = useState({});
   useEffect(() => {
     const updateUserInfo = {...getUserInfo()};
     setUserInfo(updateUserInfo);
   }, []);
+ 
+  
 
+  
+  console.log(userInfo);
   const [isLogin,setIsLogin] = useState(true);
-
+  
   const handleLogin = (isAllow) => {
     isAllow ? setIsLogin(true) : setIsLogin(false);
     // alert(isLogin);
   }
+  const [myActivities,setMyActivities] = useState([]);
+  // useEffect( () => {
+    // Once this component rendered, It should request the user's information using userID
+    // Then update the activities's state.
+    // const userId = 50;  // assumming userId
+  //   const updateActivities = [...getActivities(userId)];
+  //   setMyActivities(updateActivities);
+  // }, []);
+
+  useEffect(()=>{
+    (async ()=>{
+      if (userInfo._id){
+        const activities = await axios.get(`http://localhost:3000/user/${userInfo._id}/activities`)
+        // console.log(activities);
+        const reId = activities.data.map(activity =>{
+          return {...activity,id: activity._id} 
+        })
+        setMyActivities(reId)
+      }
+    })()
+},[userInfo,render])
+
+  function createActivities(newCard) {
+    const addActivity = {...newCard,status: 'Ongoing',score:0}
+    setMyActivities([addActivity,...myActivities])
+  }
+
+
 
   const addActivities = (activity) => {
     // Check if we still need this method ? 
@@ -85,9 +103,12 @@ function App() {
           console.log(`updateActivities: Not found an activity id:${editActivity.id}`);
       }
   };
+  const toggleRender = ()=>{
+    setRender(prev => !prev)
+  }
 
 
-  const globalContexts = {myActivities,addActivities,deleteActivities,updateActivities,createActivities};
+  const globalContexts = {myActivities,addActivities,deleteActivities,updateActivities,createActivities,toggleRender,userInfo};
 
   return (
     <div className="App">
