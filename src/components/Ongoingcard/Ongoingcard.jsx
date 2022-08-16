@@ -40,7 +40,7 @@ export function Ongoingcard(props) {
                 doneItem.status = "Done";
                 doneItem.score = score;
                 // props.handleUpdate(doneItem);  
-                const edit = await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...doneItem})
+                await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...doneItem})
                 context.toggleRender()
             } else {
                 alert("Please rate between 1 to 5.")
@@ -56,7 +56,7 @@ export function Ongoingcard(props) {
             // Remark requiring destructuring object to prevent status change before send to update function.
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
-            const edit = await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...gaveupItem})
+            await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...gaveupItem})
             context.toggleRender()
             // props.handleUpdate(gaveupItem);
         };
