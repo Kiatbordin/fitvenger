@@ -32,14 +32,16 @@ export function Ongoingcard(props) {
         } 
     }
 
-    const confirmDone = (score) => {
+    const confirmDone = async(score) => {
             if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
                 // Remark requiring destructuring object to prevent status change before send to update function.
                 const doneItem = {...activityItem};
                 doneItem.status = "Done";
                 doneItem.score = score;
-                props.handleUpdate(doneItem);  
+                // props.handleUpdate(doneItem);  
+                await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...doneItem})
+                context.toggleRender()
             } else {
                 alert("Please rate between 1 to 5.")
             }
@@ -47,14 +49,16 @@ export function Ongoingcard(props) {
         // Do backend work and re-render the main page.
     }
 
-    const confirmGaveup = (e) => {
+    const confirmGaveup = async(e) => {
         let isGaveup = confirm("Do you want to give up ?");
         console.log(isGaveup);
         if(isGaveup) {
             // Remark requiring destructuring object to prevent status change before send to update function.
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
-            props.handleUpdate(gaveupItem);
+            await axios.put(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`,{...gaveupItem})
+            context.toggleRender()
+            // props.handleUpdate(gaveupItem);
         };
         // Do backend work and refresh the main page.
     }
