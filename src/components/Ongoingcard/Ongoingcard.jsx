@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 
 import { DoneButton } from "../DoneButton/DoneButton.jsx";
 
+import { API_URL } from "../../util/activitiesWork";
+
 export function Ongoingcard(props) {
 
     const context = useContext(DataContext)
@@ -24,7 +26,7 @@ export function Ongoingcard(props) {
     const handleDelete = async (e) => {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
-            await axios.delete(`http://localhost:3000/user/${context.userInfo._id}/activities/${props.activity.id}`)
+            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`)
             context.toggleRender()
             // props.handleDelete(activityItem);
 
@@ -32,29 +34,41 @@ export function Ongoingcard(props) {
         } 
     }
 
-    const confirmDone = (score) => {
+    const confirmDone = async(score) => {
             if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
                 // Remark requiring destructuring object to prevent status change before send to update function.
                 const doneItem = {...activityItem};
                 doneItem.status = "Done";
                 doneItem.score = score;
-                props.handleUpdate(doneItem);  
+                // props.handleUpdate(doneItem);  
+                try {
+                    // Do backend work and re-render the main page.
+                    const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`,{...doneItem})
+                    // (edit.status >= 200 && edit.status < 300) ? props.handleUpdate(doneItem) : alert("Failed to change activity status.")
+                    context.toggleRender()
+                } catch (err) {
+                    alert("confirmDone catch error: "+ err.message)
+                }
             } else {
                 alert("Please rate between 1 to 5.")
             }
-
-        // Do backend work and re-render the main page.
     }
 
-    const confirmGaveup = (e) => {
+    const confirmGaveup = async(e) => {
         let isGaveup = confirm("Do you want to give up ?");
         console.log(isGaveup);
         if(isGaveup) {
             // Remark requiring destructuring object to prevent status change before send to update function.
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
-            props.handleUpdate(gaveupItem);
+            try {
+                // Do backend work and refresh the main page.
+                const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`,{...gaveupItem})
+                context.toggleRender()
+            } catch (err) {
+                alert("confirmDone catch error: "+ err.message)
+            }
         };
         // Do backend work and refresh the main page.
     }

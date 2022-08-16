@@ -120,8 +120,8 @@ export function CreateActivityForm(props) {
                             </div>
                             <div className="sport-option-box">
                                 <select onChange={handleChange}  id="sport-type" name="type">
-                                    <option value="run">running</option>
-                                    <option value="walk">walking</option>
+                                    <option value="running">running</option>
+                                    <option value="walking">walking</option>
                                     <option value="swimming">swimming</option>
                                     <option value="bicycling">bicycling</option>
                                     <option value="hiking">hiking</option>

@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
+import { DataContext } from "../../App";
 import "./Activities.css";
 
 import done from "../../assets/icons/done.png";
@@ -15,6 +16,9 @@ import { DateRangePicker } from 'rsuite';
 
 export function Activities(props) {
 
+    const context = useContext(DataContext);
+    const {userInfo,filteringDateActivities} = context;
+
     // expected props ==> 
     const [filterAll,setFilterAll] = useState(true);
     const [filterDone,setFilterDone] = useState(false);
@@ -24,9 +28,9 @@ export function Activities(props) {
     // console.log("Activities Page Loaded.");
     // console.log(props.activities);
 
-    const doneActivities = props.activities.filter( (activity) => activity.status === "Done" ).length || "Loading";
-    const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "Loading";
-    const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "Loading";
+    const doneActivities = props.activities.filter( (activity) => activity.status === "Done" ).length || "0";
+    const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "0";
+    const gaveupActivities = props.activities.filter( (activity) => activity.status === "Gaveup" ).length || "0";
 
     const handleAllFilter = (e) => {
         setFilterAll(true);
@@ -57,18 +61,27 @@ export function Activities(props) {
     };
 
     const handleDateOK = (e) => {
-        console.log(e);
+        // console.log(e);
         console.log("OK Press");
+        filteringDateActivities(e[0],e[1]);
     }
-    console.log('activitie',props.activities)
+
+    const handleClean = (e) => {
+        console.log("onclean")
+        console.log(e);
+        context.toggleRender()
+    }
+
+    // console.log('activitie',props.activities)
     
     return (
         <div className="Activities">
 
             <DateRangePicker className="date-container" 
             size="lg" placeholder="Select Date Range"
-            // value={[new Date(),new Date()]}/>
+            ranges={[]}
             onOk={handleDateOK}
+            onClean={handleClean}
             />
             
             <div className="summary-container">
