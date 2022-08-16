@@ -8,15 +8,22 @@ import hiking from "../../assets/icons/hiking.png"
 import bicycling from "../../assets/icons/bicycling.png"
 import deleteButton from "../../assets/icons/deleteButton.png"
 
+import axios from "axios";
+import { useContext } from "react"
+import {DataContext} from '../../App'
+import { API_URL } from "../../util/activitiesWork";
+
 export function Gaveupcard(props) {
 
+    const context = useContext(DataContext)
     const activityItem = props.activity;
 
-    const handleDelete = (e) => {
+    const handleDelete = async(e) => {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
-            props.handleDelete(activityItem);
-
+            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`)
+            context.toggleRender()
+            // props.handleDelete(activityItem);
             // Then updating the database.
         } 
     }

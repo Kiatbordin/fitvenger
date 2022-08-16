@@ -1,5 +1,7 @@
 import { UserInfo } from "@rsuite/icons";
 
+const API_URL = "http://localhost:3000";
+
 const getActivities = (userId) => {
     // Request backend for the list of activities from userId.
 
@@ -222,6 +224,7 @@ const getCal = (activityType,weight,duration) => {
 }
 
 export { 
+    API_URL,
     getUserInfo,
     getDuration,
     getBMI,

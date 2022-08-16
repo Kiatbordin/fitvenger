@@ -12,7 +12,7 @@ import { EditActivity } from "./pages/EditActivity.jsx";
 
 import { getUserInfo } from "../src/util/activitiesWork.js";
 
-import { getActivities } from "../src/util/activitiesWork.js";
+import { API_URL,getActivities } from "../src/util/activitiesWork.js";
 
 import axios from "axios";
 
@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const userInfo = await axios.get(
-        `http://localhost:3000/user/62f4fadbd892c8566e620880`
+        `${API_URL}/user/62f4fadbd892c8566e620880`
       );
       setUserInfo(userInfo.data);
     })();
@@ -55,7 +55,7 @@ function App() {
     (async () => {
       if (userInfo._id) {
         const activities = await axios.get(
-          `http://localhost:3000/user/${userInfo._id}/activities`
+          `${API_URL}/user/${userInfo._id}/activities`
         );
         // console.log(activities);
         const reId = activities.data.map((activity) => {
@@ -122,6 +122,37 @@ function App() {
       );
     }
   };
+
+  const filteringDateActivities = async(from,to) => {
+    console.log("from: "+from+" to: "+to);
+
+    /* convert start and end date to ISO string before send to backend */
+    const fromDate = new Date(from);
+    fromDate.setHours(0,0,0,0)
+    const fromDateSetStartDay = fromDate.toISOString();
+    const toDate = new Date(to);
+    toDate.setHours(23,59,59,999);
+    const toDateSetEndDay = toDate.toISOString();
+    const queryString = `${API_URL}/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`;
+    console.log(queryString);
+    // setMyActivities([...filteredActivities]); 
+    try {
+      const response = await axios.get(queryString);
+      console.log(response.data);
+      /* convert date to local format if the acvities length != 0 */
+      if(response.data.length !== 0) {
+        response.data.map( activity => {
+            activity.id = activity._id;
+            activity.start = new Date(activity.start).toLocaleString();
+            activity.end = new Date(activity.end).toLocaleString();
+        });
+      }
+      setMyActivities([...response.data]); 
+    } catch (err) {
+      console.log("filteringDateActivities Catch error" + err.message);
+    }
+  };
+
   const toggleRender = () => {
     setRender((prev) => !prev);
   };
@@ -132,6 +163,7 @@ function App() {
     deleteActivities,
     updateActivities,
     createActivities,
+    filteringDateActivities,
     toggleRender,
     userInfo,
   };
