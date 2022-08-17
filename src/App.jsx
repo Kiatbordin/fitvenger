@@ -184,7 +184,7 @@ function App() {
                 element={<Board isLogin={isLogin} userInfo={userInfo} />}
               ></Route>
               <Route path="/create" element={<CreateActivity />}></Route>
-              <Route path="/edit/:id" element={<EditActivity />}></Route>
+              <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route>
             </Routes>
           </main>
           <Footer isLogin={isLogin} />

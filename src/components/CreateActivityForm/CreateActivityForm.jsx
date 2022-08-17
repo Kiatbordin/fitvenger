@@ -38,8 +38,8 @@ export function CreateActivityForm(props) {
         const endDateAddTime = new Date(endDate.getTime() + (Number(challengeMinutes) * 60000));
         const timeChallenge = endDateAddTime.toLocaleString();
         await setFormData( prev => prev.end = timeChallenge );
-        console.log("setFormData:");
-        console.log(formData);
+        // console.log("setFormData:");
+        // console.log(formData);
         /* */
 
         try {
