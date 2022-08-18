@@ -1,15 +1,64 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./EditActivityForm.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { DateRangePicker } from "rsuite";
 
+import { useContext } from "react";
+import { DataContext } from "../../App";
+import axios from "axios";
+import { API_URL } from "../../util/activitiesWork";
+
 export function EditActivityForm(props) {
 
-    const handleChallengeClick = (e) => {
-        e.preventDefault();
-        console.log(e.target.value);
+    const navigate = useNavigate()
+
+    const [formData, setFormData] = useState({ });
+    useEffect( ()=>{
+        /* Get activity from userId and activityId from Backend and set State */
+        (async() => {
+            const queryString = `${API_URL}/user/${props.userId}/activities/${props.activityId}`;
+            console.log(queryString);
+            try {
+                const response = await axios.get(queryString);
+                /* convert start and end date from string to date type and setForm */
+                response.data.start = new Date(response.data.start)
+                response.data.end = new Date(response.data.end)
+                setFormData(response.data);
+            } catch (err) {
+                console.log("getEditActivities Catch error" + err.message);
+            }
+        })();
+
+    },[]);
+
+    const context = useContext(DataContext)
+    const {toggleRender,userInfo} = context
+
+    const handleChange = (event) => {
+        setFormData({...formData,[event.target.name]:event.target.value})
+        // console.log(formData);
+    }
+
+    const handleDateRangePickerOnChange = (e) => {
+        const startTime = e[0];
+        const endTime = e[1];
+        setFormData({...formData,start:startTime,end:endTime})
+    }
+
+    const handleSubmit = async(event) =>{
+        event.preventDefault();
+        console.log("submit form");
+        console.log(formData);
+
+        try {
+            const edit = await axios.put(`${API_URL}/user/${props.userId}/activities/${props.activityId}`,{...formData})
+            toggleRender()
+            navigate('/home')
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 
     return (
@@ -21,7 +70,7 @@ export function EditActivityForm(props) {
                     <h1>Edit your Activity</h1>
                 </div>
 
-                <form className="form-container">
+                <form onSubmit={handleSubmit} className="form-container">
 
                     {/* Name Box */}
                     <div className="name-box">
@@ -29,7 +78,9 @@ export function EditActivityForm(props) {
                             <label htmlFor="activityName" className="form-topic-size" >Activity name </label>
                         </div>
                         <div className="name-input-box">
-                            <input type="text" id="activityName" name="topic" maxLength="80"/>
+                            <input type="text" id="activityName" name="topic" maxLength="80"
+                            defaultValue={formData.topic} onChange={handleChange}
+                            />
                         </div>
                     </div>
                     {/* Date and Sport Box */}
@@ -45,6 +96,10 @@ export function EditActivityForm(props) {
                                 id="schedule" name="schedule"
                                 placeholder="Select Date Range" 
                                 format="yyyy-MM-dd HH:mm:ss" 
+                                cleanable={false}
+                                ranges={[]}
+                                value={[formData.start,formData.end]}
+                                onOk={handleDateRangePickerOnChange}
                                 />
                             </div>
                         </div>
@@ -54,11 +109,13 @@ export function EditActivityForm(props) {
                                 <label htmlFor="sport-type" className="form-topic-size">Exercise Type</label>
                             </div>
                             <div className="sport-option-box">
-                                <select id="sport-type" name="sport-type">
-                                    <option value="run">running</option>
-                                    <option value="walk">walking</option>
+                                <select id="sport-type" name="type" 
+                                value={formData.type} onChange={handleChange}
+                                >
+                                    <option value="running">running</option>
+                                    <option value="walking">walking</option>
                                     <option value="swimming">swimming</option>
-                                    <option value="ride a bike">bycycling</option>
+                                    <option value="bicycling">bicycling</option>
                                     <option value="hiking">hiking</option>
                                 </select>
                             </div>
@@ -70,7 +127,9 @@ export function EditActivityForm(props) {
                             <label htmlFor="" className="form-topic-size">Location</label>
                         </div>
                         <div className="location-input-box">
-                            <input type="text" name="location" maxLength="80"/>
+                            <input type="text" name="location" maxLength="80"
+                            defaultValue={formData.location} onChange={handleChange}
+                            />
                         </div>
                     </div>
                     {/* Description Box */}
@@ -81,15 +140,17 @@ export function EditActivityForm(props) {
                             </label>
                         </div>
                         <div className="description-input-box">
-                            <textarea name="description" id="description" maxLength="150" ></textarea>
+                            <textarea name="description" id="description" maxLength="150" 
+                            value={formData.description} onChange={handleChange}
+                            ></textarea>
                         </div>
                     </div>
 
                     {/* Button Box */}
                     <div className="button-container">
-                        <Link to="/">
+                        {/* <Link to="/"> */}
                             <button type="submit" className="button-edit">Save</button>
-                        </Link>
+                        {/* </Link> */}
                         <Link to="/">
                             <button className="button-cancel">Cancel</button>
                         </Link>

@@ -18,57 +18,6 @@ export function Board(props) {
 
     const {myActivities,addActivities,deleteActivities,updateActivities} = context;
 
-    // Board's component will ask the user acitvities from backend using userId.
-    // Assume that we have received the user activities as below.
-
-    // const [myActivities,setMyActivities] = useState([]);
-
-    // useEffect( () => {
-    //     // Once this component rendered, It should request the user's information using userID
-    //     // Then update the activities's state.
-    //     // const userId = 50;  // assumming userId
-    //     const updateActivities = [...getActivities(userId)];
-    //     setMyActivities(updateActivities);
-    // }, []);
-
-    // const addActivities = (activity) => {
-    //     // Check if we still need this method ? 
-    //     // Or we can create new activity on Create activity form and re-render board page ?
-    //     setMyActivities( prev => [...prev,activity]);
-    // };
-
-    // const deleteActivities = (activity) => {
-    //     setMyActivities(myActivities.filter(remainActivity=>remainActivity.id !== activity.id));
-    // };
-
-    // const updateActivities = (editActivity) => {
-    //     const foundIndex = myActivities.findIndex ( activity => activity.id===editActivity.id );
-
-    //     if(foundIndex!==-1) {
-    //         const { id,topic,start,end,location,status,description,score } = editActivity;
-
-    //         setMyActivities( [...myActivities].map( activity => {
-    //             if(activity.id === id) {
-    //                 activity.id = id;
-    //                 activity.topic = topic;
-    //                 activity.start = start;
-    //                 activity.end = end;
-    //                 activity.location = location;
-    //                 activity.status = status;
-    //                 activity.description = description;
-    //                 activity.score = score;
-    //             } 
-    //                 return activity;
-    //         }));
-
-    //         console.log("Activities Updated.");
-    //         console.log(myActivities);
-            
-    //     } else {
-    //         console.log(`updateActivities: Not found an activity id:${editActivity.id}`);
-    //     }
-    // };
-
     return (
         <div className="Board" >
             <div className="userinfo-stat-tip-container">

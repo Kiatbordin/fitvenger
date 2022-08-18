@@ -7,6 +7,7 @@ import { DateRangePicker } from "rsuite";
 import { useContext } from "react";
 import {DataContext} from '../../App'
 import axios from "axios";
+import { API_URL } from "../../util/activitiesWork";
 
 export function CreateActivityForm(props) {
 
@@ -38,14 +39,14 @@ export function CreateActivityForm(props) {
         const endDateAddTime = new Date(endDate.getTime() + (Number(challengeMinutes) * 60000));
         const timeChallenge = endDateAddTime.toLocaleString();
         await setFormData( prev => prev.end = timeChallenge );
-        console.log("setFormData:");
-        console.log(formData);
+        // console.log("setFormData:");
+        // console.log(formData);
         /* */
 
         try {
-            await axios.post(`http://localhost:3000/user/${userInfo._id}/activities`,formData)
+            await axios.post(`${API_URL}/user/${userInfo._id}/activities`,formData)
             toggleRender()
-            navigate('/')
+            navigate('/home')
         } catch (error) {
             console.log(error.message)
         }
@@ -164,7 +165,7 @@ export function CreateActivityForm(props) {
                             <button  type="submit" className="button-create" 
                             disabled={(formData.start === '')?true:false}>Create</button>
                         
-                        <Link to="/">
+                        <Link to="/home">
                             <button className="button-cancel">Cancel</button>
                         </Link>
                     </div>

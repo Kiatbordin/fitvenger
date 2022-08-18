@@ -48,7 +48,7 @@ export function Stats(props) {
                 <h3>Duration</h3>
                 <h4>{totalDuration}</h4>
                 <h3>Calories</h3>
-                <h4>{totalCal}</h4>
+                <h4>{totalCal.toFixed(2)}</h4>
             </div>  
 
             <PieChart width={200} height={200} >

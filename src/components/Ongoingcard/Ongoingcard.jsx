@@ -115,7 +115,7 @@ export function Ongoingcard(props) {
             <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>
             {/* <img className="next-button" src={nextButton} alt="delete-icon" /> */}
 
-            <Link to="/edit">
+            <Link to={`/edit/${context.userInfo._id}/activities/${activityItem._id}`}>
                 <img className="next-button" src={nextButton} alt="next-icon" />
             </Link>
 
