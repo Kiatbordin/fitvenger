@@ -28,6 +28,13 @@
     /* transform: translate(-50%, -50%); */
     transform: translate(-50%, 0%);
   }
+
+  .App .Register {
+    position: absolute;
+    top:55%;
+    left: 55%;
+    transform: translate(-55%, -55%);
+  }
 }
 /* Extra larger devices (768px and up) */
 @media screen and (min-width: 768px) {
@@ -49,5 +56,12 @@
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .App .Register {
+    position: absolute;
+    top:55%;
+    left: 50%;
+    transform: translate(-55%, -50%);
   }
 }
