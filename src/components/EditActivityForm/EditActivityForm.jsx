@@ -55,7 +55,7 @@ export function EditActivityForm(props) {
         try {
             const edit = await axios.put(`${API_URL}/user/${props.userId}/activities/${props.activityId}`,{...formData})
             toggleRender()
-            navigate('/')
+            navigate('/home')
         } catch (error) {
             console.log(error.message)
         }

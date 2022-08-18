@@ -22,21 +22,17 @@ function App() {
   const [render, setRender] = useState(true);
   // Assume that App received userInfo when login Succesful.
   const [userInfo, setUserInfo] = useState({});
-  // useEffect(() => {
-  //   const updateUserInfo = {...getUserInfo()};
-  //   setUserInfo(updateUserInfo);
-  // }, []);
   useEffect(() => {
-    (async () => {
-      const userInfo = await axios.get(
-        `${API_URL}/user/62f4fadbd892c8566e620880`
-      );
-      setUserInfo(userInfo.data);
-    })();
+    // (async () => {
+    //   const userInfo = await axios.get(
+    //     `${API_URL}/user/62f4fadbd892c8566e620880`
+    //   );
+    //   setUserInfo(userInfo.data);
+    // })();
   }, []);
 
   console.log(userInfo);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleLogin = (isAllow) => {
     isAllow ? setIsLogin(true) : setIsLogin(false);
@@ -166,6 +162,7 @@ function App() {
     filteringDateActivities,
     toggleRender,
     userInfo,
+    setUserInfo
   };
 
   return (
@@ -175,16 +172,29 @@ function App() {
           <Navbar isLogin={isLogin} />
           <main>
             <Routes>
-              <Route
+
+              {/* <Route
                 path="/login"
                 element={<Login isLogin={isLogin} handleLogin={handleLogin} />}
               ></Route>
               <Route
                 path="/"
-                element={<Board isLogin={isLogin} userInfo={userInfo} />}
+                element={<Board userInfo={userInfo} />}
               ></Route>
-              <Route path="/create" element={<CreateActivity />}></Route>
+              <Route exact path="/create" element={<CreateActivity />}></Route>
+              <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route> */}
+
+              <Route
+                path="/"
+                element={<Login isLogin={isLogin} handleLogin={handleLogin} />}
+              ></Route>
+              <Route
+                path="/home"
+                element={<Board userInfo={userInfo} />}
+              ></Route>
+              <Route exact path="/create" element={<CreateActivity />}></Route>
               <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route>
+
             </Routes>
           </main>
           <Footer isLogin={isLogin} />

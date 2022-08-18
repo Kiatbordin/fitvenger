@@ -18,7 +18,7 @@ export function Userinfo(props) {
                     <img src={data.img} alt={data.name} />
                     <h1>{data.name}</h1>
                 </div>
-                <Link to="/login">
+                <Link to="/">
                     <button>Log out</button>
                 </Link>
             </div>

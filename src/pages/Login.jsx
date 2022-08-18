@@ -3,7 +3,15 @@ import "./Login.css";
 
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+import { DataContext } from "../App";
+import axios from "axios";
+import { API_URL } from "../util/activitiesWork";
+
 export function Login(props) {
+
+    const context = useContext(DataContext)
+    const {setUserInfo,userInfo} = context
 
     let navigate = useNavigate();
 
@@ -13,21 +21,35 @@ export function Login(props) {
     const [password,setPassword] = useState("");
     const handleChangePassword = (e) => { setPassword(e.target.value)}
 
-    const checkLogin = (e) => {
+    const checkLogin = async(e) => {
+        // // Temporary user information
+        // // Temporary check username and password [T/F]
+        // const tempUsername = 'myusername';
+        // const tempPassword = 'mypassword';
+        // if(username === tempUsername && password === tempPassword) {
+        //     props.handleLogin(true);
+        //     // alert("Login Successful");
+        //     navigate("/"); // redirect to home
+        // } else {
+        //     alert("The username or password is incorrect");
+        // }
 
-        // Checking the username and password from somewhere..
-        // Temporary user information
-        const tempUsername = 'myusername';
-        const tempPassword = 'mypassword';
-        // Temporary check username and password [T/F]
 
-        if(username === tempUsername && password === tempPassword) {
-            props.handleLogin(true);
-            // alert("Login Successful");
-            navigate("/"); // redirect to home
-        } else {
-            alert("The username or password is incorrect");
+        e.preventDefault();
+        try {
+          const loginResult = await axios.post(`${API_URL}/login`,{
+            username : username,
+            password : password
+          })
+          if(loginResult.data) {
+            setUserInfo(loginResult.data);
+            navigate("/home"); // redirect to home
+          }
+        } catch (err) {
+          alert('Please check the username and password.');
+          console.log(`checkLogin catch Error:${err.message}`);
         }
+
     }
 
     return (
@@ -42,7 +64,7 @@ export function Login(props) {
           <div>
             <label htmlFor="password">Password : </label>
             <input id="password" type="password" placeholder="password" onChange={handleChangePassword}
-            minLength="8" maxLength="12" required></input>
+            minLength="8" maxLength="16" required></input>
           </div>
           <div>
             <button>Register</button>
