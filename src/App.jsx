@@ -54,7 +54,8 @@ function App() {
         const activities = await axios.get(
           `${API_URL}/user/${userInfo._id}/activities`
         );
-        // console.log(activities);
+        console.log("Before activities");
+        console.log(activities);
         const reId = activities.data.map((activity) => {
           return {
             ...activity,
@@ -67,6 +68,7 @@ function App() {
       }
     })();
   }, [userInfo, render]);
+  console.log("loaded Activities");
   console.log(myActivities);
 
   function createActivities(newCard) {
