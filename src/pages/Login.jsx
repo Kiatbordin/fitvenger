@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./Login.css";
 
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
 import { DataContext } from "../App";
@@ -52,22 +52,31 @@ export function Login(props) {
 
     }
 
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+          e.preventDefault();
+      }
+    }
+
     return (
       <div className="Login">
         <h3>Log-in</h3>
         <form className="input-container">
           <div>
             <label htmlFor="username">Username: </label>
-            <input id="username" type="text" placeholder="username" onChange={handleChangeUsername}
+            <input id="username" type="text" placeholder="username" onChange={handleChangeUsername} onKeyDown={handleKeyDown}
             minLength="8" maxLength="12" required></input>
           </div>
           <div>
             <label htmlFor="password">Password : </label>
-            <input id="password" type="password" placeholder="password" onChange={handleChangePassword}
+            <input id="password" type="password" placeholder="password" onChange={handleChangePassword} onKeyDown={handleKeyDown}
             minLength="8" maxLength="16" required></input>
           </div>
           <div>
-            <button>Register</button>
+            <Link to="/register">
+              <button>Register</button>
+            </Link>
+
             <button onClick={checkLogin} >Login</button>
           </div>
         </form>

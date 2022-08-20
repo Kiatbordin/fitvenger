@@ -151,7 +151,7 @@ export function EditActivityForm(props) {
                         {/* <Link to="/"> */}
                             <button type="submit" className="button-edit">Save</button>
                         {/* </Link> */}
-                        <Link to="/">
+                        <Link to="/home">
                             <button className="button-cancel">Cancel</button>
                         </Link>
 

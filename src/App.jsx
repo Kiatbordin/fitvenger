@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar/Navbar.jsx";
 import { Footer } from "./components/Footer/Footer.jsx";
 import { CreateActivity } from "./pages/CreateActivity.jsx";
 import { EditActivity } from "./pages/EditActivity.jsx";
+import { Register } from "./pages/Register.jsx"
 
 import { getUserInfo } from "../src/util/activitiesWork.js";
 
@@ -53,7 +54,8 @@ function App() {
         const activities = await axios.get(
           `${API_URL}/user/${userInfo._id}/activities`
         );
-        // console.log(activities);
+        console.log("Before activities");
+        console.log(activities);
         const reId = activities.data.map((activity) => {
           return {
             ...activity,
@@ -66,6 +68,7 @@ function App() {
       }
     })();
   }, [userInfo, render]);
+  console.log("loaded Activities");
   console.log(myActivities);
 
   function createActivities(newCard) {
@@ -162,7 +165,8 @@ function App() {
     filteringDateActivities,
     toggleRender,
     userInfo,
-    setUserInfo
+    setUserInfo,
+    setMyActivities
   };
 
   return (
@@ -194,6 +198,7 @@ function App() {
               ></Route>
               <Route exact path="/create" element={<CreateActivity />}></Route>
               <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route>
+              <Route exact path="/register" element={<Register />}></Route>
 
             </Routes>
           </main>
