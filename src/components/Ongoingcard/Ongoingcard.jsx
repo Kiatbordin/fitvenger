@@ -26,7 +26,7 @@ export function Ongoingcard(props) {
     const handleDelete = async (e) => {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
-            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`)
+            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
             // props.handleDelete(activityItem);
 
@@ -35,17 +35,19 @@ export function Ongoingcard(props) {
     }
 
     const confirmDone = async(score) => {
+            // console.log(activityItem);
+
             if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
                 // Remark requiring destructuring object to prevent status change before send to update function.
+                
                 const doneItem = {...activityItem};
                 doneItem.status = "Done";
                 doneItem.score = score;
-                // props.handleUpdate(doneItem);  
+                console.log(doneItem);
                 try {
                     // Do backend work and re-render the main page.
-                    const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`,{...doneItem})
-                    // (edit.status >= 200 && edit.status < 300) ? props.handleUpdate(doneItem) : alert("Failed to change activity status.")
+                    const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
                     context.toggleRender()
                 } catch (err) {
                     alert("confirmDone catch error: "+ err.message)
@@ -64,7 +66,7 @@ export function Ongoingcard(props) {
             gaveupItem.status = "Gaveup";
             try {
                 // Do backend work and refresh the main page.
-                const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity.id}`,{...gaveupItem})
+                const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...gaveupItem})
                 context.toggleRender()
             } catch (err) {
                 alert("confirmDone catch error: "+ err.message)
@@ -100,8 +102,8 @@ export function Ongoingcard(props) {
                 <div className="activity-details-box">
                     <h2>{activityItem.topic}</h2>
                     <span>Type: {activityItem.type}</span>
-                    <span>From: {activityItem.start}</span>
-                    <span>To: {activityItem.end}</span>
+                    <span>From: {new Date(activityItem.start).toLocaleString()}</span>
+                    <span>To: {new Date(activityItem.end).toLocaleString()}</span>
                     <span>Location: {activityItem.location}</span>
                     <span>Status: {activityItem.status}</span>
                     <span>Description: {activityItem.description}</span>

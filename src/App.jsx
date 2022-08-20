@@ -60,8 +60,10 @@ function App() {
           return {
             ...activity,
             id: activity._id,
-            start: new Date(activity.start).toLocaleString(),
-            end: new Date(activity.end).toLocaleString(),
+            // start: new Date(activity.start).toLocaleString(),
+            // end: new Date(activity.end).toLocaleString(),
+            start: new Date(activity.start).toISOString(),
+            end: new Date(activity.end).toISOString(),
           };
         });
         setMyActivities(reId);

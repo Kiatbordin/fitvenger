@@ -37,20 +37,10 @@ export function CreateActivityForm(props) {
         /* move add challenge minutes here */
         const endDate = new Date(formData.end);
         const endDateAddTime = new Date(endDate.getTime() + (Number(challengeMinutes) * 60000));
-        const timeChallenge = endDateAddTime.toLocaleString();
-        // const timeChallenge = endDateAddTime.toString();
+        const timeChallenge = endDateAddTime.toISOString();
 
-        console.log("endDateAddTime");
-        console.log(endDateAddTime.toLocaleDateString());
-        console.log(endDateAddTime.toISOString());
-        console.log(endDateAddTime.toString());
-
-        // console.log("endDateAddTime");
-        // console.log(endDateAddTime);
-        // console.log("timeChallenge");
-        // console.log(timeChallenge);
-        // await setFormData( prev => prev.end = timeChallenge );
-        // /* */
+        await setFormData( prev => prev.end = timeChallenge );
+        /* */
 
         try {
             await axios.post(`${API_URL}/user/${userInfo._id}/activities`,formData)
@@ -76,8 +66,8 @@ export function CreateActivityForm(props) {
 
     const handleDateRangePickerOnChange = (e) => {
         // console.log(e);
-        const startTime = e[0].toLocaleString();
-        const endTime = e[1].toLocaleString();
+        const startTime = e[0].toISOString();
+        const endTime = e[1].toISOString();
         setFormData({...formData,start:startTime,end:endTime})
     }
 // console.log(formData)
