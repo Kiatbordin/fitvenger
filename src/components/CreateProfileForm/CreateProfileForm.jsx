@@ -73,8 +73,12 @@ export function CreateProfileForm(props) {
         try {
             console.log(registerData);
             const result = await axios.post(`${API_URL}/user`,registerData)
-            alert("Your account has been created.");
-            navigate('/')
+            if(result.data.includes("Users validation failed: username: Error, expected `username` to be unique.")) {
+                alert("The username is already being used.");
+            } else {
+                alert("Your account has been created.");
+                navigate('/')
+            }
         } catch (err) {
             console.log(err.message);
         }
