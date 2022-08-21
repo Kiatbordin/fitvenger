@@ -11,7 +11,7 @@ import { API_URL } from "../util/activitiesWork";
 export function Login(props) {
 
     const context = useContext(DataContext)
-    const {setUserInfo,userInfo} = context
+    const {setUserInfo,userInfo,setIsLogin} = context
 
     let navigate = useNavigate();
 
@@ -22,26 +22,15 @@ export function Login(props) {
     const handleChangePassword = (e) => { setPassword(e.target.value)}
 
     const checkLogin = async(e) => {
-        // // Temporary user information
-        // // Temporary check username and password [T/F]
-        // const tempUsername = 'myusername';
-        // const tempPassword = 'mypassword';
-        // if(username === tempUsername && password === tempPassword) {
-        //     props.handleLogin(true);
-        //     // alert("Login Successful");
-        //     navigate("/"); // redirect to home
-        // } else {
-        //     alert("The username or password is incorrect");
-        // }
-
-
         e.preventDefault();
+        document.body.style.cursor = 'wait';
         try {
           const loginResult = await axios.post(`${API_URL}/login`,{
             username : username,
             password : password
           })
           if(loginResult.data) {
+            setIsLogin(true);
             setUserInfo(loginResult.data);
             navigate("/home"); // redirect to home
           }
@@ -49,35 +38,29 @@ export function Login(props) {
           alert('Please check the username and password.');
           console.log(`checkLogin catch Error:${err.message}`);
         }
-
-    }
-
-    const handleKeyDown = (e) => {
-      if (e.key === "Enter") {
-          e.preventDefault();
-      }
+        document.body.style.cursor = 'default';
     }
 
     return (
       <div className="Login">
         <h3>Log-in</h3>
-        <form className="input-container">
+        <form className="input-container" onSubmit={checkLogin}>
           <div>
             <label htmlFor="username">Username: </label>
-            <input id="username" type="text" placeholder="username" onChange={handleChangeUsername} onKeyDown={handleKeyDown}
+            <input id="username" type="text" placeholder="username" onChange={handleChangeUsername} 
             minLength="8" maxLength="12" required></input>
           </div>
           <div>
             <label htmlFor="password">Password : </label>
-            <input id="password" type="password" placeholder="password" onChange={handleChangePassword} onKeyDown={handleKeyDown}
+            <input id="password" type="password" placeholder="password" onChange={handleChangePassword} 
             minLength="8" maxLength="16" required></input>
           </div>
           <div>
             <Link to="/register">
-              <button>Register</button>
+              <button type="button">Register</button>
             </Link>
 
-            <button onClick={checkLogin} >Login</button>
+            <button type="submit" >Login</button>
           </div>
         </form>
       </div>

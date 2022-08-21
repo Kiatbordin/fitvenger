@@ -49,8 +49,7 @@ export function EditActivityForm(props) {
 
     const handleSubmit = async(event) =>{
         event.preventDefault();
-        console.log("submit form");
-        console.log(formData);
+        document.body.style.cursor = 'wait';
 
         try {
             const edit = await axios.put(`${API_URL}/user/${props.userId}/activities/${props.activityId}`,{...formData})
@@ -59,6 +58,7 @@ export function EditActivityForm(props) {
         } catch (error) {
             console.log(error.message)
         }
+        document.body.style.cursor = 'default';
     }
 
     return (

@@ -26,17 +26,19 @@ export function Ongoingcard(props) {
     const handleDelete = async (e) => {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
+            document.body.style.cursor = 'wait';
             await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
             // props.handleDelete(activityItem);
 
             // Then updating the database.
         } 
+        document.body.style.cursor = 'default';
     }
 
     const confirmDone = async(score) => {
             // console.log(activityItem);
-
+            document.body.style.cursor = 'wait';
             if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
                 // Remark requiring destructuring object to prevent status change before send to update function.
@@ -55,12 +57,14 @@ export function Ongoingcard(props) {
             } else {
                 alert("Please rate between 1 to 5.")
             }
+            document.body.style.cursor = 'default';
     }
 
     const confirmGaveup = async(e) => {
         let isGaveup = confirm("Do you want to give up ?");
         console.log(isGaveup);
         if(isGaveup) {
+            document.body.style.cursor = 'wait';
             // Remark requiring destructuring object to prevent status change before send to update function.
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
@@ -73,6 +77,7 @@ export function Ongoingcard(props) {
             }
         };
         // Do backend work and refresh the main page.
+        document.body.style.cursor = 'default';
     }
 
     const activityIconRender = (type) => {

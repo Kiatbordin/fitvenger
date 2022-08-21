@@ -20,6 +20,7 @@ export function Userinfo(props) {
         /* Clear all states in App.jsx */
         context.setUserInfo({});
         context.setMyActivities([]);
+        context.setIsLogin(false);
     }
 
     return (

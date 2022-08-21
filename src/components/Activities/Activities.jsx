@@ -61,14 +61,10 @@ export function Activities(props) {
     };
 
     const handleDateOK = (e) => {
-        // console.log(e);
-        console.log("OK Press");
         filteringDateActivities(e[0],e[1]);
     }
 
     const handleClean = (e) => {
-        console.log("onclean")
-        console.log(e);
         context.toggleRender()
     }
 

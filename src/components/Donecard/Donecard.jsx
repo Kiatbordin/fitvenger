@@ -23,11 +23,13 @@ export function Donecard(props) {
     const handleDelete = async(e) => {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
+            document.body.style.cursor = 'wait';
             await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
             // props.handleDelete(activityItem);
             // Then updating the database.
         } 
+        document.body.style.cursor = 'default';
     }
 
     const activityIconRender = (type) => {
