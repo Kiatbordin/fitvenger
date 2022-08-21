@@ -49,8 +49,10 @@ function App() {
   // }, []);
 
   useEffect(() => {
+    
     (async () => {
       if (userInfo._id) {
+        document.body.style.cursor = 'wait';
         const activities = await axios.get(
           `${API_URL}/user/${userInfo._id}/activities`
         );
@@ -60,14 +62,13 @@ function App() {
           return {
             ...activity,
             id: activity._id,
-            // start: new Date(activity.start).toLocaleString(),
-            // end: new Date(activity.end).toLocaleString(),
             start: new Date(activity.start).toISOString(),
             end: new Date(activity.end).toISOString(),
           };
         });
         setMyActivities(reId);
       }
+      document.body.style.cursor = 'default';
     })();
   }, [userInfo, render]);
   console.log("loaded Activities");
@@ -168,7 +169,8 @@ function App() {
     toggleRender,
     userInfo,
     setUserInfo,
-    setMyActivities
+    setMyActivities,
+    setIsLogin
   };
 
   return (
@@ -178,17 +180,6 @@ function App() {
           <Navbar isLogin={isLogin} />
           <main>
             <Routes>
-
-              {/* <Route
-                path="/login"
-                element={<Login isLogin={isLogin} handleLogin={handleLogin} />}
-              ></Route>
-              <Route
-                path="/"
-                element={<Board userInfo={userInfo} />}
-              ></Route>
-              <Route exact path="/create" element={<CreateActivity />}></Route>
-              <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route> */}
 
               <Route
                 path="/"

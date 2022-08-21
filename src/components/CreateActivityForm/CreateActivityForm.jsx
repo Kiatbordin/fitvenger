@@ -33,7 +33,7 @@ export function CreateActivityForm(props) {
 
     const handleSubmit = async(event) =>{
         event.preventDefault();
-
+        document.body.style.cursor = 'wait';
         /* move add challenge minutes here */
         const endDate = new Date(formData.end);
         const endDateAddTime = new Date(endDate.getTime() + (Number(challengeMinutes) * 60000));
@@ -49,6 +49,7 @@ export function CreateActivityForm(props) {
         } catch (error) {
             console.log(error.message)
         }
+        document.body.style.cursor = 'default';
     }
 
     const handleChange = (event) => {

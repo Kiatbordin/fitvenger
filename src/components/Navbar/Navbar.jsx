@@ -16,10 +16,10 @@ export function Navbar(props) {
             <h2 className="mobile-header">FV</h2>
             <h3 className="mobile-header"> My Activity </h3>
             <div className="menu-container">
-                <Link to="/home" className="home-nav">Home</Link>
+                { props.isLogin && <Link to="/home" className="home-nav">Home</Link> }
                 { props.isLogin && <Link to="/profile" className="profile-nav">Profile</Link> }
                 <Link to="/about" className="about-nav">About us</Link>
-                { props.isLogin && <Link to="/login" className="logout-nav" onClick={checkLogOut}>Log out</Link> }
+                {/* { props.isLogin && <Link to="/login" className="logout-nav" onClick={checkLogOut}>Log out</Link> } */}
             </div>
         </div>
     );
