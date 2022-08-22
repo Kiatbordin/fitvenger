@@ -29,7 +29,8 @@
     transform: translate(-50%, 0%);
   }
 
-  .App .Register {
+  .App .Register,
+  .App .EditProfile {
     position: absolute;
     top:55%;
     left: 55%;
@@ -58,7 +59,8 @@
     transform: translate(-50%, -50%);
   }
 
-  .App .Register {
+  .App .Register,
+  .App .EditProfile {
     position: absolute;
     top:55%;
     left: 50%;
