@@ -79,6 +79,22 @@ export function CreateProfileForm(props) {
         }
     }
 
+    const handleSubmit2 = async(event) =>{
+        event.preventDefault();
+        try {
+            const result = await axios.post(`${API_URL}/user`,registerData)
+            alert("Your account has been created.");
+            navigate('/')
+
+        } catch (err) {
+            if(err.response.data.includes("Users validation failed: username: Error, expected `username` to be unique.")) {
+                alert("The username is already being used.");
+            } else {
+                console.log(err.message);
+            }
+        }
+    }
+
     return (
         <div className="CreateProfileForm">
 
@@ -88,7 +104,7 @@ export function CreateProfileForm(props) {
                     <h1>Create your Profile</h1>
                 </div>
 
-                <form onSubmit={handleSubmit} className="register-form-container">
+                <form onSubmit={handleSubmit2} className="register-form-container">
 
                     {/* Image box */}
                     <div className="image-container">
