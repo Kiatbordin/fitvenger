@@ -5,7 +5,6 @@ import "./Activities.css";
 import done from "../../assets/icons/done.png";
 import ongoing from "../../assets/icons/ongoing.png";
 import gaveup from "../../assets/icons/gaveup.png";
-import add from "../../assets/icons/add.png";
 
 import { Newcard } from "../Newcard/Newcard.jsx";
 import { Ongoingcard } from "../Ongoingcard/Ongoingcard.jsx";
@@ -19,14 +18,10 @@ export function Activities(props) {
     const context = useContext(DataContext);
     const {userInfo,filteringDateActivities} = context;
 
-    // expected props ==> 
     const [filterAll,setFilterAll] = useState(true);
     const [filterDone,setFilterDone] = useState(false);
     const [filterOngoing,setFilterOngoing] = useState(false);
     const [filterGaveup,setFilterGaveup] = useState(false);
-
-    // console.log("Activities Page Loaded.");
-    // console.log(props.activities);
 
     const doneActivities = props.activities.filter( (activity) => activity.status === "Done" ).length || "0";
     const ongoingActivities = props.activities.filter( (activity) => activity.status === "Ongoing" ).length || "0";
@@ -67,8 +62,6 @@ export function Activities(props) {
     const handleClean = (e) => {
         context.toggleRender()
     }
-
-    // console.log('activitie',props.activities)
     
     return (
         <div className="Activities">
@@ -103,8 +96,6 @@ export function Activities(props) {
                 <button className="filter-ongoing-button" onClick={handleOngoingFilter}>Ongoing</button>
                 <button className="filter-gaveup-button" onClick={handleGaveupFilter}>Gaveup</button>
             </div>
-
-            {/* <button className="add-button"><img src={add} alt="add-button" /></button> */}
 
             <div className="activities-board">
 

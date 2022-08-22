@@ -15,7 +15,7 @@ export function Help(props){
                 </div>
                 <div className="tips-body">
                     <div>
-                        <a href="https://www.youtube.com/results?search_query=workout" target="_blank">Need my help ?</a>
+                        <a href="https://www.youtube.com/playlist?list=PLndmDqg0p2P6KqwfHRSgPB1pxXQYTnGjo" target="_blank">Need my help ?</a>
                         <img src={catworkout} alt="cat-workout" />
                     </div>
                 </div>

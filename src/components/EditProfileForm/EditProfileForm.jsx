@@ -25,12 +25,9 @@ export function EditProfileForm(props) {
         img : "",
     });
 
-    const [previewImage,setPreviewImage] = useState("");
-
     useEffect( () => {
         (async() => {
             const queryString = `${API_URL}/user/${props.userId}`
-            console.log(queryString)
             try {
                 const response = await axios.get(queryString)
                 setEditProfileData(response.data)
@@ -40,55 +37,18 @@ export function EditProfileForm(props) {
         })()
     },[])
     
-    const viewImage = (e) => {
-        const file = e.target.files[0];
-        
-        if(file) {
-            /* Make sure `file.name` matches our extensions criteria */
-            if(/\.(jpe?g|png|gif)$/i.test(file.name)) {
-                
-                /* createObjectURL creates a string containing a URL representing the file */
-                const previewURL = URL.createObjectURL(file);
-                setPreviewImage(previewURL);
-                
-                /* readAsDataURL represent the file's data as a base64 encoded string. */
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = function() {
-                    /* Keep Base64 encoded url in state as string */
-                    // setRegisterData(prev => prev.img = reader.result);
-                    setRegisterData({...editProfileData,img: reader.result})
-                };
-                reader.onerror = function() {
-                    console.log('There are some problems.');
-                };
-                
-            } else {
-                alert("Please upload image file.");
-                /* Clear input file */
-                e.target.value = "";
-            }
-        }
-        
-    };
-    
     const handleChange = (event) => {
-        
         /* If height,weight and age change, convert to number type */
         if(event.target.name == "height" || event.target.name == "weight" || event.target.name == "age") {
             setEditProfileData({...editProfileData,[event.target.name]:Number(event.target.value)})
         } else {
             setEditProfileData({...editProfileData,[event.target.name]:event.target.value})
         }
-        
-        // setRegisterData({...registerData,[event.target.name]:event.target.value})
-        // console.log(registerData);
     }
     
     const handleSubmit = async(event) =>{
         event.preventDefault();
         try {
-            console.log(editProfileData);
             const result = await axios.put(`${API_URL}/user/${props.userId}`,editProfileData)
             setUserInfo({...userInfo,...editProfileData})
             toggleRender()
@@ -97,7 +57,6 @@ export function EditProfileForm(props) {
             console.log(err.message);
         }
     }
-    console.log(editProfileData)
     
     return (
         <div className="EditProfileForm">

@@ -26,8 +26,6 @@ export function Donecard(props) {
             document.body.style.cursor = 'wait';
             await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
-            // props.handleDelete(activityItem);
-            // Then updating the database.
         } 
         document.body.style.cursor = 'default';
     }
@@ -52,14 +50,12 @@ export function Donecard(props) {
             <div className="done-card-info">
 
                 <div className="activity-icon-box">
-                    {/* <img src={running} alt="activity-icon" /> */}
                     {activityIconRender(activityItem.type)}
                 </div>
     
                 <div className="activity-details-box">
                     <h2>{activityItem.topic}</h2>
                     <span>Type: {activityItem.type}</span>
-                    {/* <span>From: {activityItem.start}</span> */}
                     <span>From: {new Date(activityItem.start).toLocaleString()}</span>
                     <span>To: {new Date(activityItem.end).toLocaleString()}</span>
                     <span>Location: {activityItem.location}</span>

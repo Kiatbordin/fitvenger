@@ -56,22 +56,17 @@ export function CreateProfileForm(props) {
     };
 
     const handleChange = (event) => {
-
         /* If height,weight and age change, convert to number type */
         if(event.target.name == "height" || event.target.name == "weight" || event.target.name == "age") {
             setRegisterData({...registerData,[event.target.name]:Number(event.target.value)})
         } else {
             setRegisterData({...registerData,[event.target.name]:event.target.value})
         }
-
-        // setRegisterData({...registerData,[event.target.name]:event.target.value})
-        // console.log(registerData);
     }
 
     const handleSubmit = async(event) =>{
         event.preventDefault();
         try {
-            console.log(registerData);
             const result = await axios.post(`${API_URL}/user`,registerData)
             if(result.data.includes("Users validation failed: username: Error, expected `username` to be unique.")) {
                 alert("The username is already being used.");

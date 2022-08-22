@@ -7,8 +7,6 @@ import { Userinfo } from "../components/Userinfo/Userinfo.jsx";
 import {Stats} from "../components/Stats/Stats.jsx"
 import { Help } from "../components/Help/Help.jsx";
 
-import { getActivities } from "../util/activitiesWork.js";
-
 export function Board(props) {
 
     const context = useContext(DataContext);

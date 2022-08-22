@@ -14,7 +14,6 @@ export function CreateActivityForm(props) {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        // id: useId(),        //  Unique ID should be update by the value return from mongoDB after done POST request.
         topic:'',
         type:'running',
         start:'',
@@ -58,15 +57,11 @@ export function CreateActivityForm(props) {
     // challenge
     const handleChallengeClick = async(e) => {
         e.preventDefault();
-
-        console.log("value:" + e.target.value);
         await setChallengeMinutes(e.target.value);
-        console.log("challengeMinutes:" + challengeMinutes);
     }
     // End challenge
 
     const handleDateRangePickerOnChange = (e) => {
-        // console.log(e);
         const startTime = e[0].toISOString();
         const endTime = e[1].toISOString();
         setFormData({...formData,start:startTime,end:endTime})

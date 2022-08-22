@@ -24,8 +24,6 @@ export function Gaveupcard(props) {
             document.body.style.cursor = 'wait';
             await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
-            // props.handleDelete(activityItem);
-            // Then updating the database.
         } 
         document.body.style.cursor = 'default';
     }
@@ -50,7 +48,6 @@ export function Gaveupcard(props) {
             <div className="gaveup-card-info">
 
                 <div className="activity-icon-box">
-                    {/* <img src={running} alt="activity-icon" /> */}
                     {activityIconRender(activityItem.type)}
                 </div>
     

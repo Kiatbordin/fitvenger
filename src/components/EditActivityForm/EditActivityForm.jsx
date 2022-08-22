@@ -19,7 +19,6 @@ export function EditActivityForm(props) {
         /* Get activity from userId and activityId from Backend and set State */
         (async() => {
             const queryString = `${API_URL}/user/${props.userId}/activities/${props.activityId}`;
-            console.log(queryString);
             try {
                 const response = await axios.get(queryString);
                 /* convert start and end date from string to date type and setForm */
@@ -38,7 +37,6 @@ export function EditActivityForm(props) {
 
     const handleChange = (event) => {
         setFormData({...formData,[event.target.name]:event.target.value})
-        // console.log(formData);
     }
 
     const handleDateRangePickerOnChange = (e) => {

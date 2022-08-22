@@ -11,9 +11,8 @@ import { CreateActivity } from "./pages/CreateActivity.jsx";
 import { EditActivity } from "./pages/EditActivity.jsx";
 import { Register } from "./pages/Register.jsx"
 import { EditProfile } from "./pages/EditProfile.jsx";
-import { getUserInfo } from "../src/util/activitiesWork.js";
 
-import { API_URL,getActivities } from "../src/util/activitiesWork.js";
+import { API_URL } from "../src/util/activitiesWork.js";
 
 import axios from "axios";
 
@@ -21,32 +20,14 @@ export const DataContext = createContext(null);
 
 function App() {
   const [render, setRender] = useState(true);
-  // Assume that App received userInfo when login Succesful.
   const [userInfo, setUserInfo] = useState({});
+  
   useEffect(() => {
-    // (async () => {
-    //   const userInfo = await axios.get(
-    //     `${API_URL}/user/62f4fadbd892c8566e620880`
-    //   );
-    //   setUserInfo(userInfo.data);
-    // })();
+
   }, []);
 
-  console.log(userInfo);
   const [isLogin, setIsLogin] = useState(false);
-
-  const handleLogin = (isAllow) => {
-    isAllow ? setIsLogin(true) : setIsLogin(false);
-    // alert(isLogin);
-  };
   const [myActivities, setMyActivities] = useState([]);
-  // useEffect( () => {
-  // Once this component rendered, It should request the user's information using userID
-  // Then update the activities's state.
-  // const userId = 50;  // assumming userId
-  //   const updateActivities = [...getActivities(userId)];
-  //   setMyActivities(updateActivities);
-  // }, []);
 
   useEffect(() => {
     
@@ -56,8 +37,6 @@ function App() {
         const activities = await axios.get(
           `${API_URL}/user/${userInfo._id}/activities`
         );
-        console.log("Before activities");
-        console.log(activities);
         const reId = activities.data.map((activity) => {
           return {
             ...activity,
@@ -71,8 +50,10 @@ function App() {
       document.body.style.cursor = 'default';
     })();
   }, [userInfo, render]);
-  console.log("loaded Activities");
-  console.log(myActivities);
+
+  const handleLogin = (isAllow) => {
+    isAllow ? setIsLogin(true) : setIsLogin(false);
+  };
 
   function createActivities(newCard) {
     const addActivity = { ...newCard, status: "Ongoing", score: 0 };
@@ -80,8 +61,6 @@ function App() {
   }
 
   const addActivities = (activity) => {
-    // Check if we still need this method ?
-    // Or we can create new activity on Create activity form and re-render board page ?
     setMyActivities((prev) => [...prev, activity]);
   };
 
@@ -97,8 +76,7 @@ function App() {
     );
 
     if (foundIndex !== -1) {
-      const { id, topic, start, end, location, status, description, score } =
-        editActivity;
+      const { id, topic, start, end, location, status, description, score } = editActivity;
 
       setMyActivities(
         [...myActivities].map((activity) => {
@@ -116,18 +94,12 @@ function App() {
         })
       );
 
-      console.log("Activities Updated.");
-      console.log(myActivities);
     } else {
-      console.log(
-        `updateActivities: Not found an activity id:${editActivity.id}`
-      );
+      console.log( `updateActivities: Not found an activity id:${editActivity.id}` );
     }
   };
 
   const filteringDateActivities = async(from,to) => {
-    console.log("from: "+from+" to: "+to);
-
     /* convert start and end date to ISO string before send to backend */
     const fromDate = new Date(from);
     fromDate.setHours(0,0,0,0)
@@ -136,17 +108,12 @@ function App() {
     toDate.setHours(23,59,59,999);
     const toDateSetEndDay = toDate.toISOString();
     const queryString = `${API_URL}/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`;
-    console.log(queryString);
-    // setMyActivities([...filteredActivities]); 
     try {
       const response = await axios.get(queryString);
-      console.log(response.data);
       /* convert date to local format if the acvities length != 0 */
       if(response.data.length !== 0) {
         response.data.map( activity => {
             activity.id = activity._id;
-            // activity.start = new Date(activity.start).toLocaleString();
-            // activity.end = new Date(activity.end).toLocaleString();
         });
       }
       setMyActivities([...response.data]); 

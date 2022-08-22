@@ -11,7 +11,6 @@ import { DataContext } from "../../App";
 export function Userinfo(props) {
 
     const context = useContext(DataContext)
-    const activityItem = props.activity;
 
     const data = props.userInfo;
     data.bmi = getBMI(props.userInfo.weight, props.userInfo.height);
@@ -27,7 +26,6 @@ export function Userinfo(props) {
         <div className="Userinfo">
             <div className="profile-box">
                 <div className="header-image-box">
-                    {/* <img src={data.img} alt={data.name} /> */}
                     {data.img=="" && <img src={anonymous} alt="anonymous" /> }
                     {data.img!="" && <img src={data.img} alt={data.name} /> }
                     <h1>{data.name}</h1>

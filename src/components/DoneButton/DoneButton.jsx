@@ -14,9 +14,6 @@ export function DoneButton(props){
     const handleOK = () => {
         setOpen(false);
         props.confirmDone(score);
-
-        // Do Backend work
-        // Do PUT method for update status to done and rating the activity
     }
 
     return (

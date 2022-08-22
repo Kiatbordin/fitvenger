@@ -29,15 +29,11 @@ export function Ongoingcard(props) {
             document.body.style.cursor = 'wait';
             await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
-            // props.handleDelete(activityItem);
-
-            // Then updating the database.
         } 
         document.body.style.cursor = 'default';
     }
 
     const confirmDone = async(score) => {
-            // console.log(activityItem);
             document.body.style.cursor = 'wait';
             if (typeof score ==='number' && score > 0 && score < 6) {
                 alert("Thanks for rating.");
@@ -48,7 +44,6 @@ export function Ongoingcard(props) {
                 doneItem.score = score;
                 console.log(doneItem);
                 try {
-                    // Do backend work and re-render the main page.
                     const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
                     context.toggleRender()
                 } catch (err) {
@@ -62,21 +57,18 @@ export function Ongoingcard(props) {
 
     const confirmGaveup = async(e) => {
         let isGaveup = confirm("Do you want to give up ?");
-        console.log(isGaveup);
         if(isGaveup) {
             document.body.style.cursor = 'wait';
             // Remark requiring destructuring object to prevent status change before send to update function.
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
             try {
-                // Do backend work and refresh the main page.
                 const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...gaveupItem})
                 context.toggleRender()
             } catch (err) {
                 alert("confirmDone catch error: "+ err.message)
             }
         };
-        // Do backend work and refresh the main page.
         document.body.style.cursor = 'default';
     }
 
@@ -100,7 +92,6 @@ export function Ongoingcard(props) {
             <div className="ongoing-card-info">
 
                 <div className="activity-icon-box">
-                    {/* <img src={running} alt="activity-icon" /> */}
                     {activityIconRender(activityItem.type)}
                 </div>
     
@@ -115,12 +106,10 @@ export function Ongoingcard(props) {
                 </div>
             </div>
             <div className="ongoing-card-menu">
-                {/* <button className="done-button" onClick={confirmDone}>Done</button> */}
                 <DoneButton confirmDone={confirmDone}/>
                 <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>
-            {/* <img className="next-button" src={nextButton} alt="delete-icon" /> */}
 
             <Link to={`/edit/${context.userInfo._id}/activities/${activityItem._id}`}>
                 <img className="next-button" src={nextButton} alt="next-icon" />

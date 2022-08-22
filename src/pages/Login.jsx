@@ -11,7 +11,7 @@ import { API_URL } from "../util/activitiesWork";
 export function Login(props) {
 
     const context = useContext(DataContext)
-    const {setUserInfo,userInfo,setIsLogin} = context
+    const {setUserInfo,setIsLogin} = context
 
     let navigate = useNavigate();
 
