@@ -42,7 +42,6 @@ export function Ongoingcard(props) {
                 const doneItem = {...activityItem};
                 doneItem.status = "Done";
                 doneItem.score = score;
-                console.log(doneItem);
                 try {
                     const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
                     context.toggleRender()

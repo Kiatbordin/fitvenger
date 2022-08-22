@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import "./EditProfileForm.css";
 
 import { Link, useNavigate } from "react-router-dom";
+import anonymous from "../../assets/icons/anonymous.png"
 
 
 import { useContext } from "react";
@@ -71,8 +72,8 @@ export function EditProfileForm(props) {
 
                     {/* Image box */}
                     <div className="image-container">
-
-                       <img src={editProfileData.img} alt="preview-image"/>
+                       {editProfileData.img=="" && <img src={anonymous} alt="anonymous" />}
+                       {editProfileData.img!="" && <img src={editProfileData.img} alt="editProfileData" />}
 
                     </div>
 
