@@ -1,7 +1,7 @@
 import { UserInfo } from "@rsuite/icons";
 
-const API_URL = "http://localhost:3000";
-// const API_URL = "https://fitvenger-backend-project.vercel.app";
+// const API_URL = "http://localhost:3000";
+const API_URL = "https://fitvenger-backend-project.vercel.app";
 // const API_URL = "https://fitvenger-backend-project-2scetch8y-kiatbordin.vercel.app";
 
 const getUserInfo = () => {
