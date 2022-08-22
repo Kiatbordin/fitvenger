@@ -105,9 +105,9 @@ export function CreateActivityForm(props) {
                                 <DateRangePicker 
                                 id="schedule" name="schedule"
                                 placeholder="Select Date Range" 
-                                format="yyyy-MM-dd hh:mm aa" 
+                                format="yyyy-MM-dd HH:mm:ss" 
                                 preventOverflow={true}
-                                showMeridian
+                                // showMeridian
                                 ranges={[]}
                                 disabledDate={DateRangePicker.beforeToday()}
                                 onOk={handleDateRangePickerOnChange} /> 

@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer/Footer.jsx";
 import { CreateActivity } from "./pages/CreateActivity.jsx";
 import { EditActivity } from "./pages/EditActivity.jsx";
 import { Register } from "./pages/Register.jsx"
-
+import { EditProfile } from "./pages/EditProfile.jsx";
 import { getUserInfo } from "../src/util/activitiesWork.js";
 
 import { API_URL,getActivities } from "../src/util/activitiesWork.js";
@@ -145,8 +145,8 @@ function App() {
       if(response.data.length !== 0) {
         response.data.map( activity => {
             activity.id = activity._id;
-            activity.start = new Date(activity.start).toLocaleString();
-            activity.end = new Date(activity.end).toLocaleString();
+            // activity.start = new Date(activity.start).toLocaleString();
+            // activity.end = new Date(activity.end).toLocaleString();
         });
       }
       setMyActivities([...response.data]); 
@@ -191,6 +191,7 @@ function App() {
               ></Route>
               <Route exact path="/create" element={<CreateActivity />}></Route>
               <Route path="/edit/:userId/activities/:activityId" element={<EditActivity />}></Route>
+              <Route path="/edit/:userId" element={<EditProfile />}></Route>
               <Route exact path="/register" element={<Register />}></Route>
 
             </Routes>
