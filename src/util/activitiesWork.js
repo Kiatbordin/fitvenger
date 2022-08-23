@@ -1,12 +1,15 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000";
+/* For developement */
+// const API_URL = "http://localhost:3000";
 // const API_URL = "https://fitvenger-backend-project.vercel.app";
-// const API_URL = "https://fitvenger-backend-project-2scetch8y-kiatbordin.vercel.app";
+
+/* For Production */
+const API_URL = "https://fitvenger-backend-project.vercel.app";
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
-    withCredentials: true
+    withCredentials: true,
 });
 
 const getUserInfo = () => {

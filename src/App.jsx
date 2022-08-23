@@ -23,16 +23,10 @@ function App() {
   const [render, setRender] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   
+
+  /* Check cookies's use Effect */
+  
   useEffect(() => {
-    
-  }, []);
-
-  const [isLogin, setIsLogin] = useState(false);
-  const [myActivities, setMyActivities] = useState([]);
-
-  useEffect(() => {
-
-    /* Check cookies */
 
     (async () => {
       if( window.location.pathname==="/") {
@@ -44,6 +38,7 @@ function App() {
           withCredentials: true
         });
         setUserInfo(getUserInfo.data);
+        setIsLogin(true);
       } catch (err) {
         if(err.response && err.response.status===404) {
           return window.Location.href = "/";
@@ -52,6 +47,13 @@ function App() {
       }
     
     })();
+
+  }, []);
+
+  const [isLogin, setIsLogin] = useState(false);
+  const [myActivities, setMyActivities] = useState([]);
+
+  useEffect(() => {
 
     /* Normal flow */
 
