@@ -1,8 +1,13 @@
-import { UserInfo } from "@rsuite/icons";
+import axios from "axios";
 
-// const API_URL = "http://localhost:3000";
-const API_URL = "https://fitvenger-backend-project.vercel.app";
+const API_URL = "http://localhost:3000";
+// const API_URL = "https://fitvenger-backend-project.vercel.app";
 // const API_URL = "https://fitvenger-backend-project-2scetch8y-kiatbordin.vercel.app";
+
+const axiosInstance = axios.create({
+    baseURL: API_URL,
+    withCredentials: true
+});
 
 const getUserInfo = () => {
     const userInfo = {
@@ -92,6 +97,7 @@ export {
     getUserInfo,
     getDuration,
     getBMI,
-    getCal
+    getCal,
+    axiosInstance
  };
 

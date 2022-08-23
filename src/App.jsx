@@ -12,31 +12,61 @@ import { EditActivity } from "./pages/EditActivity.jsx";
 import { Register } from "./pages/Register.jsx"
 import { EditProfile } from "./pages/EditProfile.jsx";
 
-import { API_URL } from "../src/util/activitiesWork.js";
+import { API_URL,axiosInstance } from "../src/util/activitiesWork.js";
 
 import axios from "axios";
 
 export const DataContext = createContext(null);
 
 function App() {
+
   const [render, setRender] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   
   useEffect(() => {
-
+    
   }, []);
 
   const [isLogin, setIsLogin] = useState(false);
   const [myActivities, setMyActivities] = useState([]);
 
   useEffect(() => {
+
+    /* Check cookies */
+
+    (async () => {
+      if( window.location.pathname==="/") {
+        return ;
+      } 
+
+      try {
+        const getUserInfo = await axiosInstance.get(`/user/me`,{
+          withCredentials: true
+        });
+        setUserInfo(getUserInfo.data);
+      } catch (err) {
+        if(err.response && err.response.status===404) {
+          return window.Location.href = "/";
+        }
+        console.log(err.message);
+      }
     
+    })();
+
+    /* Normal flow */
+
     (async () => {
       if (userInfo._id) {
         document.body.style.cursor = 'wait';
-        const activities = await axios.get(
-          `${API_URL}/user/${userInfo._id}/activities`
+
+        // const activities = await axios.get(
+        //   `${API_URL}/user/${userInfo._id}/activities`
+        // );
+
+        const activities = await axiosInstance.get(
+          `/user/${userInfo._id}/activities`
         );
+
         const reId = activities.data.map((activity) => {
           return {
             ...activity,
@@ -46,8 +76,9 @@ function App() {
           };
         });
         setMyActivities(reId);
-      }
+      } 
       document.body.style.cursor = 'default';
+
     })();
   }, [userInfo, render]);
 
@@ -137,7 +168,8 @@ function App() {
     userInfo,
     setUserInfo,
     setMyActivities,
-    setIsLogin
+    setIsLogin,
+    isLogin
   };
 
   return (

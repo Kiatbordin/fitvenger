@@ -14,7 +14,9 @@ export function Board(props) {
     // Board's component has to receive the user's information from App.jsx.
     const userId = props.userInfo.userId;
 
-    const {myActivities,addActivities,deleteActivities,updateActivities} = context;
+    const {myActivities,addActivities,deleteActivities,updateActivities,isLogin} = context;
+
+    // if(!isLogin) window.location.replace("/");
 
     return (
         <div className="Board" >
