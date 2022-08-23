@@ -92,8 +92,7 @@
         padding: 0 0.5rem 0 0.5rem;
     }
 
-    .Navbar .menu-container .home-nav,
-    .Navbar .menu-container .profile-nav {
+    .Navbar .menu-container .home-nav {
         border-right: 2px black solid;
     }
 
