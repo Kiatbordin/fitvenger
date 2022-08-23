@@ -106,7 +106,7 @@ export function Ongoingcard(props) {
             </div>
             <div className="ongoing-card-menu">
                 <DoneButton confirmDone={confirmDone}/>
-                <button className="gaveup-button" onClick={confirmGaveup}>Gave up</button>
+                <button className="gaveup-button" onClick={confirmGaveup}>Give up</button>
             </div>
             <img className="delete-button" src={deleteButton} alt="delete-icon" onClick={handleDelete}/>
 

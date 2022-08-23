@@ -5,12 +5,14 @@ export function DoneButton(props){
 
     const [open, setOpen] = React.useState(false);
     const [score,setScore] = React.useState(2.5);   //  Should be same as default Rate value (not 0)
+    
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const handleScoreChange = (inputScore) => {
         setScore(inputScore);
     }
+
     const handleOK = () => {
         setOpen(false);
         props.confirmDone(score);
@@ -25,7 +27,7 @@ export function DoneButton(props){
             <Modal backdrop="static" role="alertdialog" open={open} onClose={handleClose} size="xs">
                 <Modal.Body>
                     <h5>Please rate your activity.</h5>
-                    <Rate defaultValue={score} allowHalf onChangeActive={handleScoreChange} />
+                    <Rate defaultValue={score} allowHalf onChange={handleScoreChange} />
                 </Modal.Body>
 
                 <Modal.Footer>
