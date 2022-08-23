@@ -6,7 +6,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../App";
 import axios from "axios";
-import { API_URL } from "../util/activitiesWork";
+import { API_URL,axiosInstance } from "../util/activitiesWork";
 
 export function Login(props) {
 
@@ -25,10 +25,11 @@ export function Login(props) {
         e.preventDefault();
         document.body.style.cursor = 'wait';
         try {
-          const loginResult = await axios.post(`${API_URL}/login`,{
-            username : username,
-            password : password
-          })
+          const loginResult = await axiosInstance.post(`/login`, {
+            username: username,
+            password: password,
+          });
+          
           if(loginResult.data) {
             setIsLogin(true);
             setUserInfo(loginResult.data);
