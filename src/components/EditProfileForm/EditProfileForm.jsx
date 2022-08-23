@@ -46,7 +46,6 @@ export function EditProfileForm(props) {
             setEditProfileData({...editProfileData,[event.target.name]:event.target.value})
         }
     }
-    
     const handleSubmit = async(event) =>{
         event.preventDefault();
         try {
@@ -74,7 +73,6 @@ export function EditProfileForm(props) {
                     <div className="image-container">
                        {editProfileData.img=="" && <img src={anonymous} alt="anonymous" />}
                        {editProfileData.img!="" && <img src={editProfileData.img} alt="editProfileData" />}
-
                     </div>
 
                     {/* Username box */}

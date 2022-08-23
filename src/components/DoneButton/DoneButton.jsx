@@ -25,7 +25,7 @@ export function DoneButton(props){
             <Modal backdrop="static" role="alertdialog" open={open} onClose={handleClose} size="xs">
                 <Modal.Body>
                     <h5>Please rate your activity.</h5>
-                    <Rate defaultValue={score} allowHalf onChange={handleScoreChange} />
+                    <Rate defaultValue={score} allowHalf onChangeActive={handleScoreChange} />
                 </Modal.Body>
 
                 <Modal.Footer>
