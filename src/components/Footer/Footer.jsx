@@ -23,7 +23,7 @@ export function Footer(props){
                 <div className="footer-menu-container">
                     { props.isLogin && <Link to="/home">Home</Link> }
                     { props.isLogin && <Link to={`/edit/${context.userInfo._id}`}>Profile</Link> }
-                    <Link to="/about">About us</Link>
+                    {/* <Link to="/about">About us</Link> */}
                     { props.isLogin && <Link to="/" onClick={handleLogout}>Log out</Link> }
                 </div>
                 <img src={hamburger} alt="hamburger-menu" />
