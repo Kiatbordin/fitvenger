@@ -17,7 +17,7 @@ export function Navbar(props) {
             <div className="menu-container">
                 { props.isLogin && <Link to="/home" className="home-nav">Home</Link> }
                 { props.isLogin && <Link to={`/edit/${context.userInfo._id}`} className="profile-nav">Profile</Link> }
-                <Link to="/about" className="about-nav">About us</Link>
+                {/* <Link to="/about" className="about-nav">About us</Link> */}
             </div>
         </div>
     );
