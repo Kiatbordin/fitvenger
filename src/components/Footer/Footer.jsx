@@ -6,15 +6,24 @@ import { Link } from "react-router-dom";
 import hamburger from "../../assets/icons/hamburger.png";
 import { useContext } from "react";
 import { DataContext } from "../../App";
+import { AxiosInstance } from "axios";
 
 export function Footer(props){
 
     const context = useContext(DataContext);
 
     const handleLogout = (e) => {
-        context.setUserInfo({});
-        context.setMyActivities([]);
-        context.setIsLogin(false);
+        // context.setUserInfo({});
+        // context.setMyActivities([]);
+        // context.setIsLogin(false);
+        try {
+            await axiosInstance.post("/logout");
+            context.setUserInfo({});
+            context.setMyActivities([]);
+            context.setIsLogin(false);
+        } catch (err) {
+            console.log("handleLogout Catch:" + err.message)
+        }
     }
 
     return (
