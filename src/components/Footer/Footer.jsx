@@ -12,7 +12,7 @@ export function Footer(props){
 
     const context = useContext(DataContext);
 
-    const handleLogout = (e) => {
+    const handleLogout = async(e) => {
         try {
             await axiosInstance.post("/logout");
             context.setUserInfo({});
