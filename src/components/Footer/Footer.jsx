@@ -6,16 +6,13 @@ import { Link } from "react-router-dom";
 import hamburger from "../../assets/icons/hamburger.png";
 import { useContext } from "react";
 import { DataContext } from "../../App";
-import { AxiosInstance } from "axios";
+import { axiosInstance } from "./util/activitiesWork"
 
 export function Footer(props){
 
     const context = useContext(DataContext);
 
-    const handleLogout = async(e) => {
-        // context.setUserInfo({});
-        // context.setMyActivities([]);
-        // context.setIsLogin(false);
+    const handleLogout = (e) => {
         try {
             await axiosInstance.post("/logout");
             context.setUserInfo({});
