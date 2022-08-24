@@ -159,7 +159,7 @@ function App() {
     userInfo,
     setUserInfo,
     setMyActivities,
-    setIsLogin
+    setIsLogin,
   };
 
   return (
