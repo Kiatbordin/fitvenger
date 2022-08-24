@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import hamburger from "../../assets/icons/hamburger.png";
 import { useContext } from "react";
 import { DataContext } from "../../App";
-import { axiosInstance } from "./util/activitiesWork"
+import { axiosInstance } from "../../util/activitiesWork"
 
 export function Footer(props){
 
