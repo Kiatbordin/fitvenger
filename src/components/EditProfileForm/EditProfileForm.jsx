@@ -87,10 +87,8 @@ export function EditProfileForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const result = await axios.put(
-        `${API_URL}/user/${props.userId}`,
-        editProfileData
-      );
+      // const result = await axios.put(`${API_URL}/user/${props.userId}`, editProfileData);
+      const result = await axiosInstance.put(`/user/${props.userId}`, editProfileData);
       setUserInfo({ ...userInfo, ...editProfileData });
       toggleRender();
       navigate("/home");

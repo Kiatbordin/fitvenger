@@ -131,7 +131,8 @@ function App() {
     const toDateSetEndDay = toDate.toISOString();
     const queryString = `${API_URL}/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`;
     try {
-      const response = await axios.get(queryString);
+      // const response = await axios.get(queryString);
+      const response = await axiosInstance.get(`/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`);
       /* convert date to local format if the acvities length != 0 */
       if(response.data.length !== 0) {
         response.data.map( activity => {

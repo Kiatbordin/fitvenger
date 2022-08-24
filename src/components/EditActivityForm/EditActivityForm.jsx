@@ -8,7 +8,7 @@ import { DateRangePicker } from "rsuite";
 import { useContext } from "react";
 import { DataContext } from "../../App";
 import axios from "axios";
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function EditActivityForm(props) {
 
@@ -20,7 +20,8 @@ export function EditActivityForm(props) {
         (async() => {
             const queryString = `${API_URL}/user/${props.userId}/activities/${props.activityId}`;
             try {
-                const response = await axios.get(queryString);
+                // const response = await axios.get(queryString);
+                const response = await axiosInstance.get(`/user/${props.userId}/activities/${props.activityId}`)
                 /* convert start and end date from string to date type and setForm */
                 response.data.start = new Date(response.data.start)
                 response.data.end = new Date(response.data.end)
@@ -50,7 +51,8 @@ export function EditActivityForm(props) {
         document.body.style.cursor = 'wait';
 
         try {
-            const edit = await axios.put(`${API_URL}/user/${props.userId}/activities/${props.activityId}`,{...formData})
+            // const edit = await axios.put(`${API_URL}/user/${props.userId}/activities/${props.activityId}`,{...formData})
+            const edit = await axiosInstance.put(`/user/${props.userId}/activities/${props.activityId}`,{...formData});
             toggleRender()
             navigate('/home')
         } catch (error) {
