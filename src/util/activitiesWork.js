@@ -5,10 +5,10 @@ import axios from "axios";
 // const API_URL = "https://fitvenger-backend-project-2scetch8y-kiatbordin.vercel.app";
 
 /* For production */
-// const API_URL = "https://fitvenger-backend-project.vercel.app";
+const API_URL = "https://fitvenger-backend-project.vercel.app";
 
 /* For Preview */
-const API_URL = "https://fitvenger-backend-project-git-testsessions-kiatbordin.vercel.app"
+// const API_URL = "https://fitvenger-backend-project-git-testsessions-kiatbordin.vercel.app"
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
