@@ -2,11 +2,12 @@ import React,{useState,useEffect} from "react";
 import "./Userinfo.css";
 import { Link } from "react-router-dom";
 
-import {getBMI} from "../../util/activitiesWork.js"
+import {axiosInstance, getBMI} from "../../util/activitiesWork.js"
 
 import anonymous from "../../assets/icons/anonymous.png"
 import { useContext } from "react";
 import { DataContext } from "../../App";
+import { AxiosInstance } from "axios";
 
 export function Userinfo(props) {
 
@@ -15,11 +16,19 @@ export function Userinfo(props) {
     const data = props.userInfo;
     data.bmi = getBMI(props.userInfo.weight, props.userInfo.height);
 
-    const handleLogout = (e) => {
+    const handleLogout = async(e) => {
         /* Clear all states in App.jsx */
-        context.setUserInfo({});
-        context.setMyActivities([]);
-        context.setIsLogin(false);
+        // context.setUserInfo({});
+        // context.setMyActivities([]);
+        // context.setIsLogin(false);
+        try {
+            await axiosInstance.post("/logout");
+            context.setUserInfo({});
+            context.setMyActivities([]);
+            context.setIsLogin(false);
+        } catch (err) {
+            console.log("handleLogout Catch:" + err.message)
+        }
     }
 
     return (

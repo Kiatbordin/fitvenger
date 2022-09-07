@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom";
 import "./CreateProfileForm.css";
 
 import axios from "axios";
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function CreateProfileForm(props) {
 
@@ -67,7 +67,8 @@ export function CreateProfileForm(props) {
     const handleSubmit = async(event) =>{
         event.preventDefault();
         try {
-            const result = await axios.post(`${API_URL}/user`,registerData)
+            // const result = await axios.post(`${API_URL}/user`,registerData)
+            const result = await axiosInstance.post(`/user`,registerData);
             if(result.data.includes("Users validation failed: username: Error, expected `username` to be unique.")) {
                 alert("The username is already being used.");
             } else {
@@ -82,7 +83,8 @@ export function CreateProfileForm(props) {
     const handleSubmit2 = async(event) =>{
         event.preventDefault();
         try {
-            const result = await axios.post(`${API_URL}/user`,registerData)
+            // const result = await axios.post(`${API_URL}/user`,registerData)
+            const result = await axiosInstance.post(`/user`,registerData);
             alert("Your account has been created.");
             navigate('/')
 

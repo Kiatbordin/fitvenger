@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 import { DoneButton } from "../DoneButton/DoneButton.jsx";
 
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function Ongoingcard(props) {
 
@@ -27,7 +27,8 @@ export function Ongoingcard(props) {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
             document.body.style.cursor = 'wait';
-            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
+            // await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
+            await axiosInstance.delete(`/user/${context.userInfo._id}/activities/${props.activity._id}`)
             context.toggleRender()
         } 
         document.body.style.cursor = 'default';
@@ -43,7 +44,8 @@ export function Ongoingcard(props) {
                 doneItem.status = "Done";
                 doneItem.score = score;
                 try {
-                    const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
+                    // const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
+                    const edit = await axiosInstance.put(`/user/${context.userInfo._id}/activities/${props.activity._id}`,{...doneItem})
                     context.toggleRender()
                 } catch (err) {
                     alert("confirmDone catch error: "+ err.message)
@@ -62,7 +64,8 @@ export function Ongoingcard(props) {
             const gaveupItem = {...activityItem};
             gaveupItem.status = "Gaveup";
             try {
-                const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...gaveupItem})
+                // const edit = await axios.put(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`,{...gaveupItem})
+                const edit = await axiosInstance.put(`/user/${context.userInfo._id}/activities/${props.activity._id}`,{...gaveupItem})
                 context.toggleRender()
             } catch (err) {
                 alert("confirmDone catch error: "+ err.message)

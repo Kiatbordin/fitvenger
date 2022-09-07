@@ -12,7 +12,7 @@ import { EditActivity } from "./pages/EditActivity.jsx";
 import { Register } from "./pages/Register.jsx"
 import { EditProfile } from "./pages/EditProfile.jsx";
 
-import { API_URL } from "../src/util/activitiesWork.js";
+import { API_URL,axiosInstance } from "../src/util/activitiesWork.js";
 
 import axios from "axios";
 
@@ -22,20 +22,42 @@ function App() {
   const [render, setRender] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   
+  /* Get user information from cookies's use Effect */
   useEffect(() => {
+
+    (async () => {
+      if( window.location.pathname==="/") {
+        return ;
+      } 
+
+      try {
+        const getUserInfo = await axiosInstance.get(`/user/me`,{
+          withCredentials: true
+        });
+        setUserInfo(getUserInfo.data);
+        setIsLogin(true);
+      } catch (err) {
+        if(err.response && err.response.status===404) {
+          return window.Location.href = "/";
+        }
+        console.log(err.message);
+      }
+
+    })();
 
   }, []);
 
   const [isLogin, setIsLogin] = useState(false);
   const [myActivities, setMyActivities] = useState([]);
 
+  /* Get user information normal flow */
   useEffect(() => {
     
     (async () => {
       if (userInfo._id) {
         document.body.style.cursor = 'wait';
-        const activities = await axios.get(
-          `${API_URL}/user/${userInfo._id}/activities`
+        const activities = await axiosInstance.get(
+          `/user/${userInfo._id}/activities`
         );
         const reId = activities.data.map((activity) => {
           return {
@@ -109,7 +131,8 @@ function App() {
     const toDateSetEndDay = toDate.toISOString();
     const queryString = `${API_URL}/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`;
     try {
-      const response = await axios.get(queryString);
+      // const response = await axios.get(queryString);
+      const response = await axiosInstance.get(`/user/${userInfo._id}/activities?from=${fromDateSetStartDay}&to=${toDateSetEndDay}`);
       /* convert date to local format if the acvities length != 0 */
       if(response.data.length !== 0) {
         response.data.map( activity => {
@@ -137,7 +160,7 @@ function App() {
     userInfo,
     setUserInfo,
     setMyActivities,
-    setIsLogin
+    setIsLogin,
   };
 
   return (

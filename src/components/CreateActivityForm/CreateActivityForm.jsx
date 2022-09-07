@@ -7,7 +7,7 @@ import { DateRangePicker } from "rsuite";
 import { useContext } from "react";
 import {DataContext} from '../../App'
 import axios from "axios";
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function CreateActivityForm(props) {
 
@@ -42,7 +42,8 @@ export function CreateActivityForm(props) {
         /* */
 
         try {
-            await axios.post(`${API_URL}/user/${userInfo._id}/activities`,formData)
+            // await axios.post(`${API_URL}/user/${userInfo._id}/activities`,formData)
+            await axiosInstance.post(`/user/${userInfo._id}/activities`,formData)
             toggleRender()
             navigate('/home')
         } catch (error) {

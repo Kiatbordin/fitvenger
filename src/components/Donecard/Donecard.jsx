@@ -13,7 +13,7 @@ import { Rate } from 'rsuite';
 import axios from "axios";
 import { useContext } from "react"
 import {DataContext} from '../../App'
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function Donecard(props) {
     
@@ -24,7 +24,8 @@ export function Donecard(props) {
         let isDelete = confirm("Do you want to delete this activity ?");
         if(isDelete) {
             document.body.style.cursor = 'wait';
-            await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
+            // await axios.delete(`${API_URL}/user/${context.userInfo._id}/activities/${props.activity._id}`)
+            await axiosInstance.delete(`/user/${context.userInfo._id}/activities/${props.activity._id}`);
             context.toggleRender()
         } 
         document.body.style.cursor = 'default';

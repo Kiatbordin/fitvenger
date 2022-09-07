@@ -7,7 +7,7 @@ import anonymous from "../../assets/icons/anonymous.png";
 import { useContext } from "react";
 import { DataContext } from "../../App";
 import axios from "axios";
-import { API_URL } from "../../util/activitiesWork";
+import { API_URL,axiosInstance } from "../../util/activitiesWork";
 
 export function EditProfileForm(props) {
   const context = useContext(DataContext);
@@ -57,8 +57,10 @@ export function EditProfileForm(props) {
     (async () => {
       const queryString = `${API_URL}/user/${props.userId}`;
       try {
-        const response = await axios.get(queryString);
-        setEditProfileData(response.data);
+        // const response = await axios.get(queryString);
+        // setEditProfileData(response.data);
+        const response = await axiosInstance.get(`/user/${props.userId}`);
+        setEditProfileData(response.data)
       } catch (err) {
         console.log("getEditProfile Catch error" + err.message);
       }
@@ -85,10 +87,8 @@ export function EditProfileForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const result = await axios.put(
-        `${API_URL}/user/${props.userId}`,
-        editProfileData
-      );
+      // const result = await axios.put(`${API_URL}/user/${props.userId}`, editProfileData);
+      const result = await axiosInstance.put(`/user/${props.userId}`, editProfileData);
       setUserInfo({ ...userInfo, ...editProfileData });
       toggleRender();
       navigate("/home");
